@@ -8,6 +8,13 @@ For over 20 years, cross-country (XC) ski enthusiasts in the midwest have relied
 
 With the growing popularity of winter fat biking (riding bikes with 3.5" or larger tires in the snow), riders have found themselves in need of a site similar to SkinnySki.com to discover and share fat bike trails and conditions. Currently, trail information is found on various social media sites and web sites, or is simply shared in email among those "in the know". I'd like to build a Fat Bike Trail Reports website to serve as the SkinnySki.com for fat biking. 
 
+Screenshots from SkinnySki.com:
+
+![Trail Description](MirrorLakeTrailExample.png)
+
+![Trail Report](MadisonAreaExample.png)
+
+
 ### Project Technologies/Techniques 
 
 * Security/Authentication
