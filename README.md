@@ -10,9 +10,9 @@ With the growing popularity of winter fat biking (riding bikes with 3.5" or larg
 
 Screenshots from SkinnySki.com:
 
-![Trail Description](MirrorLakeTrailExample.png)
+![Trail Description](images/MirrorLakeTrailExample.png)
 
-![Trail Report](MadisonAreaExample.png)
+![Trail Report](images/MadisonAreaExample.png)
 
 
 ### Project Technologies/Techniques 
