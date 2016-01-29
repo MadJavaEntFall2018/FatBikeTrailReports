@@ -8,9 +8,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title>$Title$</title>
+    <title>Fat Bike Trail Reports</title>
   </head>
   <body>
-  $END$
+  Coming soon...
   </body>
 </html>
