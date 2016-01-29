@@ -12,16 +12,18 @@
 - [X] Document application flow - wireframes have clickable links in the online version.
 - [X] Complete screen design (on paper)
 - [X] Create project structure in IntelliJ
-- [ ] Add project to project repository
-- [ ] Deploy application to Openshift
+- [X] Add project to repository
+- [X] Deploy application to Openshift
 - [ ] Complete database design
-- [ ] Begin creating JSPs
-- [ ] Weekly journal entry
-- [ ] Complete project plan. Based on the design should be able to lay out more detail
+- [X] Begin creating JSPs
+- [X] Weekly journal entry
+- [X] Complete project plan. Based on the design should be able to lay out 
+more detail.
 
 ### Week 3
-- [ ] Complete JSPs
-- [ ] Create database and all tables/columns
+- [ ] Complete remaining JSPs
+- [ ] Add in bootstrap
+- [ ] Create database and all tables/columns locally
 - [ ] Weekly journal entry
 - [ ] Determine independent research topic
 - [ ] Create class diagram
@@ -30,31 +32,45 @@
 
 ### Week 4
 - [ ] Add Hibernate config
-- [ ] Create DAOs
-- [ ] Add unit tests for DAOs
+- [ ] Create DAO for user crud
+- [ ] Add unit tests for DAO
+- [ ] Add user login
+- [ ] Add user registration
 - [ ] Weekly journal entry
 - [ ] Code review
+- [ ] Add Maven for building
 
 ### Week 5
 
 - [ ] Weekly journal entry
-- [ ] Add user login
-- [ ] Add user registration
+- [ ] Create DAO for trails
+- [ ] Create DAO for trail report
+- [ ] Create display trail report functionality
+- [ ] Create display trail functionality
+- [ ] Add tests for new functionality
 
 ### Week 6
 - [ ] Weekly journal entry
 - [ ] Integration with google maps api
+- [ ] Create add trail report functionality
+- [ ] Create add trail functionality
+- [ ] Set up Continuous Integration on openshift
+
 
 ### Week 7
 - [ ] Weekly journal entry
-- [ ] Integration with weather service
+- [ ] Add search functionality
+- [ ] Determine how to add paging of search results
+- [ ] Integration with weather service and/or snow depth data
 
 ### Week 8
 - [ ] Weekly journal entry
+- [ ] Implement paging of search results
 - [ ] Code review
 
 ### Week 9
 - [ ] Weekly journal entry
+- [ ] Add password reset/reminder function
 
 ### Week 10
 - [ ] Weekly journal entry
@@ -76,7 +92,8 @@
 - [ ] Final Presentation
 - [ ] Weekly journal entry
 
-
+### Week 16
+- [ ] Weekly journal entry
 
 
 

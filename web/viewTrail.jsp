@@ -7,9 +7,8 @@
 --%>
 <jsp:include page="contentType.jsp" />
 <html>
-  <jsp:include page="head.jsp" />
+<jsp:include page="head.jsp" />
 <body>
- Home page/trail reports content goes here...
+View Trail Content goes here
 </body>
-<jsp:include page="footer.jsp" />
 </html>

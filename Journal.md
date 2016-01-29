@@ -34,7 +34,7 @@ I also created a web application project in intelliJ and connected it to my proj
 
 Did a first deploy of my project website to openshift:  built a war in intellij of that new project and deployed to openshift using the tomcat manager.  It's not much to look at, but it's good to confirm the process. Here it is: http://tomcat-madjava.rhcloud.com/FatBikeTrailReports%5Fwar/
 
-
+Created all jsps with content placeholders.  
 
 
 

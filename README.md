@@ -40,7 +40,7 @@ Screenshots from SkinnySki.com:
 ### Design
 
 * Application Flow - link coming soon
-* Screen Design - link coming soon
+* [Screen Design]()
 * Database Design - link coming soon
 
 ### [Project Plan](ProjectPlan.md)
