@@ -30,3 +30,11 @@ I also started looking at a few different services that could be used:
 
 Where did the week go?!?!  Prep for classes and my grad class took up a fair amount of time this week, but I set aside a little time today to work on the screen design. I had said I was not going to go fancy with the design and would just whiteboard it or draw on paper, but when I sat down to do it, I really did want to do something a little prettier, AND using a tool allows copy and paste, which is faster than redrawing (for me anyway). So... I did a quick search of free wireframe tools available. One of the first I found with a "free wireframe tool" Google search was https://wireframe.cc/pro/.  I signed up for the 7-day free trial, learned the ins and outs of the tool, and created my wireframes in about 1 1/2 hours.  You can view the wireframes, complete with links here: https://wireframe.cc/pro/pp/af3ee6b9238237 and I also exported them as images into this repository since after the 7-day trial I'm not sure if I'll still be able to use that link or not.   I felt like this was a valuable process - it forced me to think about what I really want/need to capture and how to structure the site itself. I'm sure there will be tweaks as I build it out, but I think I'm in good shape to create the real jsps and the database.  
 
+I also created a web application project in intelliJ and connected it to my project repository in github. This way my code, journa, plan and all related documents are in a single place.  I recorded a short video as I did this so others can see one approach to adding a remote.  The git hub article on adding a remote is [here](https://help.github.com/articles/adding-a-remote/).  There are some plugins for editing/previewing markdown in intelliJ. I installed all of the recommended plugins. The HTML preview is a nice option.
+
+Did a first deploy of my project website to openshift:  built a war in intellij of that new project and deployed to openshift using the tomcat manager.  It's not much to look at, but it's good to confirm the process. Here it is: http://tomcat-madjava.rhcloud.com/FatBikeTrailReports%5Fwar/
+
+
+
+
+
