@@ -36,5 +36,8 @@ Did a first deploy of my project website to openshift:  built a war in intellij 
 
 Created all jsps with content placeholders.  
 
+1/30/2016 
+
+Reviewed the wireframes with a potential users. Made a few small updates to include grooming type and reworded a few items for clarity.
 
 
