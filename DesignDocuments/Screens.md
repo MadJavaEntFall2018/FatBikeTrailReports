@@ -22,7 +22,7 @@
 
 ### Dialog for Sign Up
 
-![Sign up Dialog](wireframes/7-SignUP.png)
+![Sign up Dialog](wireframes/7-SignUp.png)
 
 ### About Page
 
