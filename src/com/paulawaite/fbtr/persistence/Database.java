@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import org.apache.log4j.*;
 
 /**
+ * This class provides a connection to the database for jdbc programming.
  * Created by paulawaite on 2/2/16.
  */
 public class Database {

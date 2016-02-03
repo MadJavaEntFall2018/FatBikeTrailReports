@@ -53,7 +53,7 @@ public class UserDaoWithSql implements UserDao {
     }
 
     @Override
-    public void updateUser() {
+    public void updateUser(User user) {
 
     }
 
@@ -63,8 +63,8 @@ public class UserDaoWithSql implements UserDao {
     }
 
     @Override
-    public void addUser(User user) {
-
+    public int addUser(User user) {
+        return 0;
     }
 
     private User createUserFromResults(ResultSet results) throws SQLException {
