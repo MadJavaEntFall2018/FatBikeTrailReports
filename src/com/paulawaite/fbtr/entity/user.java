@@ -13,10 +13,12 @@ public class User {
     private String password; // at some point this should be hashed/salted
     // rather than plain text
 
+
     public User() {
     }
 
-    public User(String firstName, String lastName, String emailAddress, String password) {
+    public User(int id, String firstName, String lastName, String emailAddress, String password) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.emailAddress = emailAddress;

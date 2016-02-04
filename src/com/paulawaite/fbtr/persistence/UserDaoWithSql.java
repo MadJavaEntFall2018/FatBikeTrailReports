@@ -23,9 +23,10 @@ public class UserDaoWithSql implements UserDao {
 
         Database database = Database.getInstance();
 
-        Connection connection = database.getConnection();
+        Connection connection = null;
 
-        String sql = "select * from users order by id";
+
+        String sql = "select * from user order by id";
         try {
 
         } catch (Exception e) {
@@ -34,6 +35,7 @@ public class UserDaoWithSql implements UserDao {
 
         try {
             database.connect();
+            connection = database.getConnection();
             Statement selectStatement = connection.createStatement();
             ResultSet results = selectStatement.executeQuery(sql);
 
