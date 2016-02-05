@@ -11,4 +11,4 @@
 daos, updated week 3 details and exercises  | 4 | |
 | 2/5/16 | Design and create database tables, journal entry, time entry, plan
  update | 1.5
- | |
+| 2/5/16 | Created database diagram, added some missing foreign keys|.5|
