@@ -40,4 +40,33 @@ Created all jsps with content placeholders.
 
 Reviewed the wireframes with a potential users. Made a few small updates to include grooming type and reworded a few items for clarity.
 
+### Week 3
+
+2/2/2016
+
+Added unit testing, logging, and hibernate to the application to set up for 
+demonstrating DAOs and Hibernate. Created packages, added a User entity and 
+built the persistence layer to demonstrate both a sql and hibernate dao. Only
+ one method is built out at this point, along with a test for it. This was a 
+ good way to ensure everything is connected and working before I build out 
+ more. Eventually I'll remove the SQL dao, it's in there as an example for 
+ student for now. 
+ 
+ Ran into an issue with hibernate - needed the geronimo jar. We did not run 
+ into this last semester so either this is related to tomEE or the new 
+ version of intelliJ. 
+
+2/5/2016
+
+Designed and created all the tables today. IntelliJ's database view is even 
+better than I thought. Originally I named a table "user" and decided I wanted
+ to call it "users" instead.  I already had a dao written (as a demo for 
+ class) with sql referring to "user". Changing the name of the table in the 
+ database few, prompted the change automatically in the dao. How cool is 
+ that?! It did not, however change user to users in the hibernate.cfg.xml, 
+ but I have to wonder if there isn't a plugin that might handle making the 
+ changes in the hibernate configs too. If not, it could be a useful addition.
+  Ooh, writing plugins for IDEs - possible independent research topic. 
+
+
 

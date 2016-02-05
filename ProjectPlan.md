@@ -14,31 +14,32 @@
 - [X] Create project structure in IntelliJ
 - [X] Add project to repository
 - [X] Deploy application to Openshift
-- [ ] Complete database design
+- [X] Complete database design
 - [X] Begin creating JSPs
 - [X] Weekly journal entry
 - [X] Complete project plan. Based on the design should be able to lay out 
 more detail.
 
 ### Week 3
-- [ ] Complete remaining JSPs
+- [X] Complete remaining JSPs
 - [ ] Add in bootstrap
-- [ ] Create database and all tables/columns locally
-- [ ] Weekly journal entry
+- [X] Create database and all tables/columns locally
+- [X] Weekly journal entry
 - [ ] Determine independent research topic
 - [ ] Create class diagram
-- [ ] Set up logging
-- [ ] Set up unit testing
+- [X] Set up logging
+- [X] Set up unit testing
 
 ### Week 4
-- [ ] Add Hibernate config
-- [ ] Create DAO for user crud
-- [ ] Add unit tests for DAO
-- [ ] Add user login
+- [X] Add Hibernate config
+- [X] Create DAO for user crud
+- [X] Add unit tests for DAO
+- [ ] Add user login  
 - [ ] Add user registration
 - [ ] Weekly journal entry
 - [ ] Code review
 - [ ] Add Maven for building
+- [ ] Add entities for remaining tables
 
 ### Week 5
 

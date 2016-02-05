@@ -7,3 +7,8 @@
 | 1/24/16 | Began researching the google maps api and weather services. Documented my findings in this repo | .5 | |
 | 1/29/16 | Wireframes, created project in intellij, recorded video of the process/converted/posted to youtube, journal entry and updates to the project plan, created jsps | 4 | |
 | 1/30/16 | Wireframe review and updates | .5 | |
+| 2/2/16  | Added log4j, junit, hibernate, sql driver, geronimo, built first 
+daos, updated week 3 details and exercises  | 4 | |
+| 2/5/16 | Design and create database tables, journal entry, time entry, plan
+ update | 1.5
+ | |

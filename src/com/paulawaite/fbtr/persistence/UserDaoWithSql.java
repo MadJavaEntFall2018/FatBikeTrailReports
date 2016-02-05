@@ -26,7 +26,7 @@ public class UserDaoWithSql implements UserDao {
         Connection connection = null;
 
 
-        String sql = "select * from user order by id";
+        String sql = "select * from users order by id";
         try {
 
         } catch (Exception e) {
@@ -78,3 +78,4 @@ public class UserDaoWithSql implements UserDao {
         return user;
     }
 }
+
