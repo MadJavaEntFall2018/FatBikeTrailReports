@@ -41,9 +41,8 @@ Screenshots from SkinnySki.com:
 
 * [Screen Design](DesignDocuments/Screens.md)
 * [Application Flow](DesignDocuments/applicationFlow.md)
-* [Database Design](DesignDocuments/databaseDesign.md)
+* [Database Design](DesignDocuments/databaseDiagram.png)
 
 ### [Project Plan](ProjectPlan.md)
-
 
 ### [Development Journal](Journal.md)
