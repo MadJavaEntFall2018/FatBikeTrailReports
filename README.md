@@ -39,9 +39,9 @@ Screenshots from SkinnySki.com:
 
 ### Design
 
-* Application Flow - link coming soon
-* [Screen Design]()
-* Database Design - link coming soon
+* [Screen Design](DesignDocuments/Screens.md)
+* [Application Flow](DesignDocuments/applicationFlow.md)
+* [Database Design](DesignDocuments/databaseDesign.md)
 
 ### [Project Plan](ProjectPlan.md)
 
