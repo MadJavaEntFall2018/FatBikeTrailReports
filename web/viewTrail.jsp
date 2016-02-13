@@ -8,7 +8,10 @@
 <jsp:include page="contentType.jsp" />
 <html>
 <jsp:include page="head.jsp" />
-<body>
+<body role="document">
+<jsp:include page="navbar.jsp" />
+
 View Trail Content goes here
 </body>
+<jsp:include page="contentEnd.jsp" />
 </html>

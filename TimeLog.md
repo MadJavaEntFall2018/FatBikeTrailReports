@@ -10,3 +10,5 @@
 | 2/2/16  | Added log4j, junit, hibernate, sql driver, geronimo, built first daos, updated week 3 details and exercises  | 4 | |
 | 2/5/16 | Design and create database tables, journal entry, time entry, plan update | 1.5
 | 2/5/16 | Created database diagram, added some missing foreign keys|.5|
+| 2/12/16| Added authentication - jsps in the user directory require user role, wrote up week 5 material| 3 |
+| 2/13/16| Added bootstrap. Added javascript/jquery to make current page "active" on navbar| 2 | |

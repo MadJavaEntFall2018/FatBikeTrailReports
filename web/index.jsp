@@ -8,8 +8,11 @@
 <jsp:include page="contentType.jsp" />
 <html>
   <jsp:include page="head.jsp" />
-<body>
+
+  <body role="document">
+  <jsp:include page="navbar.jsp" />
  Home page/trail reports content goes here...
 </body>
+<jsp:include page="contentEnd.jsp" />
 <jsp:include page="footer.jsp" />
 </html>

@@ -8,8 +8,11 @@
 <jsp:include page="contentType.jsp" />
 <html>
     <jsp:include page="head.jsp" />
-<body>
-Sign in form here
+    <body role="document">
+    <jsp:include page="navbar.jsp" />
+This will be the sign in error page
+
 </body>
+    <jsp:include page="contentEnd.jsp" />
 <jsp:include page="footer.jsp" />
 </html>

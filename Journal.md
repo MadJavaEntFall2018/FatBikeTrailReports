@@ -68,5 +68,34 @@ better than I thought. Originally I named a table "user" and decided I wanted
  changes in the hibernate configs too. If not, it could be a useful addition.
   Ooh, writing plugins for IDEs - possible independent research topic. 
 
+2/12/2016
 
+Added in the authentication/authorization piece today. I had 
+originally designed a join table between the users and users_roles table, 
+called user_role and was storing the roles in a role table. I had hoped I 
+could (relatively easily) configure tomcat for this, however,  tomcat's 
+JDBCRealm relies specifically on a user table and a user roles table that each have a 
+ username column making my join table unnecessary. Similarly, the user
+  roles tables must have the role name on it. To keep things as simple as 
+  possible for class examples, I am back to the structure tomcat requires 
+  which meant eliminating the role and user_role tables. 
+   
+Regenerated the database diagrams to account for above.
+  
+The current config is set such that anyone can view pages listed immediately 
+  under the web directory. The pages in the "user" directory require login 
+  and the user role.
+  
+2/13/2016
+  
+  Added in bootstrap. I haven't worked with bootstrap before, but it was 
+  pretty easy to add.  I chose to copy in files rather than pointing to the 
+  CDN locations so that the application will work if I'm offline.  Not 100% 
+  sure if I have the best structure for housing the js/css/fonts, etc, but 
+  it's a start. Also made the navbar more dynamic - took me a little while as
+   I'm rusty with jquery/javascript - it's been a LOOOOONG time since I 
+   worked with those.
+  
+  
+ 
 

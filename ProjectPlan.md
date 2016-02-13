@@ -26,7 +26,7 @@ more detail.
 - [X] Create database and all tables/columns locally
 - [X] Weekly journal entry
 - [ ] Determine independent research topic
-- [ ] Create class diagram
+- [X] Create class diagram
 - [X] Set up logging
 - [X] Set up unit testing
 
@@ -34,10 +34,9 @@ more detail.
 - [X] Add Hibernate config
 - [X] Create DAO for user crud
 - [X] Add unit tests for DAO
-- [ ] Add user login  
-- [ ] Add user registration
-- [ ] Weekly journal entry
-- [ ] Code review
+- [X] Add user login  
+- [X] Add user registration
+- [X] Weekly journal entry
 - [ ] Add Maven for building
 - [ ] Add entities for remaining tables
 
