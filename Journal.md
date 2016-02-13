@@ -99,9 +99,8 @@ The current config is set such that anyone can view pages listed immediately
    worked with those. 
    
    Resources: 
-   [Setting Navbar items to active](https://rjartiaga.wordpress
-   .com/2015/03/25/bootstrap-navbar-classactive/)
-   [Bootstrap tutorial](http://www.w3schools.com/bootstrap/)
+   * [Setting Navbar items to active](https://rjartiaga.wordpress.com/2015/03/25/bootstrap-navbar-classactive/)
+   * [Bootstrap tutorial](http://www.w3schools.com/bootstrap/)
    
   
   
