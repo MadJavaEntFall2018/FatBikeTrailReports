@@ -12,3 +12,4 @@
 | 2/5/16 | Created database diagram, added some missing foreign keys|.5|
 | 2/12/16| Added authentication - jsps in the user directory require user role, wrote up week 5 material| 3 |
 | 2/13/16| Added bootstrap. Added javascript/jquery to make current page "active" on navbar| 2 | |
+| 2/13/16| Added entity for each db table along with a first cut at the  hibernate config for each entity| 1 | |

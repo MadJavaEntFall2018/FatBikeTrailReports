@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.paulawaite.fbtr.entity.UsersRoles" table="users_roles"
+           schema="FAT_BIKE_TRAIL_REPORTS">
+        <composite-id mapped="true"
+                      class="com.paulawaite.fbtr.entity.UsersRolesPK">
+            <key-property name="emailAddress">
+                <column name="email_address" sql-type="varchar(30)"
+                        length="30"/>
+            </key-property>
+            <key-property name="role">
+                <column name="role" sql-type="varchar(30)" length="30"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

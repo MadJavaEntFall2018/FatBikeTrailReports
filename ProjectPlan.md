@@ -22,7 +22,7 @@ more detail.
 
 ### Week 3
 - [X] Complete remaining JSPs
-- [ ] Add in bootstrap
+- [X] Add in bootstrap
 - [X] Create database and all tables/columns locally
 - [X] Weekly journal entry
 - [ ] Determine independent research topic
@@ -38,7 +38,7 @@ more detail.
 - [X] Add user registration
 - [X] Weekly journal entry
 - [ ] Add Maven for building
-- [ ] Add entities for remaining tables
+- [X] Add entities for remaining tables
 
 ### Week 5
 

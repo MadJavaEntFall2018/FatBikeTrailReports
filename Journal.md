@@ -102,7 +102,13 @@ The current config is set such that anyone can view pages listed immediately
    * [Setting Navbar items to active](https://rjartiaga.wordpress.com/2015/03/25/bootstrap-navbar-classactive/)
    * [Bootstrap tutorial](http://www.w3schools.com/bootstrap/)
    
-  
+Automatically generated entities for each table along with the hibernate 
+config. I'm not confident the various relationships are built correctly with 
+the automatic portion and this may have had to do with not generating all 
+entities at the same time.  This is basically a note to myself to check on 
+this going forward.  Regardless of whether some of the generated items will 
+need tweaking, it was really nice to be able to quickly get the classes and 
+hibernate config built.  
   
  
 
