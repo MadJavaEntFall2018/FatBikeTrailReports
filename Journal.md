@@ -68,6 +68,8 @@ better than I thought. Originally I named a table "user" and decided I wanted
  changes in the hibernate configs too. If not, it could be a useful addition.
   Ooh, writing plugins for IDEs - possible independent research topic. 
 
+### Week 4
+
 2/12/2016
 
 Added in the authentication/authorization piece today. I had 
@@ -94,7 +96,13 @@ The current config is set such that anyone can view pages listed immediately
   sure if I have the best structure for housing the js/css/fonts, etc, but 
   it's a start. Also made the navbar more dynamic - took me a little while as
    I'm rusty with jquery/javascript - it's been a LOOOOONG time since I 
-   worked with those.
+   worked with those. 
+   
+   Resources: 
+   [Setting Navbar items to active](https://rjartiaga.wordpress
+   .com/2015/03/25/bootstrap-navbar-classactive/)
+   [Bootstrap tutorial](http://www.w3schools.com/bootstrap/)
+   
   
   
  
