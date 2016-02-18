@@ -39,6 +39,10 @@ public class UserDaoWithHibernate implements UserDao {
     @Override
     public int addUser(User user) {
 
+        System.out.println();
+
+
+
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
         Transaction tx = null;
         Integer userId = null;

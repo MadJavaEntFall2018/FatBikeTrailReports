@@ -35,7 +35,7 @@ more detail.
 - [X] Create DAO for user crud
 - [X] Add unit tests for DAO
 - [X] Add user login  
-- [X] Add user registration
+- [ ] Add user registration
 - [X] Weekly journal entry
 - [ ] Add Maven for building
 - [X] Add entities for remaining tables
@@ -55,7 +55,6 @@ more detail.
 - [ ] Create add trail report functionality
 - [ ] Create add trail functionality
 - [ ] Set up Continuous Integration on openshift
-
 
 ### Week 7
 - [ ] Weekly journal entry

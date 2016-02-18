@@ -10,7 +10,8 @@
     <jsp:include page="head.jsp" />
     <body role="document">
     <jsp:include page="navbar.jsp" />
-This will be the sign in error page
+<H2>Log In Failed!!!</H2>
+    This will be the sign in error page
 
 </body>
     <jsp:include page="contentEnd.jsp" />
