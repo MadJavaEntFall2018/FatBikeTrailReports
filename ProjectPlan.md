@@ -57,7 +57,7 @@ more detail.
 - [ ] Set up Continuous Integration on openshift
 
 ### Week 7
-- [ ] Weekly journal entry
+- [X] Weekly journal entry
 - [ ] Add search functionality
 - [ ] Determine how to add paging of search results
 - [ ] Integration with weather service and/or snow depth data

@@ -110,5 +110,29 @@ this going forward.  Regardless of whether some of the generated items will
 need tweaking, it was really nice to be able to quickly get the classes and 
 hibernate config built.  
   
+### Week 7
+3/2/2016
  
+Time got away from me the last couple weeks with some major projects due in 
+my grad class and project reviews/grading for Advanced Java. This week that 
+grade class ended, and I have just under a week before the next 
+one starts, so I need to hit the Fat Bike Trail Reports application hard to 
+catch back up!
 
+I looked at the OpenWeatherMap api today to get current weather data by zip 
+code. http://openweathermap.org/api. This does not seem to have snow depth, 
+and I'd really like to be able to stick with one weather service.  Here is a 
+possibility but looks like it is paid only: http://www.meteogroup
+.com/en/gb/sectors/media/mobile-apps/weather-api.html. From what I'm finding,
+ services tend to provide snow depth data  for ski resorts. I may need to add this as a 
+ trail report  item so we have a way to collect the data ourselves.  Found 
+ it! The data is here:  http://www.nohrsc.noaa.gov/nsa/reports.html?region=Northern_Great_Lakes&var=snowdepth&dy=2016&dm=3&dd=2&units=e&sort=value&filter=0
+ So I could grab the text file for this if there isn't a service behind it.  
+
+3/3/2016 There's a team in the evening section who may take on the task of 
+ creating a
+  service to access the snow depth based on a zip code using the data link 
+  above. :)
+  
+  
+ 

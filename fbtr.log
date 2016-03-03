@@ -1110,3 +1110,6 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Dupl
 2016-02-15 15:37:39,993 1452 [main] TRACE org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - Returning connection to pool, pool size: 1
 2016-02-15 15:37:39,993 1452 [main] DEBUG org.hibernate.engine.jdbc.internal.LogicalConnectionImpl  - Released JDBC connection
 2016-02-15 15:37:39,993 1452 [main] TRACE org.hibernate.engine.jdbc.internal.LogicalConnectionImpl  - Logical connection closed
+2016-03-01 14:19:05,911 0    [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1062, SQLState: 23000
+2016-03-01 14:19:05,913 2    [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Duplicate entry 'UnitTester@gmail.com' for key 'users_email_address_uindex'
+2016-03-01 14:19:05,918 7    [main] ERROR com.paulawaite.fbtr.persistence.UserDaoWithHibernate  - org.hibernate.exception.ConstraintViolationException: could not execute statement
