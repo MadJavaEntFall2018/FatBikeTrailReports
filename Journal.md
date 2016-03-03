@@ -133,6 +133,9 @@ possibility but looks like it is paid only: http://www.meteogroup
  creating a
   service to access the snow depth based on a zip code using the data link 
   above. :)
+  Added the user signup/registration functionality. This is not done, but is 
+  a first cut at adding the user from a form to the db. Need to add bootstrap
+   styling and validation to the form.
   
   
  

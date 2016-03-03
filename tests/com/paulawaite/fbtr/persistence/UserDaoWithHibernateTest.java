@@ -38,7 +38,7 @@ public class UserDaoWithHibernateTest {
         User user = new User();
         user.setFirstName("Unit");
         user.setLastName("Test");
-        user.setEmailAddress("UnitTester@gmail.com");
+        user.setEmailAddress("UnitTester2@gmail.com");
         user.setPassword("supersecret");
         user.setId(0);
 
