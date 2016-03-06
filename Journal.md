@@ -137,5 +137,12 @@ possibility but looks like it is paid only: http://www.meteogroup
   a first cut at adding the user from a form to the db. Need to add bootstrap
    styling and validation to the form.
   
-  
+3/5/2016 Decided to use Bootstrap Validator as my independent research topic.
+ It's been a long time since I've done any frontend development and Bootstrap
+  is new to me.  I know there is a lot of slick validation that can be added 
+  in as well, so after poking around at a few options, I decided to go with 
+  Bootstrap Validator for now: http://1000hz.github
+  .io/bootstrap-validator/#validator-examples. Honestly, I choose it because 
+  it was one of the top results in a google search and I was able to get it 
+  working pretty quickly. 
  

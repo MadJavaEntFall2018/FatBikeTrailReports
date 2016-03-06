@@ -1,6 +1,7 @@
 package com.paulawaite.fbtr.persistence;
 
 import com.paulawaite.fbtr.entity.User;
+import com.paulawaite.fbtr.entity.UsersRoles;
 import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -39,16 +40,14 @@ public class UserDaoWithHibernate implements UserDao {
     @Override
     public int addUser(User user) {
 
-        System.out.println();
-
-
-
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
         Transaction tx = null;
         Integer userId = null;
         try {
             tx = session.beginTransaction();
             userId = (Integer) session.save(user);
+            // for now, give any new user a role of user
+            session.save(createUserRole(user));
             tx.commit();
             log.info("Added user: " + user + " with id of: " + userId);
         } catch (HibernateException e) {
@@ -58,5 +57,13 @@ public class UserDaoWithHibernate implements UserDao {
             session.close();
         }
         return userId;
+    }
+
+    private UsersRoles createUserRole(User user) {
+
+        UsersRoles usersRoles = new UsersRoles();
+        usersRoles.setEmailAddress(user.getEmailAddress());
+        usersRoles.setRole("user");
+        return usersRoles;
     }
 }

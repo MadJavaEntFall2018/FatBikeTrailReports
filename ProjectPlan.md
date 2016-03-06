@@ -25,7 +25,7 @@ more detail.
 - [X] Add in bootstrap
 - [X] Create database and all tables/columns locally
 - [X] Weekly journal entry
-- [ ] Determine independent research topic
+- [X] Determine independent research topic
 - [X] Create class diagram
 - [X] Set up logging
 - [X] Set up unit testing
@@ -35,7 +35,7 @@ more detail.
 - [X] Create DAO for user crud
 - [X] Add unit tests for DAO
 - [X] Add user login  
-- [ ] Add user registration
+- [X] Add user registration
 - [X] Weekly journal entry
 - [ ] Add Maven for building
 - [X] Add entities for remaining tables

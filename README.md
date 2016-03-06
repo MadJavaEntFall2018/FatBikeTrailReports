@@ -35,7 +35,7 @@ Screenshots from SkinnySki.com:
 * Unit Testing
   * JUnit tests to achieve 80% code coverage
 * Independent Research Topic
-  * TBD
+  * Bootstrap Validator
 
 ### Design
 
