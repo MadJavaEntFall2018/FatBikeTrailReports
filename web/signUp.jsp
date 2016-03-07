@@ -20,7 +20,8 @@
                 Name</label>
             <div class="col-sm-4">
                 <input type="text" class="form-control" id="firstName"
-                   name="firstName" required>
+                   name="firstName"
+                       data-error="Please enter your first name." required>
             </div>
             <div class="help-block with-errors"></div>
         </div>
@@ -28,7 +29,8 @@
             <label class="control-label col-sm-2" for="lastName">Last Name</label>
             <div class="col-sm-4">
                 <input type="text" class="form-control" id="lastName"
-                   name="lastName" required>
+                   name="lastName"
+                       data-error="Please enter your last name." required>
             </div>
             <div class="help-block with-errors"></div>
         </div>
@@ -37,18 +39,21 @@
                 Address</label>
             <div class="col-sm-4">
                 <input type="email" class="form-control" id="emailAddress"
-                   name="emailAddress" required>
+                   name="emailAddress"
+                       data-error="Please enter your email address." required>
                 </div>
             <div class="help-block with-errors"></div>
         </div>
         <div class="form-group">
-            <label class="control-label col-sm-2" for="password">Password
+            <label class="control-label col-sm-2" for="pwd">Password
                 </label>
             <div class="col-sm-4">
-                <input type="password" class="form-control" id="password"
-                   name="password" required>
+                <input type="password" class="form-control" id="pwd"
+                   name="pwd" data-error="Please provide a password."
+                       required>
+                <div class="help-block with-errors"></div>
             </div>
-            <div class="help-block with-errors"></div>
+
         </div>
         <div class="form-group">
             <label class="control-label col-sm-2"
@@ -56,14 +61,16 @@
                 Password</label>
             <div class="col-sm-4">
                 <input type="password" class="form-control" id="confirmPassword"
-                   name="confirmPassword"
-                       data-fv-identical="true"
-                       data-fv-identical-field="password"
-                       data-fv-identical-message="The password and its confirmation are not the same" required>
+                   name="confirmPassword" equalTo="#pwd"
+                       data-match="#pwd"
+                       data-match-error="Confirmation password does not match"
+                       required data-error="Please retype your password.">
+                <div class="help-block with-errors"></div>
                 </div>
         </div>
 
-        <button type="submit" class="btn btn-default col-sm-offset-3">Submit
+        <button type="submit" class="btn btn-default col-sm-offset-3"
+                data-disable="true">Submit
         </button>
         <button type="reset" class="btn btn-default">Clear</button>
 

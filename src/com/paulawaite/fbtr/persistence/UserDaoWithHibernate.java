@@ -24,6 +24,8 @@ public class UserDaoWithHibernate implements UserDao {
     @Override
     public List<User> getAllUsers() {
         List<User> users = new ArrayList<User>();
+        Session session = SessionFactoryProvider.getSessionFactory().openSession();
+        session.createCriteria(User.class).list();
         return users;
     }
 
@@ -39,7 +41,6 @@ public class UserDaoWithHibernate implements UserDao {
 
     @Override
     public int addUser(User user) {
-
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
         Transaction tx = null;
         Integer userId = null;

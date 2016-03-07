@@ -11,7 +11,7 @@ public class Trail {
     private String state;
     private String zip;
     private Integer length;
-    private Integer lengthUnits;
+    private String lengthUnits;
     private String description;
     private String website;
     private String trailMap;
@@ -29,7 +29,7 @@ public class Trail {
     }
 
     public Trail(String name, String address, String city, String state,
-                 String zip, Integer length, Integer lengthUnits, String
+                 String zip, Integer length, String lengthUnits, String
                          description, String website, String trailMap, int
                          id, Date createDate, Date updateDate, User user,
                  TrailType type, Difficulty difficulty) {
@@ -140,11 +140,11 @@ public class Trail {
         this.length = length;
     }
 
-    public Integer getLengthUnits() {
+    public String getLengthUnits() {
         return lengthUnits;
     }
 
-    public void setLengthUnits(Integer lengthUnits) {
+    public void setLengthUnits(String lengthUnits) {
         this.lengthUnits = lengthUnits;
     }
 

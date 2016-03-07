@@ -24,7 +24,7 @@
             case 'index.jsp':
                 $('#index').addClass("active");
                 break;
-            case 'viewTrail.jsp':
+            case 'viewTrail':
                 $('#viewTrail').addClass("active");
                 break;
             case 'addReport.jsp':
@@ -62,7 +62,7 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li id="index"><a href="index.jsp">Reports</a></li>
-                <li id="viewTrail"><a href="viewTrail.jsp">Trails</a></li>
+                <li id="viewTrail"><a href="/viewTrail">Trails</a></li>
                 <li id="addReport"><a href="user/addReport.jsp">New
                     Report</a></li>
                 <li id="addTrail"><a href="user/addTrail.jsp">New Trail</a></li>

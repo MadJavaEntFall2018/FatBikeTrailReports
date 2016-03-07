@@ -142,7 +142,16 @@ possibility but looks like it is paid only: http://www.meteogroup
   is new to me.  I know there is a lot of slick validation that can be added 
   in as well, so after poking around at a few options, I decided to go with 
   Bootstrap Validator for now: http://1000hz.github
-  .io/bootstrap-validator/#validator-examples. Honestly, I choose it because 
+  .io/bootstrap-validator/#validator-examples. Honestly, I chose it because 
   it was one of the top results in a google search and I was able to get it 
   working pretty quickly. 
  
+3/6/2016 Added in the TrailDao and TrailReportDao. When I was writing unit 
+tests, I noticed tests failing because the id of the inserted record was 
+being returned as 0.  Turns out the generated hbm.xml file did not have the
+ the generator class set to native:   
+       ```<id name="id" type="int" column="id">
+            <generator class="native"/>
+          </id>```
+I'm noticing as I build the daos, that they are all similar, I think these 
+could all be a subclass of some abstract Dao.  See this as an example: http://www.java2s.com/Code/Java/Hibernate/GenericDaoFindAll.htm 

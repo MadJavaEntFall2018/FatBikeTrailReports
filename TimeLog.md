@@ -15,4 +15,5 @@
 | 2/13/16| Added entity for each db table along with a first cut at the  hibernate config for each entity| 1 | |
 | 3/2/16| Researched snow depth services.| 1 | |
 | 3/3/16| Started user registration - added form and servlet. | 1 | |
-| 3/?/16| tbd|  | |
+| 3/5/16| Added validation to sign up form, now adds user and role on happy path| 1 | |
+| 3/5/16| Added daos for trails and trailreport + unit tests| 1 | |

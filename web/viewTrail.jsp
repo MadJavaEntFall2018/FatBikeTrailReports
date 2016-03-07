@@ -11,7 +11,7 @@
 <body role="document">
 <jsp:include page="navbar.jsp" />
 
-View Trail Content goes here
+${trail}
 </body>
 <jsp:include page="contentEnd.jsp" />
 </html>

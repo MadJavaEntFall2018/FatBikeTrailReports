@@ -6,8 +6,8 @@
 
     <class name="com.paulawaite.fbtr.entity.TrailReport" table="trail_report"
            schema="FAT_BIKE_TRAIL_REPORTS">
-        <id name="id">
-            <column name="id" sql-type="int(11)"/>
+        <id name="id" type="int" column="id">
+            <generator class="native"/>
         </id>
         <property name="dateRidden">
             <column name="date_ridden" sql-type="date" not-null="true"/>

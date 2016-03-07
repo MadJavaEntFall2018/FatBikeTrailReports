@@ -43,11 +43,11 @@ more detail.
 ### Week 5
 
 - [ ] Weekly journal entry
-- [ ] Create DAO for trails
-- [ ] Create DAO for trail report
+- [X] Create DAO for trails
+- [X] Create DAO for trail report
 - [ ] Create display trail report functionality
 - [ ] Create display trail functionality
-- [ ] Add tests for new functionality
+- [X] Add tests for new functionality
 
 ### Week 6
 - [ ] Weekly journal entry
