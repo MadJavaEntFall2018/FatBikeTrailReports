@@ -10,7 +10,7 @@
 <jsp:include page="head.jsp" />
 <body role="document">
 <jsp:include page="navbar.jsp" />
-
+Here is the trail info:
 ${trail}
 </body>
 <jsp:include page="contentEnd.jsp" />

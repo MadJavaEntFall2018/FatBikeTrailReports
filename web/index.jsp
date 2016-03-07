@@ -11,7 +11,8 @@
 
   <body role="document">
   <jsp:include page="navbar.jsp" />
- Home page/trail reports content goes here...
+ Here are all the reports...
+  ${trailReports}
 </body>
 <jsp:include page="contentEnd.jsp" />
 <jsp:include page="footer.jsp" />
