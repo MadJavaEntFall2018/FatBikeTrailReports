@@ -11,7 +11,7 @@
     <body role="document">
     <jsp:include page="../navbar.jsp" />
 
-Welcome!
+Thanks for registering!
 </body>
 <jsp:include page="../footer.jsp" />
 </html>

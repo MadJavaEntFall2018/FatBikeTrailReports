@@ -8,6 +8,7 @@
 <jsp:include page="contentType.jsp" />
 <html>
 <jsp:include page="head.jsp" />
+<jsp:include page="js.jsp" />
 <body role="document">
 <jsp:include page="navbar.jsp" />
 <div class = "container">

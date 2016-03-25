@@ -68,7 +68,9 @@ more detail.
 - [ ] Code review
 
 ### Week 9
-- [ ] Weekly journal entry
+- [X] Weekly journal entry
+- [X] Create databse on openshift
+- [X] Set up authentication and db access in app on openshift
 - [ ] Add password reset/reminder function
 
 ### Week 10

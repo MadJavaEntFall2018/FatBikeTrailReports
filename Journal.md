@@ -157,14 +157,98 @@ I'm noticing as I build the daos, that they are all similar, I think these
 could all be a subclass of some abstract Dao.  See this as an example: http://www.java2s.com/Code/Java/Hibernate/GenericDaoFindAll.htm 
 
 3/24 I bought the domain fatbiketrailreports.com today for $.99 on goDaddy. 
-I'm going to set this up so that the domain points to the application on 
-openshift. Looks like there is good information here on how to do this:  
-https://access.redhat
-.com/documentation/en-US/OpenShift_Online/2
-.0/html/User_Guide/chap-Domains.html
+I set this up so that the domain points to the application on 
+openshift. This was very easy to configure right on the goDaddy site.
 
 Added jstl impl library to the project so I can use the jstl tags. Now 
 displaying all trail reports on the index page in a table. Not pretty, but it
  is displaying data. 
  
+3/25 I set up the database on openshift today. I'm finally forced to do 
+this work because index.jsp relies on the db, so to get things working at all
+ on openshift, I need to get the database up there.
+
+1. First step was to get a dump of the sql: 
+```Paulas-MacBook-Pro:bin paulawaite$ sudo ./mysqldump -u root -p  --databases 
+FAT_BIKE_TRAIL_REPORTS > /Users/paulawaite/Documents/dump.sql
+                                         Enter password: 
+                                         Paulas-MacBook-Pro:bin paulawaite$ ```
+1. Run the sql on openshift. Voila! That's it!
+                                 
+*EXCEPT* the version of MySql on Openshift is different from what I have 
+ locally. So I wasn't able to use the CURRENT_TIMESTAMP for my 
+DATETIME fields. "It is 
+version specific and is now allowed for DATETIME columns as of version 5.6 
+http://dev.mysql.com/doc/refman/5.6/en/timestamp-initialization.html"
+        
+I also had repeated issues with an invalid token messages. I was working at 
+the public library at the time and wonder if it wasn't related to their wifi.
+ If I opened a new browser tab and went back into phpmyadmin, I could run sql
+  once and then would get the token error again.  
+    
+Next up I needed to configure the server.xml on my openshift tomcat instance to 
+use the new database for authentication. Remember the jdbc realm authentication 
+work we did earlier in the semester? Create a tomcat user with read only 
+access in the database and then add something like this to the openshift server
+.xml. Your server/host will be different.                    
+
+```<Realm className="org.apache.catalina.realm.JDBCRealm"
+      driverName="com.mysql.jdbc.Driver"
+      connectionURL="jdbc:mysql://127.5.237.130:3306/FAT_BIKE_TRAIL_REPORTS?user=tomcat&amp;password=tomcat"
+      userTable="users" userNameCol="email_address" userCredCol="password"
+      userRoleTable="users_roles" roleNameCol="role"/>
+```                      
+
+Remember to put the mysql driver jar in the lib directory of the openshift 
+tomcat instance. 
+
+And lastly, I need to change the hibernate config for the openshift database,
+ which essentially means changing the host from localhost to the server that 
+ hosting MySql on Openshift: 127.5.237.130.
  
+I ran into a goofy issue not being able to login to the tomcat manager app 
+when I had the realm in the server.xml file. The way we originally added 
+realms to our server.xml essentially enforced that realm for all apps 
+deployed in that tomcat instance.  I need to set the realm
+ up to be application specific rather than global to get around this issue. 
+ 
+The solution: set up a realm for the specific application/context:
+
+```
+<!-- Change below for Openshift Deploy<Host name="localhost"  appBase="webapps" -->
+          <Host name="OPENSHIFT_APP_DNS" appBase="webapps"
+            unpackWARs="true" autoDeploy="true">
+			
+	        <!-- setting up realm only for fat bike trail reports app -->
+		<Context path="/fbtr" debug="0" privileged="true" docBase="fbtr"> 	
+			<Realm className="org.apache.catalina.realm.JDBCRealm"
+	         driverName="com.mysql.jdbc.Driver"
+	         connectionURL="jdbc:mysql://127.5.237.130:3306/FAT_BIKE_TRAIL_REPORTS?user=tomcat&amp;password=tomcat"
+	         userTable="users" userNameCol="email_address" userCredCol="password"
+	         userRoleTable="users_roles" roleNameCol="role"/>
+		 </Context> 
+			
+        <!-- SingleSignOn valve, share authentication between web applications
+             Documentation at: /docs/config/valve.html -->
+        <!--
+        <Valve className="org.apache.catalina.authenticator.SingleSignOn" />
+        -->
+
+        <!-- Access log processes all example.
+             Documentation at: /docs/config/valve.html
+             Note: The pattern used is equivalent to using pattern="common" -->
+       <!-- <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
+               prefix="localhost_access_log." suffix=".txt"
+               pattern="%h %l %u %t &quot;%r&quot; %s %b" />-->
+
+      </Host>
+```
+ 
+When troubleshooting your deploys to Openshift, it essential that you review 
+the Catalina logs.  See this discussion for information on how to ssh to the 
+server and navigate to the logs directory. http://stackoverflow.com/questions/28469051/where-to-see-console-log-in-openshift
+ 
+ 
+
+
+                     
