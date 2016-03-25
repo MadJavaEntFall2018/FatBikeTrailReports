@@ -169,10 +169,13 @@ this work because index.jsp relies on the db, so to get things working at all
  on openshift, I need to get the database up there.
 
 1. First step was to get a dump of the sql: 
+
 ```Paulas-MacBook-Pro:bin paulawaite$ sudo ./mysqldump -u root -p  --databases 
 FAT_BIKE_TRAIL_REPORTS > /Users/paulawaite/Documents/dump.sql
                                          Enter password: 
-                                         Paulas-MacBook-Pro:bin paulawaite$ ```
+                                         Paulas-MacBook-Pro:bin paulawaite$ 
+```
+
 1. Run the sql on openshift. Voila! That's it!
                                  
 *EXCEPT* the version of MySql on Openshift is different from what I have 
