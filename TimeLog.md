@@ -17,4 +17,5 @@
 | 3/3/16| Started user registration - added form and servlet. | 1 | |
 | 3/5/16| Added validation to sign up form, now adds user and role on happy path| 1 | |
 | 3/6/16| Added daos for trails and trailreport + unit tests, added dump of data to the jsps| 2 | |
-| 3/??/16| |  | |
+| 3/24/16| Bought domain, added jstl jar, and improved display of trail 
+reports using for each and a table | 1 | |

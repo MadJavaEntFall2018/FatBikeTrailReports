@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: paulawaite
@@ -11,8 +12,22 @@
 
   <body role="document">
   <jsp:include page="navbar.jsp" />
- Here are all the reports...
-  ${trailReports}
+  <table>
+  <c:forEach items="${trailReports}" var="report">
+    <tr><th>${report.trail.name} - Posted ${report.createDate}</th></tr>
+    <tr><td>User: ${report.user}</td><td>Ridden on:
+     ${report.dateRidden}</td></tr>
+    <tr><td>Grooming Type: ${report.type.grooming}</td></tr>
+    <tr><td>Conditions: ${report.conditions}></td></tr>
+    <tr><td>Comments: ${report.comments}></td></tr>
+
+
+  </c:forEach>
+  </table>
+
+
+
+
 </body>
 <jsp:include page="contentEnd.jsp" />
 <jsp:include page="footer.jsp" />

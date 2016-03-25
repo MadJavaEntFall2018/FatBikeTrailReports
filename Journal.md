@@ -155,3 +155,16 @@ being returned as 0.  Turns out the generated hbm.xml file did not have the
           </id>```
 I'm noticing as I build the daos, that they are all similar, I think these 
 could all be a subclass of some abstract Dao.  See this as an example: http://www.java2s.com/Code/Java/Hibernate/GenericDaoFindAll.htm 
+
+3/24 I bought the domain fatbiketrailreports.com today for $.99 on goDaddy. 
+I'm going to set this up so that the domain points to the application on 
+openshift. Looks like there is good information here on how to do this:  
+https://access.redhat
+.com/documentation/en-US/OpenShift_Online/2
+.0/html/User_Guide/chap-Domains.html
+
+Added jstl impl library to the project so I can use the jstl tags. Now 
+displaying all trail reports on the index page in a table. Not pretty, but it
+ is displaying data. 
+ 
+ 

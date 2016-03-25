@@ -45,8 +45,8 @@ more detail.
 - [ ] Weekly journal entry
 - [X] Create DAO for trails
 - [X] Create DAO for trail report
-- [ ] Create display trail report functionality
-- [ ] Create display trail functionality
+- [X] Create display trail report functionality
+- [X] Create display trail functionality
 - [X] Add tests for new functionality
 
 ### Week 6
