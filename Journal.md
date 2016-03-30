@@ -156,6 +156,8 @@ being returned as 0.  Turns out the generated hbm.xml file did not have the
 I'm noticing as I build the daos, that they are all similar, I think these 
 could all be a subclass of some abstract Dao.  See this as an example: http://www.java2s.com/Code/Java/Hibernate/GenericDaoFindAll.htm 
 
+### Week 9
+
 3/24 I bought the domain fatbiketrailreports.com today for $.99 on goDaddy. 
 I set this up so that the domain points to the application on 
 openshift. This was very easy to configure right on the goDaddy site.
@@ -170,7 +172,8 @@ this work because index.jsp relies on the db, so to get things working at all
 
 1. First step was to get a dump of the sql: 
 
-```Paulas-MacBook-Pro:bin paulawaite$ sudo ./mysqldump -u root -p  --databases 
+```
+Paulas-MacBook-Pro:bin paulawaite$ sudo ./mysqldump -u root -p  --databases 
 FAT_BIKE_TRAIL_REPORTS > /Users/paulawaite/Documents/dump.sql
                                          Enter password: 
                                          Paulas-MacBook-Pro:bin paulawaite$ 
@@ -195,7 +198,8 @@ work we did earlier in the semester? Create a tomcat user with read only
 access in the database and then add something like this to the openshift server
 .xml. Your server/host will be different.                    
 
-```<Realm className="org.apache.catalina.realm.JDBCRealm"
+```
+<Realm className="org.apache.catalina.realm.JDBCRealm"
       driverName="com.mysql.jdbc.Driver"
       connectionURL="jdbc:mysql://127.5.237.130:3306/FAT_BIKE_TRAIL_REPORTS?user=tomcat&amp;password=tomcat"
       userTable="users" userNameCol="email_address" userCredCol="password"
