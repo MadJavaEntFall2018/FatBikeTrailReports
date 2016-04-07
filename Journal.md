@@ -255,7 +255,28 @@ When troubleshooting your deploys to Openshift, it essential that you review
 the Catalina logs.  See this discussion for information on how to ssh to the 
 server and navigate to the logs directory. http://stackoverflow.com/questions/28469051/where-to-see-console-log-in-openshift
  
- 
+### Week 10
 
+4/5 Add the servlet to add a new trail. I started simple just to verify the 
+functionality, so I'm currently just passing in the trail name and zip code. 
+The data is making it to the database.
 
+I'm noticing a few issues: 1) page content is sneaking up under the nav bar 
+and 2) when navigating from pages in the user directory to pages not in the 
+user directory, the paths are off. An extra "user" is added to the path, so I
+ have a little work to do with the relative paths here.
                      
+### Week 11
+
+4/6 Fixed the formatting issue with the nav bar by adding a little padding 
+in the body. 
+
+Fixed the relative path issue by moving all jsps back into the same directory
+ and instead individually listing those that are restricted (need to log in to 
+ access) in the web.xml. 
+ 
+Put some styling around the trail report display.
+
+Added an about page.
+
+4/7 

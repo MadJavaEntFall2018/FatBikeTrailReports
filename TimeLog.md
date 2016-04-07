@@ -19,3 +19,6 @@
 | 3/6/16| Added daos for trails and trailreport + unit tests, added dump of data to the jsps| 2 | |
 | 3/24/16| Bought domain, added jstl jar, and improved display of trail reports using for each and a table | 1 | |
 | 3/25/16| Replicated database on openshift, set up domain, set up auth for fbtr only| 3 | |
+| 4/5/16| Add Trail servlet and jsp | 1 | |
+| 4/6/16| Fixed the content under navbar issue, pathing issues, styling, about page| 2 | |
+| 4/7/16| |  | |

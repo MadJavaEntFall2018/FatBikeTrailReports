@@ -12,20 +12,32 @@
 
   <body role="document">
   <jsp:include page="navbar.jsp" />
-  <table>
-  <c:forEach items="${trailReports}" var="report">
-    <tr><th>${report.trail.name} - Posted ${report.createDate}</th></tr>
-    <tr><td>User: ${report.user}</td><td>Ridden on:
-     ${report.dateRidden}</td></tr>
-    <tr><td>Grooming Type: ${report.type.grooming}</td></tr>
-    <tr><td>Conditions: ${report.conditions}></td></tr>
-    <tr><td>Comments: ${report.comments}></td></tr>
+  <div class="container theme-showcase" role="main">
+    <div class="page-header">
+      <h1>Reports</h1>
+    </div>
 
+    <c:forEach items="${trailReports}" var="report">
+    <div class="col-sm-7">
+      <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">${report.trail.name} - Posted
+            ${report.createDate} </h3>
+          </div>
+          <div class="panel-body">
+            Reported by: ${report.user}<br />
+            Ridden on: ${report.dateRidden}<br />
+            Grooming Type: ${report.type.grooming}<br />
+            Conditions: ${report.conditions}<br />
+            Comments: ${report.comments}
+          </div>
+      </div>
+    </div>
 
   </c:forEach>
-  </table>
 
 
+  </div>
 
 
 </body>

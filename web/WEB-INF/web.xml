@@ -8,7 +8,9 @@
     <security-constraint>
         <web-resource-collection>
             <web-resource-name>user</web-resource-name>
-         <url-pattern>/user/*</url-pattern>
+            <url-pattern>/addTrail.jsp</url-pattern>
+            <url-pattern>/addReport.jsp</url-pattern>
+            <url-pattern>/addTrail</url-pattern>
          </web-resource-collection>
         <auth-constraint>
             <role-name>user</role-name>
@@ -23,4 +25,6 @@
             <form-error-page>/signInError.jsp</form-error-page>
         </form-login-config>
     </login-config>
+
+
 </web-app>
