@@ -65,7 +65,7 @@
                 <li id="viewTrail"><a href="/viewTrail">Trails</a></li>
                 <li id="addReport"><a href="addReport.jsp">New
                     Report</a></li>
-                <li id="addTrail"><a href="addTrail.jsp">New Trail</a></li>
+                <li id="addTrail"><a href="/addTrail">New Trail</a></li>
                 <li id="signInConfirmation"><a
                         href="signInConfirmation.jsp">Sign In</a></li>
                 <li id="signUp"><a href="signUp.jsp">Sign Up</a></li>

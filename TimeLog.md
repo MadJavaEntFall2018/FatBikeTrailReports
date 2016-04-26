@@ -21,4 +21,7 @@
 | 3/25/16| Replicated database on openshift, set up domain, set up auth for fbtr only| 3 | |
 | 4/5/16| Add Trail servlet and jsp | 1 | |
 | 4/6/16| Fixed the content under navbar issue, pathing issues, styling, about page| 2 | |
-| 4/7/16| |  | |
+| 4/20/16|Added remaining fields to Add Trail jsp | .5 | |
+| 4/24/16|Added abstract Dao and unit test for abstract dao (difficulty) | 1 | |
+| 4/25/16|Added type and difficulty dropdowns. Saving from jsp to trail table.| 2| |
+| 4/??/16| |  | |

@@ -5,9 +5,10 @@
   Time: 4:43 PM
   To change this template use File | Settings | File Templates.
 --%>
-<footer>
+
+<div id="footer" class="footer">
     <div class="container theme-showcase" role="main">
-    <br />
+
 
     &copy; Copyright
     <script language="JavaScript" type="text/javascript">
@@ -19,4 +20,4 @@
     </script>
         180 Adventure, LLC. All rights reserved.
     </div>
-</footer>
+</div>

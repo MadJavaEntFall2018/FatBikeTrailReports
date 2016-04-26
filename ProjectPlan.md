@@ -53,7 +53,7 @@ more detail.
 - [ ] Weekly journal entry
 - [ ] Integration with google maps api
 - [ ] Create add trail report functionality
-- [ ] Create add trail functionality
+- [X] Create add trail functionality
 - [ ] Set up Continuous Integration on openshift
 
 ### Week 7
@@ -74,16 +74,16 @@ more detail.
 - [ ] Add password reset/reminder function
 
 ### Week 10
-- [ ] Weekly journal entry
+- [X] Weekly journal entry
 
 ### Week 11
-- [ ] Weekly journal entry
+- [X] Weekly journal entry
 
 ### Week 12
 - [ ] Weekly journal entry
 
 ### Week 13
-- [ ] Weekly journal entry
+- [X] Weekly journal entry
 
 ### Week 14
 - [ ] Weekly journal entry

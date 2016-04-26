@@ -275,8 +275,33 @@ Fixed the relative path issue by moving all jsps back into the same directory
  and instead individually listing those that are restricted (need to log in to 
  access) in the web.xml. 
  
-Put some styling around the trail report display.
+Put some styling around the trail report displafy.
 
 Added an about page.
 
-4/7 
+4/7 Spent some time working on navigation through the site and a few styling 
+things. I'm stuck trying to get the footer to stick to the bottom. I'm going 
+to put that on hold a bit and move onto other things. 
+
+### Week 13
+
+4/20
+
+Currently at 85% coverage on TrailDao. Also 85% on TrailReports Dao. 
+SessionFactory is at 88% (covered using the daotests).
+Added in more fields in add trail jsp. Realized I need to complete daos for 
+difficulty and type so that I can populate dropdowns.
+
+4/24
+
+Decided to add an abstract dao - I'm getting sick of the redundant code and 
+it doesn't set a very good example not to do it.  Also added tests, 
+specifically for Difficulty. On to type next... And then I should go back and 
+fix/remove existing daos and use abstract instead. The only thing that should
+ remain in the daos are anything specific.  Here's an interesting article to 
+ even eliminate that part using hibernate named queries: http://www.ibm.com/developerworks/library/j-genericdao/
+
+4/25-26
+
+Finished adding the difficulty dropdown and the trail type dropdown. 
+Connected new fields with the servlet so recently added fields are saved.

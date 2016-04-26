@@ -11,6 +11,7 @@
             <url-pattern>/addTrail.jsp</url-pattern>
             <url-pattern>/addReport.jsp</url-pattern>
             <url-pattern>/addTrail</url-pattern>
+            <url-pattern>/signInConfirmation.jsp</url-pattern>
          </web-resource-collection>
         <auth-constraint>
             <role-name>user</role-name>

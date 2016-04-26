@@ -10,6 +10,10 @@ public class Difficulty {
     public Difficulty() {
     }
 
+    public Difficulty(String name) {
+        this.name = name;
+    }
+
     public Difficulty(int id, String name) {
         this.id = id;
         this.name = name;

@@ -10,10 +10,19 @@
     <jsp:include page="head.jsp" />
     <body role="document">
     <jsp:include page="navbar.jsp" />
-<H2>Log In Failed!!!</H2>
-    This will be the sign in error page
+    <div class="container theme-showcase" role="main">
 
-</body>
+        <div class="alert alert-danger" role="alert">
+            <strong>Login Failed</strong> That userid/password combination
+            does not exist.
+        </div>
+        <a href="addTrail.jsp"><button type="button" class="btn btn-primary">
+            Retry</button></a>
+        <a href="/viewTrail"><button type="button" class="btn btn-default">Cancel
+        </button></a>
+
+    </div>
+    </body>
     <jsp:include page="contentEnd.jsp" />
 <jsp:include page="footer.jsp" />
 </html>

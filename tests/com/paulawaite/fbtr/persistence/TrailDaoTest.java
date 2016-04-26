@@ -16,6 +16,7 @@ public class TrailDaoTest {
 
     private int insertedRecordToBeDeleted = 0;
     TrailDao dao = new TrailDao();
+    Trail trail = new Trail();
     //TODO add teardown to remove the inserted record after
     // each test
 
@@ -54,23 +55,11 @@ public class TrailDaoTest {
 
     @Test
     public void testAddTrail() throws Exception {
-        int insertedTrailId = 0;
-        //create trail to add
-        Trail trail = new Trail();
-        trail.setAddress("100 Main St");
-        trail.setCity("Madison");
-        trail.setDescription("Trail Description");
-        trail.setLength(10);
-        trail.setState("WI");
-        trail.setZip("53704");
-        trail.setName("My Trail");
-        trail.setLengthUnits("mi");
-        trail.setWebsite("www.trail.com");
-        trail.setTrailMap("map link");
 
-        insertedTrailId = dao.addTrail(trail);
 
-        assertTrue(insertedTrailId > 0);
+
+
+        assertTrue(insertedRecordToBeDeleted > 0);
 
     }
 }

@@ -11,7 +11,15 @@
     <body role="document">
     <jsp:include page="navbar.jsp" />
 
-Thanks for registering!
+    <div class="container theme-showcase" role="main">
+
+
+        <div class="alert alert-success" role="alert">
+            <strong>Login Success</strong> Time to add a new trail or report!
+        </div>
+
+
+    </div>
 </body>
 <jsp:include page="footer.jsp" />
 </html>
