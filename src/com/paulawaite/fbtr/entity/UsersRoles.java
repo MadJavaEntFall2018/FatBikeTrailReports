@@ -1,12 +1,19 @@
 package com.paulawaite.fbtr.entity;
 
+import javax.persistence.*;
+
 /**
- * Created by paulawaite on 2/13/16.
+ * Created by paulawaite on 5/6/16.
  */
+@Entity
+@Table(name = "users_roles", schema = "FAT_BIKE_TRAIL_REPORTS", catalog = "")
+@IdClass(UsersRolesPK.class)
 public class UsersRoles {
     private String emailAddress;
     private String role;
 
+    @Id
+    @Column(name = "email_address", nullable = false, length = 30)
     public String getEmailAddress() {
         return emailAddress;
     }
@@ -15,6 +22,8 @@ public class UsersRoles {
         this.emailAddress = emailAddress;
     }
 
+    @Id
+    @Column(name = "role", nullable = false, length = 30)
     public String getRole() {
         return role;
     }

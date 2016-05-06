@@ -1,14 +1,18 @@
 package com.paulawaite.fbtr.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Id;
 import java.io.Serializable;
 
 /**
- * Created by paulawaite on 2/13/16.
+ * Created by paulawaite on 5/6/16.
  */
 public class UsersRolesPK implements Serializable {
     private String emailAddress;
     private String role;
 
+    @Column(name = "email_address", nullable = false, length = 30)
+    @Id
     public String getEmailAddress() {
         return emailAddress;
     }
@@ -17,6 +21,8 @@ public class UsersRolesPK implements Serializable {
         this.emailAddress = emailAddress;
     }
 
+    @Column(name = "role", nullable = false, length = 30)
+    @Id
     public String getRole() {
         return role;
     }

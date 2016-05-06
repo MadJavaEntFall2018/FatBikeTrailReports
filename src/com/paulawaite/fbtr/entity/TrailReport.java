@@ -1,66 +1,25 @@
 package com.paulawaite.fbtr.entity;
 
+import javax.persistence.*;
 import java.sql.Date;
 
 /**
- * Created by paulawaite on 2/13/16.
+ * Created by paulawaite on 5/6/16.
  */
+@Entity
+@Table(name = "trail_report", schema = "FAT_BIKE_TRAIL_REPORTS", catalog = "")
 public class TrailReport {
     private int id;
     private Date dateRidden;
+    private Integer groomingType;
     private String conditions;
     private String comments;
-    private Date createDate;
-    private GroomingType type;
-    private Trail trail;
-    private User user;
+    private Integer user;
+    private Integer trail;
 
-    public TrailReport() {
-    }
-
-    public TrailReport(int id, Date dateRidden, String conditions, String comments, Date createDate, GroomingType type, Trail trail, User user) {
-        this.id = id;
-        this.dateRidden = dateRidden;
-        this.conditions = conditions;
-        this.comments = comments;
-        this.createDate = createDate;
-        this.type = type;
-        this.trail = trail;
-        this.user = user;
-    }
-
-    public GroomingType getType() {
-        return type;
-    }
-
-    public void setType(GroomingType type) {
-        this.type = type;
-    }
-
-    public Trail getTrail() {
-        return trail;
-    }
-
-    public void setTrail(Trail trail) {
-        this.trail = trail;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public Date getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
-    }
-
+    @Id
+    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy=GenerationType.AUTO)
     public int getId() {
         return id;
     }
@@ -69,6 +28,8 @@ public class TrailReport {
         this.id = id;
     }
 
+    @Basic
+    @Column(name = "date_ridden", nullable = true)
     public Date getDateRidden() {
         return dateRidden;
     }
@@ -77,6 +38,18 @@ public class TrailReport {
         this.dateRidden = dateRidden;
     }
 
+    @Basic
+    @Column(name = "grooming_type", nullable = true)
+    public Integer getGroomingType() {
+        return groomingType;
+    }
+
+    public void setGroomingType(Integer groomingType) {
+        this.groomingType = groomingType;
+    }
+
+    @Basic
+    @Column(name = "conditions", nullable = true, length = 1000)
     public String getConditions() {
         return conditions;
     }
@@ -85,6 +58,8 @@ public class TrailReport {
         this.conditions = conditions;
     }
 
+    @Basic
+    @Column(name = "comments", nullable = true, length = 1000)
     public String getComments() {
         return comments;
     }
@@ -93,17 +68,59 @@ public class TrailReport {
         this.comments = comments;
     }
 
+    @Basic
+    @Column(name = "user", nullable = true)
+    public Integer getUser() {
+        return user;
+    }
+
+    public void setUser(Integer user) {
+        this.user = user;
+    }
+
+    @Basic
+    @Column(name = "trail", nullable = true)
+    public Integer getTrail() {
+        return trail;
+    }
+
+    public void setTrail(Integer trail) {
+        this.trail = trail;
+    }
+
     @Override
-    public String toString() {
-        return "TrailReport{" +
-                "id=" + id +
-                ", dateRidden=" + dateRidden +
-                ", conditions='" + conditions + '\'' +
-                ", comments='" + comments + '\'' +
-                ", createDate=" + createDate +
-                ", type=" + type +
-                ", trail=" + trail +
-                ", user=" + user +
-                '}';
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        TrailReport that = (TrailReport) o;
+
+        if (id != that.id) return false;
+        if (dateRidden != null ? !dateRidden.equals(that.dateRidden) : that.dateRidden != null)
+            return false;
+        if (groomingType != null ? !groomingType.equals(that.groomingType) : that.groomingType != null)
+            return false;
+        if (conditions != null ? !conditions.equals(that.conditions) : that.conditions != null)
+            return false;
+        if (comments != null ? !comments.equals(that.comments) : that.comments != null)
+            return false;
+        if (user != null ? !user.equals(that.user) : that.user != null)
+            return false;
+        if (trail != null ? !trail.equals(that.trail) : that.trail != null)
+            return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + (dateRidden != null ? dateRidden.hashCode() : 0);
+        result = 31 * result + (groomingType != null ? groomingType.hashCode() : 0);
+        result = 31 * result + (conditions != null ? conditions.hashCode() : 0);
+        result = 31 * result + (comments != null ? comments.hashCode() : 0);
+        result = 31 * result + (user != null ? user.hashCode() : 0);
+        result = 31 * result + (trail != null ? trail.hashCode() : 0);
+        return result;
     }
 }

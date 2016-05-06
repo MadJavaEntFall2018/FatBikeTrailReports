@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import com.paulawaite.fbtr.entity.*;
 import com.paulawaite.fbtr.persistence.UserDao;
-import com.paulawaite.fbtr.persistence.UserDaoWithHibernate;
 import org.apache.log4j.Logger;
 
 /**
@@ -24,11 +23,11 @@ public class SignUpUser extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        User user = new User(0, req.getParameter("firstName"), req
+        Users user = new Users(0, req.getParameter("firstName"), req
                 .getParameter("lastName"), req.getParameter("emailAddress"),
                 req.getParameter("password"));
         log.debug("Adding User: " + user);
-        UserDao dao = new UserDaoWithHibernate();
+        UserDao dao = new UserDao();
         dao.addUser(user);
     }
 }

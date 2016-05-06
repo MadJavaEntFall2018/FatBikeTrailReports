@@ -4,7 +4,7 @@ import com.paulawaite.fbtr.entity.Difficulty;
 import com.paulawaite.fbtr.entity.Trail;
 import com.paulawaite.fbtr.entity.TrailType;
 import com.paulawaite.fbtr.persistence.AbstractDao;
-import com.paulawaite.fbtr.persistence.TrailDao;
+import com.paulawaite.fbtr.util.DaoFactory;
 import org.apache.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
@@ -37,16 +37,19 @@ public class AddTrail extends HttpServlet {
         trail.setCity(req.getParameter("city"));
         trail.setZip(req.getParameter("zip"));
         trail.setLength(Integer.parseInt(req.getParameter("length")));
-        //trail.setDifficulty(req.getParameter("difficulty"));
-        //trail.setType(req.getParameter("type"));
+        trail.setDifficulty(Integer.parseInt(req.getParameter
+                ("difficulty")));
+        trail.setType(Integer.parseInt(req.getParameter("type")));
         trail.setLengthUnits(req.getParameter("units"));
         trail.setDescription(req.getParameter("description"));
         trail.setTrailMap(req.getParameter("trailMap"));
         trail.setWebsite(req.getParameter("website"));
-        TrailDao dao = new TrailDao();
-        int id = dao.addTrail(trail);
 
-        req.setAttribute("trail", dao.getTrailById(id));
+        // TODO get user by id trail.setUser(req.getRemoteUser());
+        AbstractDao dao = DaoFactory.createDao(Trail.class);
+        int id = dao.create(trail);
+
+        req.setAttribute("trail", dao.get(id));
         log.debug("Sending back the trail...");
 
 
@@ -68,12 +71,14 @@ public class AddTrail extends HttpServlet {
     }
 
     private List<Difficulty> getAllDifficulties() {
-        AbstractDao dao =  new AbstractDao(Difficulty.class);
+        AbstractDao dao =  DaoFactory.createDao(Difficulty.class);
+        log.debug("Difficulties" + dao.getAll());
         return dao.getAll();
     }
 
     private List<TrailType> getAllTypes() {
-        AbstractDao dao =  new AbstractDao(TrailType.class);
+        AbstractDao dao =  DaoFactory.createDao(TrailType.class);
+        log.debug("Types" + dao.getAll());
         return dao.getAll();
     }
 }

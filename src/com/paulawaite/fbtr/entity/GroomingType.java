@@ -1,20 +1,19 @@
 package com.paulawaite.fbtr.entity;
 
+import javax.persistence.*;
+
 /**
- * Created by paulawaite on 2/13/16.
+ * Created by paulawaite on 5/6/16.
  */
+@Entity
+@Table(name = "grooming_type", schema = "FAT_BIKE_TRAIL_REPORTS", catalog = "")
 public class GroomingType {
     private int id;
     private String grooming;
 
-    public GroomingType() {
-    }
-
-    public GroomingType(int id, String grooming) {
-        this.id = id;
-        this.grooming = grooming;
-    }
-
+    @Id
+    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy=GenerationType.AUTO)
     public int getId() {
         return id;
     }
@@ -23,6 +22,8 @@ public class GroomingType {
         this.id = id;
     }
 
+    @Basic
+    @Column(name = "grooming", nullable = true, length = 30)
     public String getGrooming() {
         return grooming;
     }
@@ -50,13 +51,5 @@ public class GroomingType {
         int result = id;
         result = 31 * result + (grooming != null ? grooming.hashCode() : 0);
         return result;
-    }
-
-    @Override
-    public String toString() {
-        return "GroomingType{" +
-                "id=" + id +
-                ", grooming='" + grooming + '\'' +
-                '}';
     }
 }

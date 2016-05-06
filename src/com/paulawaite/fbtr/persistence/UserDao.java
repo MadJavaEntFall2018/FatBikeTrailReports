@@ -1,39 +1,64 @@
 package com.paulawaite.fbtr.persistence;
 
-import com.paulawaite.fbtr.entity.User;
+import com.paulawaite.fbtr.entity.Difficulty;
+import com.paulawaite.fbtr.entity.Users;
+import com.paulawaite.fbtr.entity.UsersRoles;
+import org.apache.log4j.Logger;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by paulawaite on 2/2/16.
  */
-public interface UserDao {
+public class UserDao {
 
-    /**
-     * Return a list of all users
-     * @return all users
-     */
-    public List<User> getAllUsers();
+    private final Logger log = Logger.getLogger(this.getClass());
 
-    /**
-     * Update a user
-     * @param user to be updated
-     */
-    public void updateUser(User user);
 
-    /**
-     * Delete a user
-     *
-     *  @param user to be deleted
-     */
-    public void deleteUser(User user);
+    public List<Users> getAllUsers() {
+        List<Users> users = new ArrayList<Users>();
+        Session session = SessionFactoryProvider.getSessionFactory().openSession();
+        session.createCriteria(Users.class).list();
+        return users;
+    }
 
-    /**
-     * Add a user
-     *
-     * @param user to be added
-     * @return id of the inserted user
-     */
-    public int addUser(User user);
+    public void updateUser(Users user) {
 
+    }
+
+    public void deleteUser(Users user) {
+        AbstractDao dao = new AbstractDao(Users.class);
+        dao.delete(user);
+    }
+
+    public int addUser(Users user) {
+        Session session = SessionFactoryProvider.getSessionFactory().openSession();
+        Transaction tx = null;
+        Integer userId = null;
+        try {
+            tx = session.beginTransaction();
+            userId = (Integer) session.save(user);
+            session.save(createUserRole(user));
+            tx.commit();
+            log.info("Added user: " + user + " with id of: " + userId);
+        } catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+           log.error(e);
+        } finally {
+            session.close();
+        }
+        return userId;
+    }
+
+    private UsersRoles createUserRole(Users user) {
+
+        UsersRoles usersRoles = new UsersRoles();
+        usersRoles.setEmailAddress(user.getEmailAddress());
+        usersRoles.setRole("user");
+        return usersRoles;
+    }
 }

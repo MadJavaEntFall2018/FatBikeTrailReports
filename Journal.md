@@ -305,3 +305,15 @@ fix/remove existing daos and use abstract instead. The only thing that should
 
 Finished adding the difficulty dropdown and the trail type dropdown. 
 Connected new fields with the servlet so recently added fields are saved.
+
+### Week 15
+
+5/6
+
+It's refactoring day.  After talking with Matt and seeing Alex's presentation
+ on using annotations for hibernate entities, I decided to do away with the 
+ xml config method and use annotations instead. I delete all the old entities
+  and hibernate entity xmls and regenerated in IntelliJ.  I did have to add 
+  the annotation for auto-generated ids. I also got rid of the user interface
+   dao since it was only used as an example. Things seem much cleaner in the 
+   project and tests pass.  

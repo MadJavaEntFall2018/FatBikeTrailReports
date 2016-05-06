@@ -1,7 +1,5 @@
 package com.paulawaite.fbtr.persistence;
 
-import com.paulawaite.fbtr.entity.Difficulty;
-import com.paulawaite.fbtr.entity.Trail;
 import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;

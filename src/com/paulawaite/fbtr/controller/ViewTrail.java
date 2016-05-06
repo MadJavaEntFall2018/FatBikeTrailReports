@@ -1,9 +1,7 @@
 package com.paulawaite.fbtr.controller;
 
-import com.paulawaite.fbtr.entity.User;
-import com.paulawaite.fbtr.persistence.TrailDao;
-import com.paulawaite.fbtr.persistence.UserDao;
-import com.paulawaite.fbtr.persistence.UserDaoWithHibernate;
+import com.paulawaite.fbtr.entity.Trail;
+import com.paulawaite.fbtr.persistence.AbstractDao;
 import org.apache.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
@@ -28,8 +26,8 @@ public class ViewTrail extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        TrailDao dao = new TrailDao();
-        req.setAttribute("trail", dao.getTrailById(1));
+        AbstractDao<Trail> dao = new AbstractDao(Trail.class);
+        req.setAttribute("trail", dao.get(1));
         log.debug("Sending back the trail...");
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/viewTrail" +

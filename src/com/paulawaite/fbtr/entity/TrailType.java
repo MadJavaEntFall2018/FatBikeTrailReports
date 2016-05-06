@@ -1,12 +1,19 @@
 package com.paulawaite.fbtr.entity;
 
+import javax.persistence.*;
+
 /**
- * Created by paulawaite on 2/13/16.
+ * Created by paulawaite on 5/6/16.
  */
+@Entity
+@Table(name = "trail_type", schema = "FAT_BIKE_TRAIL_REPORTS", catalog = "")
 public class TrailType {
     private int id;
     private String name;
 
+    @Id
+    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy=GenerationType.AUTO)
     public int getId() {
         return id;
     }
@@ -15,6 +22,8 @@ public class TrailType {
         this.id = id;
     }
 
+    @Basic
+    @Column(name = "name", nullable = true, length = 50)
     public String getName() {
         return name;
     }

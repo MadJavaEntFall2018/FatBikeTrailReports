@@ -1,97 +1,16 @@
 package com.paulawaite.fbtr.entity;
 
-import java.sql.Date;
+import javax.persistence.*;
+
 /**
- * Created by paulawaite on 2/13/16.
+ * Created by paulawaite on 5/6/16.
  */
+@Entity
 public class Trail {
     private String name;
-    private String address;
-    private String city;
-    private String state;
-    private String zip;
-    private Integer length;
-    private String lengthUnits;
-    private String description;
-    private String website;
-    private String trailMap;
-    private int id;
-    private Date createDate;
-    private Date updateDate;
 
-
-    private Difficulty difficulty;
-    private TrailType type;
-    private User user;
-
-    public Trail() {
-
-    }
-
-    public Trail(String name, String address, String city, String state,
-                 String zip, Integer length, String lengthUnits, String
-                         description, String website, String trailMap, int
-                         id, Date createDate, Date updateDate, User user,
-                 TrailType type, Difficulty difficulty) {
-        this.name = name;
-        this.address = address;
-        this.city = city;
-        this.state = state;
-        this.zip = zip;
-        this.length = length;
-        this.lengthUnits = lengthUnits;
-        this.description = description;
-        this.website = website;
-        this.trailMap = trailMap;
-        this.id = id;
-        this.createDate = createDate;
-        this.updateDate = updateDate;
-        this.difficulty = difficulty;
-        this.user = user;
-        this.type = type;
-    }
-
-    public Difficulty getDifficulty() {
-        return difficulty;
-    }
-
-    public void setDifficulty(Difficulty difficulty) {
-        this.difficulty = difficulty;
-    }
-
-    public TrailType getType() {
-        return type;
-    }
-
-    public void setType(TrailType type) {
-        this.type = type;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-
-    public Date getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
-    }
-
-    public Date getUpdateDate() {
-        return updateDate;
-    }
-
-    public void setUpdateDate(Date updateDate) {
-        this.updateDate = updateDate;
-    }
-
+    @Basic
+    @javax.persistence.Column(name = "name", nullable = true, length = 50)
     public String getName() {
         return name;
     }
@@ -100,6 +19,10 @@ public class Trail {
         this.name = name;
     }
 
+    private String address;
+
+    @Basic
+    @javax.persistence.Column(name = "address", nullable = true, length = 50)
     public String getAddress() {
         return address;
     }
@@ -108,6 +31,10 @@ public class Trail {
         this.address = address;
     }
 
+    private String city;
+
+    @Basic
+    @javax.persistence.Column(name = "city", nullable = true, length = 35)
     public String getCity() {
         return city;
     }
@@ -116,6 +43,10 @@ public class Trail {
         this.city = city;
     }
 
+    private String state;
+
+    @Basic
+    @javax.persistence.Column(name = "state", nullable = true, length = 2)
     public String getState() {
         return state;
     }
@@ -124,6 +55,10 @@ public class Trail {
         this.state = state;
     }
 
+    private String zip;
+
+    @Basic
+    @javax.persistence.Column(name = "zip", nullable = true, length = 10)
     public String getZip() {
         return zip;
     }
@@ -132,6 +67,34 @@ public class Trail {
         this.zip = zip;
     }
 
+    private Integer difficulty;
+
+    @Basic
+    @javax.persistence.Column(name = "difficulty", nullable = true)
+    public Integer getDifficulty() {
+        return difficulty;
+    }
+
+    public void setDifficulty(Integer difficulty) {
+        this.difficulty = difficulty;
+    }
+
+    private Integer type;
+
+    @Basic
+    @javax.persistence.Column(name = "type", nullable = true)
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
+    }
+
+    private Integer length;
+
+    @Basic
+    @javax.persistence.Column(name = "length", nullable = true)
     public Integer getLength() {
         return length;
     }
@@ -140,6 +103,10 @@ public class Trail {
         this.length = length;
     }
 
+    private String lengthUnits;
+
+    @Basic
+    @javax.persistence.Column(name = "length_units", nullable = true, length = 2)
     public String getLengthUnits() {
         return lengthUnits;
     }
@@ -148,6 +115,10 @@ public class Trail {
         this.lengthUnits = lengthUnits;
     }
 
+    private String description;
+
+    @Basic
+    @javax.persistence.Column(name = "description", nullable = true, length = 1000)
     public String getDescription() {
         return description;
     }
@@ -156,6 +127,10 @@ public class Trail {
         this.description = description;
     }
 
+    private String website;
+
+    @Basic
+    @javax.persistence.Column(name = "website", nullable = true, length = 50)
     public String getWebsite() {
         return website;
     }
@@ -164,6 +139,10 @@ public class Trail {
         this.website = website;
     }
 
+    private String trailMap;
+
+    @Basic
+    @javax.persistence.Column(name = "trail_map", nullable = true, length = 50)
     public String getTrailMap() {
         return trailMap;
     }
@@ -172,6 +151,23 @@ public class Trail {
         this.trailMap = trailMap;
     }
 
+    private Integer user;
+
+    @Basic
+    @javax.persistence.Column(name = "user", nullable = true)
+    public Integer getUser() {
+        return user;
+    }
+
+    public void setUser(Integer user) {
+        this.user = user;
+    }
+
+    private int id;
+
+    @Id
+    @javax.persistence.Column(name = "id", nullable = false)
+    @GeneratedValue(strategy= GenerationType.AUTO)
     public int getId() {
         return id;
     }
@@ -179,7 +175,6 @@ public class Trail {
     public void setId(int id) {
         this.id = id;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -199,6 +194,10 @@ public class Trail {
             return false;
         if (zip != null ? !zip.equals(trail.zip) : trail.zip != null)
             return false;
+        if (difficulty != null ? !difficulty.equals(trail.difficulty) : trail.difficulty != null)
+            return false;
+        if (type != null ? !type.equals(trail.type) : trail.type != null)
+            return false;
         if (length != null ? !length.equals(trail.length) : trail.length != null)
             return false;
         if (lengthUnits != null ? !lengthUnits.equals(trail.lengthUnits) : trail.lengthUnits != null)
@@ -209,16 +208,10 @@ public class Trail {
             return false;
         if (trailMap != null ? !trailMap.equals(trail.trailMap) : trail.trailMap != null)
             return false;
-        if (createDate != null ? !createDate.equals(trail.createDate) : trail.createDate != null)
+        if (user != null ? !user.equals(trail.user) : trail.user != null)
             return false;
-        if (updateDate != null ? !updateDate.equals(trail.updateDate) : trail.updateDate != null)
-            return false;
-        if (difficulty != null ? !difficulty.equals(trail.difficulty) : trail.difficulty != null)
-            return false;
-        if (type != null ? !type.equals(trail.type) : trail.type != null)
-            return false;
-        return user != null ? user.equals(trail.user) : trail.user == null;
 
+        return true;
     }
 
     @Override
@@ -228,42 +221,15 @@ public class Trail {
         result = 31 * result + (city != null ? city.hashCode() : 0);
         result = 31 * result + (state != null ? state.hashCode() : 0);
         result = 31 * result + (zip != null ? zip.hashCode() : 0);
+        result = 31 * result + (difficulty != null ? difficulty.hashCode() : 0);
+        result = 31 * result + (type != null ? type.hashCode() : 0);
         result = 31 * result + (length != null ? length.hashCode() : 0);
         result = 31 * result + (lengthUnits != null ? lengthUnits.hashCode() : 0);
         result = 31 * result + (description != null ? description.hashCode() : 0);
         result = 31 * result + (website != null ? website.hashCode() : 0);
         result = 31 * result + (trailMap != null ? trailMap.hashCode() : 0);
-        result = 31 * result + id;
-        result = 31 * result + (createDate != null ? createDate.hashCode() : 0);
-        result = 31 * result + (updateDate != null ? updateDate.hashCode() : 0);
-        result = 31 * result + (difficulty != null ? difficulty.hashCode() : 0);
-        result = 31 * result + (type != null ? type.hashCode() : 0);
         result = 31 * result + (user != null ? user.hashCode() : 0);
+        result = 31 * result + id;
         return result;
     }
-
-    @Override
-    public String toString() {
-        return "Trail{" +
-                "name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                ", city='" + city + '\'' +
-                ", state='" + state + '\'' +
-                ", zip='" + zip + '\'' +
-                ", length=" + length +
-                ", lengthUnits=" + lengthUnits +
-                ", description='" + description + '\'' +
-                ", website='" + website + '\'' +
-                ", trailMap='" + trailMap + '\'' +
-                ", id=" + id +
-                ", createDate=" + createDate +
-                ", updateDate=" + updateDate +
-                ", difficulty=" + difficulty +
-                ", type=" + type +
-                ", user=" + user +
-                '}';
-    }
-
-
 }
-

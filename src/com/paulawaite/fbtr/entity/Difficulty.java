@@ -1,24 +1,18 @@
 package com.paulawaite.fbtr.entity;
 
+import javax.persistence.*;
+
 /**
- * Created by paulawaite on 2/13/16.
+ * Created by paulawaite on 5/6/16.
  */
+@Entity
 public class Difficulty {
     private int id;
     private String name;
 
-    public Difficulty() {
-    }
-
-    public Difficulty(String name) {
-        this.name = name;
-    }
-
-    public Difficulty(int id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
+    @Id
+    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy=GenerationType.AUTO)
     public int getId() {
         return id;
     }
@@ -27,6 +21,8 @@ public class Difficulty {
         this.id = id;
     }
 
+    @Basic
+    @Column(name = "name", nullable = true, length = 35)
     public String getName() {
         return name;
     }
@@ -54,13 +50,5 @@ public class Difficulty {
         int result = id;
         result = 31 * result + (name != null ? name.hashCode() : 0);
         return result;
-    }
-
-    @Override
-    public String toString() {
-        return "Difficulty{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
     }
 }
