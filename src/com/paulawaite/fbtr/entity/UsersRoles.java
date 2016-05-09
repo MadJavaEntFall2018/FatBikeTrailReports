@@ -6,7 +6,7 @@ import javax.persistence.*;
  * Created by paulawaite on 5/6/16.
  */
 @Entity
-@Table(name = "users_roles", schema = "FAT_BIKE_TRAIL_REPORTS", catalog = "")
+@Table(name = "users_roles", schema = "FAT_BIKE_TRAIL_REPORTS")
 @IdClass(UsersRolesPK.class)
 public class UsersRoles {
     private String emailAddress;

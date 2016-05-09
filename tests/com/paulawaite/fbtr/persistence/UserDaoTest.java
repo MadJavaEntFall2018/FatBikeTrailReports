@@ -35,7 +35,7 @@ public class UserDaoTest {
         Users user = new Users();
         user.setFirstName("Unit");
         user.setLastName("Test");
-        user.setEmailAddress("UnitTester2@gmail.com");
+        user.setEmailAddress("UserDaoTester@gmail.com");
         user.setPassword("supersecret");
 
         insertedUserId = dao.addUser(user);

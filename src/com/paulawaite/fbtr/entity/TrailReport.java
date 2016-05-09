@@ -7,15 +7,38 @@ import java.sql.Date;
  * Created by paulawaite on 5/6/16.
  */
 @Entity
-@Table(name = "trail_report", schema = "FAT_BIKE_TRAIL_REPORTS", catalog = "")
+@Table(name = "trail_report", schema = "FAT_BIKE_TRAIL_REPORTS")
 public class TrailReport {
     private int id;
     private Date dateRidden;
     private Integer groomingType;
     private String conditions;
     private String comments;
-    private Integer user;
-    private Integer trail;
+    private Trail trail;
+    private Users user;
+
+    @ManyToOne
+    @JoinColumn(name="user", nullable = false)
+    public Users getUser() {
+        return user;
+    }
+
+    @ManyToOne
+    @JoinColumn(name="trail", nullable = false)
+    public Trail getTrail() {
+        return trail;
+    }
+
+
+
+    public void setUser(Users user) {
+        this.user = user;
+    }
+
+    public void setTrail(Trail trail) {
+        this.trail = trail;
+    }
+
 
     @Id
     @Column(name = "id", nullable = false)
@@ -66,26 +89,6 @@ public class TrailReport {
 
     public void setComments(String comments) {
         this.comments = comments;
-    }
-
-    @Basic
-    @Column(name = "user", nullable = true)
-    public Integer getUser() {
-        return user;
-    }
-
-    public void setUser(Integer user) {
-        this.user = user;
-    }
-
-    @Basic
-    @Column(name = "trail", nullable = true)
-    public Integer getTrail() {
-        return trail;
-    }
-
-    public void setTrail(Integer trail) {
-        this.trail = trail;
     }
 
     @Override

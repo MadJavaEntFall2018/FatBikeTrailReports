@@ -6,6 +6,7 @@ import javax.persistence.*;
  * Created by paulawaite on 5/6/16.
  */
 @Entity
+@Table(name = "trail", schema = "FAT_BIKE_TRAIL_REPORTS")
 public class Trail {
     private String name;
 
@@ -175,6 +176,7 @@ public class Trail {
     public void setId(int id) {
         this.id = id;
     }
+
 
     @Override
     public boolean equals(Object o) {

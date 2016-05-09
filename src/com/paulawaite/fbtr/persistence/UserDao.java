@@ -26,6 +26,12 @@ public class UserDao {
         return users;
     }
 
+    public Users getUser(int id) {
+        Session session = SessionFactoryProvider.getSessionFactory().openSession();
+        Users user = (Users) session.get(Users.class, id);
+        return user;
+    }
+
     public void updateUser(Users user) {
 
     }

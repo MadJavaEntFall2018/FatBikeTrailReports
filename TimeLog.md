@@ -24,4 +24,5 @@
 | 4/20/16|Added remaining fields to Add Trail jsp | .5 | |
 | 4/24/16|Added abstract Dao and unit test for abstract dao (difficulty) | 1 | |
 | 4/25/16|Added type and difficulty dropdowns. Saving from jsp to trail table.| 2| |
-| 4/??/16| |  | |
+| 5/6/16|Refactoring and updating unit tests | 3  | |
+| 5/9/16| |   | |
