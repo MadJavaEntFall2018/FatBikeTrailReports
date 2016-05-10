@@ -25,9 +25,10 @@
             ${report.createDate} </h3>
           </div>
           <div class="panel-body">
-            Reported by: ${report.user}<br />
+            Reported by: ${report.user.firstName} &nbsp;
+             ${report.user.lastName}<br />
             Ridden on: ${report.dateRidden}<br />
-            Grooming Type: ${report.type.grooming}<br />
+            Grooming Type: ${report.groomingType.grooming}<br />
             Conditions: ${report.conditions}<br />
             Comments: ${report.comments}
           </div>

@@ -57,15 +57,15 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/viewTrailReport">Fat Bike Trail Reports</a>
+            <a class="navbar-brand" href="viewTrailReport">Fat Bike Trail Reports</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li id="index"><a href="/viewTrailReport">Reports</a></li>
-                <li id="viewTrail"><a href="/viewTrail">Trails</a></li>
-                <li id="addReport"><a href="addReport.jsp">New
+                <li id="index"><a href="viewTrailReport">Reports</a></li>
+                <li id="viewTrail"><a href="viewTrail">Trails</a></li>
+                <li id="addReport"><a href="addTrailReport">New
                     Report</a></li>
-                <li id="addTrail"><a href="/addTrail">New Trail</a></li>
+                <li id="addTrail"><a href="addTrail">New Trail</a></li>
                 <li id="signInConfirmation"><a
                         href="signInConfirmation.jsp">Sign In</a></li>
                 <li id="signUp"><a href="signUp.jsp">Sign Up</a></li>

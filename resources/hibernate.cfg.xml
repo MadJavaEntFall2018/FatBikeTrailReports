@@ -8,12 +8,16 @@
             org.hibernate.dialect.MySQL5Dialect
         </property>
         <property name="connection.username">
-            admin
+            adminkrsV6Rx
         </property>
         <property name="connection.password">
-            admin
+            9723ubPVWcWW
         </property>
-        <property name="connection.url">jdbc:mysql://localhost:3306/FAT_BIKE_TRAIL_REPORTS</property>
+        <property name="connection.url">jdbc:mysql://127.5.237.130:3306/FAT_BIKE_TRAIL_REPORTS</property>
+
+
+       <!-- <property name="connection.url">jdbc:mysql://localhost:3306
+        /FAT_BIKE_TRAIL_REPORTS</property>-->
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
         <mapping class="com.paulawaite.fbtr.entity.Users"/>
         <mapping class="com.paulawaite.fbtr.entity.GroomingType"/>

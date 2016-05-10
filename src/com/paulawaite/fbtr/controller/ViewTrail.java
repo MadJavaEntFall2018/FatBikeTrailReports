@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created by paulawaite on 3/3/16.
@@ -27,8 +28,9 @@ public class ViewTrail extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         AbstractDao<Trail> dao = new AbstractDao(Trail.class);
-        req.setAttribute("trail", dao.get(1));
-        log.debug("Sending back the trail...");
+        List<Trail> trails = dao.getAll();
+        req.setAttribute("trails", trails);
+        log.debug("Sending back the trail/s..." + trails);
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/viewTrail" +
                 ".jsp");

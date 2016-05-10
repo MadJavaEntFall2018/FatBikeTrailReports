@@ -27,7 +27,7 @@
     is through sharing of information by those who are riding the
     trails. Please contribute in any way that you can!
     <br /> <br />
-    ~ Paula Waite: <a href="mailto:pwawaite@180adventure.com">pawaite
+    ~ Paula Waite: <a href="mailto:pawaite@180adventure.com">pawaite
         @180adventure.com</a>
     </div><!--class well-->
             </div><!--class col-sm-8 -->

@@ -1,7 +1,11 @@
 package com.paulawaite.fbtr.entity;
 
+import com.paulawaite.fbtr.persistence.AbstractDao;
+import com.paulawaite.fbtr.util.DaoFactory;
+
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.List;
 
 /**
  * Created by paulawaite on 5/6/16.
@@ -11,11 +15,21 @@ import java.sql.Date;
 public class TrailReport {
     private int id;
     private Date dateRidden;
+    private Date createDate;
     private Integer groomingType;
     private String conditions;
     private String comments;
     private Trail trail;
     private Users user;
+
+    @Column(name = "create_date", nullable = true)
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
 
     @ManyToOne
     @JoinColumn(name="user", nullable = false)
@@ -125,5 +139,15 @@ public class TrailReport {
         result = 31 * result + (user != null ? user.hashCode() : 0);
         result = 31 * result + (trail != null ? trail.hashCode() : 0);
         return result;
+    }
+
+    public void setTrailById(int id) {
+        AbstractDao dao =  DaoFactory.createDao(Trail.class);
+        trail = (Trail)dao.get(id);
+    }
+
+    public void setUserById(int id) {
+        AbstractDao dao =  DaoFactory.createDao(Trail.class);
+        trail = (Trail)dao.get(id);
     }
 }

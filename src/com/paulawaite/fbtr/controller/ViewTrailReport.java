@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created by paulawaite on 3/3/16.
@@ -27,9 +28,12 @@ public class ViewTrailReport extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        AbstractDao<Trail> dao = new AbstractDao(TrailReport.class);
-        req.setAttribute("trailReports", dao.getAll());
+        AbstractDao<TrailReport> dao = new AbstractDao(TrailReport.class);
+        List<TrailReport> reports = dao.getAll();
+        req.setAttribute("trailReports", reports);
         log.debug("Sending back the trail reports...");
+
+
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/index" +
                 ".jsp");

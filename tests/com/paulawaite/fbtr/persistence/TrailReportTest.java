@@ -27,6 +27,7 @@ public class TrailReportTest {
 
     private final Logger log = Logger.getLogger(this.getClass());
 
+
     @Before
     public void setUp() {
         dao = new AbstractDao(TrailReport.class);
