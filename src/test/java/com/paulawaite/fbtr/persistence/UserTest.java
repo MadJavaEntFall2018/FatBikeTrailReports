@@ -73,7 +73,7 @@ public class UserTest {
 
         Role role = new Role();
         role.setRole("admin");
-        role.setUsers(user);
+        role.setUser(user);
 
         user.addRole(role);
 
@@ -98,7 +98,7 @@ public class UserTest {
 
         Role role = new Role();
         role.setRole("admin");
-        role.setUsers(user);
+        role.setUser(user);
 
         user.addRole(role);
 

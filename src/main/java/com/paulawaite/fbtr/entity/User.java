@@ -12,8 +12,8 @@ import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.Set;
 
-@EqualsAndHashCode
-@ToString
+@EqualsAndHashCode(exclude="roles")
+@ToString(exclude = "roles")
 @Entity
 public class User implements Serializable {
 
