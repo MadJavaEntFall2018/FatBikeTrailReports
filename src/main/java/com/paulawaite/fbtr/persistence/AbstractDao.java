@@ -50,7 +50,19 @@ public class AbstractDao<T> {
     }
 
     public T get(int id) {
-        return (T) getSession().get(type, id);
+
+        Session session = getSession();
+        T t = null;
+        try {
+            t = (T) session.get(type, id);
+        } catch (HibernateException e) {
+            log.error("Error getting " + type + " with id " + id, e);
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+        return t;
     }
 
     public List<T> getAll() {

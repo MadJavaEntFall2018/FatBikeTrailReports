@@ -16,7 +16,7 @@ public class Role {
     private Timestamp createDate;
 
     @ManyToOne
-    @JoinColumn(name="userName", referencedColumnName = "userName")
+    @JoinColumn(name="userName")
     private User user;
 
     public User getUser() {
