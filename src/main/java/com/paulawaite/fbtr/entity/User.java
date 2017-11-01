@@ -12,6 +12,9 @@ import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * The User.
+ */
 @EqualsAndHashCode(exclude="roles")
 @ToString(exclude = "roles")
 @Entity
@@ -34,6 +37,11 @@ public class User implements Serializable {
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     @Getter @Setter private Set<Role> roles = new HashSet<Role>();
 
+    /**
+     * Add role.
+     *
+     * @param role the role
+     */
     public void addRole(Role role) {
         roles.add(role);
 

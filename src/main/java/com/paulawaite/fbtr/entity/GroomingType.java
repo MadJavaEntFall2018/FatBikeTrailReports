@@ -1,47 +1,23 @@
 package com.paulawaite.fbtr.entity;
 
 import javax.persistence.*;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
+/**
+ * The grooming type.
+ */
+@EqualsAndHashCode
+@ToString
 @Entity
 public class GroomingType {
+
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private int groomingTypeId;
-    private String grooming;
+    @Getter @Setter private int groomingTypeId;
 
-    public int getGroomingTypeId() {
-        return groomingTypeId;
-    }
+    @Getter @Setter private String grooming;
 
-    public void setGroomingTypeId(int groomingTypeId) {
-        this.groomingTypeId = groomingTypeId;
-    }
-
-    public String getGrooming() {
-        return grooming;
-    }
-
-    public void setGrooming(String grooming) {
-        this.grooming = grooming;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        GroomingType that = (GroomingType) o;
-
-        if (groomingTypeId != that.groomingTypeId) return false;
-        if (grooming != null ? !grooming.equals(that.grooming) : that.grooming != null) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = groomingTypeId;
-        result = 31 * result + (grooming != null ? grooming.hashCode() : 0);
-        return result;
-    }
 }

@@ -45,12 +45,13 @@ public class AddTrail extends HttpServlet {
         trail.setTrailMap(req.getParameter("trailMap"));
         trail.setWebsite(req.getParameter("website"));
 
+
         // TODO get user by id trail.setUser(req.getRemoteUser());
         AbstractDao dao = DaoFactory.createDao(Trail.class);
         int id = dao.create(trail);
 
         req.setAttribute("trail", dao.get(id));
-        log.debug("Sending back the trail...");
+        log.debug("Getting the trail...");
 
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/viewTrail" +

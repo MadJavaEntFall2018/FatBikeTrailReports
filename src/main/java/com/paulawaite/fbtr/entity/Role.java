@@ -8,6 +8,9 @@ import lombok.ToString;
 import javax.persistence.*;
 import java.sql.Timestamp;
 
+/**
+ * The user's Role.
+ */
 @EqualsAndHashCode
 @ToString
 @Entity
