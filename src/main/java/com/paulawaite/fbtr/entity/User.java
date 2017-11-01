@@ -31,10 +31,8 @@ public class User implements Serializable {
     @Getter @Setter private String userName;
 
     // WARNING: only use EAGER if there will only ever be a very low number of "many" records
-    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
-    @Cascade({org.hibernate.annotations.CascadeType.ALL})
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     @Getter @Setter private Set<Role> roles = new HashSet<Role>();
-
 
     public void addRole(Role role) {
         roles.add(role);

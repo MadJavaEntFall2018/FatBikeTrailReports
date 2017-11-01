@@ -8,15 +8,18 @@
     <security-constraint>
         <web-resource-collection>
             <web-resource-name>user</web-resource-name>
-            <url-pattern>/addTrail.jsp</url-pattern>
-            <url-pattern>/addReport.jsp</url-pattern>
-            <url-pattern>/addTrail</url-pattern>
+            <url-pattern>/addTrail*</url-pattern>
+            <url-pattern>/addReport*</url-pattern>
             <url-pattern>/signInConfirmation.jsp</url-pattern>
          </web-resource-collection>
         <auth-constraint>
             <role-name>user</role-name>
         </auth-constraint>
     </security-constraint>
+
+    <security-role>
+        <role-name>user</role-name>
+    </security-role>
 
 
     <login-config>

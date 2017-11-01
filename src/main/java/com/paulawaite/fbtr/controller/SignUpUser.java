@@ -1,5 +1,6 @@
 package com.paulawaite.fbtr.controller;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,12 +26,21 @@ public class SignUpUser extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User user = new User();
+        user.setUserName(req.getParameter("userName"));
         user.setEmail(req.getParameter("emailAddress"));
         user.setFirstName(req.getParameter("firstName"));
         user.setLastName(req.getParameter("lastName"));
         user.setPassword(req.getParameter("password"));
         log.debug("Adding User: " + user);
+        Role role = new Role();
+        role.setUser(user);
+        role.setRole("user");
+        user.addRole(role);
+
         AbstractDao dao = DaoFactory.createDao(User.class);
         dao.create(user);
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/signInConfirmation" +
+                ".jsp");
+        dispatcher.forward(req, resp);
     }
 }

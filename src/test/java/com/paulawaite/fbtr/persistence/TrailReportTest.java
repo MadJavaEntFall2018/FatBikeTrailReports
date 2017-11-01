@@ -105,13 +105,4 @@ public class TrailReportTest {
         return user;
     }
 
-    @After
-    public void tearDown() {
-
-        dao.delete(trailReport);
-        trailDao.delete(trail);
-        userDao.delete(user);
-        log.debug("Completed teardown.");
-
-    }
 }

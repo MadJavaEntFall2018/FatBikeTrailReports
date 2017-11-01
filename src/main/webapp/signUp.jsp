@@ -13,7 +13,7 @@
 <jsp:include page="navbar.jsp" />
 <div class = "container">
     <form id="signUpForm" role="form" data-toggle="validator" class="form-horizontal"
-          action="/signUpUser"
+          action="signUpUser"
            method="post">
 
         <div class="form-group">
@@ -46,11 +46,20 @@
             <div class="help-block with-errors"></div>
         </div>
         <div class="form-group">
-            <label class="control-label col-sm-2" for="pwd">Password
+            <label  class="control-label col-sm-2" for="userName">Username</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="userName"
+                       name="userName"
+                       data-error="Please enter your userName." required>
+            </div>
+            <div class="help-block with-errors"></div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="password">Password
                 </label>
             <div class="col-sm-4">
-                <input type="password" class="form-control" id="pwd"
-                   name="pwd" data-error="Please provide a password."
+                <input type="password" class="form-control" id="password"
+                   name="password" data-error="Please provide a password."
                        required>
                 <div class="help-block with-errors"></div>
             </div>
@@ -62,8 +71,8 @@
                 Password</label>
             <div class="col-sm-4">
                 <input type="password" class="form-control" id="confirmPassword"
-                   name="confirmPassword" equalTo="#pwd"
-                       data-match="#pwd"
+                   name="confirmPassword" equalTo="#password"
+                       data-match="#password"
                        data-match-error="Confirmation password does not match"
                        required data-error="Please retype your password.">
                 <div class="help-block with-errors"></div>

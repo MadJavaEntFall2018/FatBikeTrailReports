@@ -8,8 +8,8 @@ import lombok.ToString;
 import javax.persistence.*;
 import java.sql.Timestamp;
 
-@EqualsAndHashCode(exclude="user")
-@ToString(exclude="user")
+@EqualsAndHashCode
+@ToString
 @Entity
 public class Role {
 
@@ -23,7 +23,7 @@ public class Role {
     @Getter @Setter private Timestamp createDate;
 
     @ManyToOne
-    @JoinColumn(name="userName")
+    @JoinColumn(name="userName", referencedColumnName = "username", nullable = false)    // referenceColumnName if not primary key
     @Getter @Setter private User user;
 
 }

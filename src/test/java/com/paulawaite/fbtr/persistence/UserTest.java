@@ -3,42 +3,43 @@ package com.paulawaite.fbtr.persistence;
 import com.paulawaite.fbtr.entity.Role;
 import com.paulawaite.fbtr.entity.User;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
-import static java.time.LocalDateTime.now;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 /**
  * Created by paulawaite on 2/2/16.
  */
 public class UserTest {
 
-    AbstractDao dao = null;
+    AbstractDao dao;
+    DatabaseUtility databaseUtility;
+    List<User> users;
 
     @Before
-    public void setUp() {
+    public void setUp() throws Exception {
         dao = new AbstractDao(User.class);
+        databaseUtility = new DatabaseUtility();
+        databaseUtility.runSQL("cleandb.sql");
+        databaseUtility.runSQL("createUsersAndRoles.sql");
+        users = dao.getAll();
     }
 
 
     @Test
     public void testGetAllUsers() throws Exception {
-        List<User> users = dao.getAll();
         assertTrue(users.size() > 0);
         assertFalse(users.get(0).getFirstName().equals(""));
-
     }
 
     @Test
     public void testUpdateUser() throws Exception {
-        User user = (User) dao.get(1);
+        User user = users.get(0);
+        int id = user.getUserId();
         String updateValue = LocalDate.now().toString();
         String emailBeforeUpdate = user.getEmail();
         // it would be a good idea to test each value like this
@@ -47,14 +48,26 @@ public class UserTest {
 
         dao.update(user);
 
-        User updatedUser = (User) dao.get(1);
+        User updatedUser = (User) dao.get(id);
 
         assertEquals(emailBeforeUpdate + updateValue, updatedUser.getEmail());
 
     }
 
+    @Ignore
     @Test
+    //TODO resolve the 2 session collection issue
     public void testDeleteUser() throws Exception {
+        int sizeBeforeDelete = users.size();
+        User userToDelete = users.get(0);
+        int id = userToDelete.getUserId();
+        dao.delete(userToDelete);
+        int sizeAfterDelete = dao.getAll().size();
+
+        User deletedUser = (User) dao.get(id);
+
+        assertEquals(sizeBeforeDelete - 1, sizeAfterDelete);
+        assertNull(deletedUser);
 
     }
 
@@ -82,26 +95,19 @@ public class UserTest {
 
         assertTrue(insertedUserId > 0);
         assertEquals(user, retrievedUser);
-        assertEquals(retrievedUser.getRoles().size(), 1);
+        assertEquals(1, retrievedUser.getRoles().size());
         assertTrue(retrievedUser.getRoles().contains(role));
 
     }
 
-    public User createTestUser() {
-
-        User user = new User();
-        user.setFirstName("Unit");
-        user.setLastName("Test");
-        user.setUserName("UnitTesterA");
-        user.setEmail("UserDaoTesterA@gmail.com");
-        user.setPassword("supersecret");
-
-        Role role = new Role();
-        role.setRole("admin");
-        role.setUser(user);
-
-        user.addRole(role);
-
-        return user;
+    @Test
+    public void testGetAllUsersWithLastNameExact() throws Exception {
+        users = dao.findByProperty("lastName", "Test1");
+        assertTrue(users.size() > 0);
+        assertTrue(users.get(0).getFirstName().equals("Unit1"));
     }
+
+
+
+
 }

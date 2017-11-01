@@ -1,0 +1,12 @@
+INSERT INTO FBTRTest.User (email, firstName, lastName, password, userName) VALUES ('UserDaoTester@gmail.com0', 'Unit0', 'Test0', 'supersecret0', 'UnitTester0');
+INSERT INTO FBTRTest.User (email, firstName, lastName, password, userName) VALUES ('UserDaoTester@gmail.com1', 'Unit1', 'Test1', 'supersecret1', 'UnitTester1');
+INSERT INTO FBTRTest.User (email, firstName, lastName, password, userName) VALUES ('UserDaoTester@gmail.com2', 'Unit2', 'Test2', 'supersecret2', 'UnitTester2');
+INSERT INTO FBTRTest.User (email, firstName, lastName, password, userName) VALUES ('UserDaoTester@gmail.com3', 'Unit3', 'Test3', 'supersecret3', 'UnitTester3');
+INSERT INTO FBTRTest.User (email, firstName, lastName, password, userName) VALUES ('UserDaoTester@gmail.com4', 'Unit4', 'Test4', 'supersecret4','UnitTester4');
+INSERT INTO FBTRTest.User (email, firstName, lastName, password, userName) VALUES ('UserDaoTesterA@gmail.com', 'Unit', 'Test', 'supersecret', 'UnitTesterA');
+INSERT INTO FBTRTest.Role (userName, role) VALUES ('UnitTester0', 'user');
+INSERT INTO FBTRTest.Role (userName, role) VALUES ('UnitTester1', 'user');
+INSERT INTO FBTRTest.Role (userName, role) VALUES ('UnitTester2', 'user');
+INSERT INTO FBTRTest.Role (userName, role) VALUES ('UnitTester3', 'user');
+INSERT INTO FBTRTest.Role (userName, role) VALUES ('UnitTester4', 'user');
+INSERT INTO FBTRTest.Role (userName, role) VALUES ('UnitTesterA', 'admin');

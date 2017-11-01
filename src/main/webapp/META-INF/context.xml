@@ -1,7 +1,7 @@
 <Context docBase="fbtr" path="/fbtr" reloadable="true">
     <Realm className="org.apache.catalina.realm.JDBCRealm"
            driverName="com.mysql.jdbc.Driver"
-           connectionURL="jdbc:mysql://localhost:3306/FatBikeTrailReports?user=root&amp;password=student"
+           connectionURL="jdbc:mysql://localhost:3306/FBTRTest?user=root&amp;password=student"
            userTable="User" userNameCol="userName" userCredCol="password"
            userRoleTable="Role" roleNameCol="role" >
     </Realm>

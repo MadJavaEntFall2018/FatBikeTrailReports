@@ -18,7 +18,7 @@
         </div>
         <a href="addTrail.jsp"><button type="button" class="btn btn-primary">
             Retry</button></a>
-        <a href="/viewTrail"><button type="button" class="btn btn-default">Cancel
+        <a href="viewTrail"><button type="button" class="btn btn-default">Cancel
         </button></a>
 
     </div>

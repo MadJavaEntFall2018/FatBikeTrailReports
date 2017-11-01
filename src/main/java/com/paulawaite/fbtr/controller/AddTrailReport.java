@@ -18,7 +18,7 @@ import java.util.List;
  * Created by paulawaite on 3/3/16.
  */
 
-@WebServlet(name = "AddTrailReport", urlPatterns = { "/addTrailReport" } )
+@WebServlet(name = "AddTrailReport", urlPatterns = { "/addReport" } )
 
 
 public class AddTrailReport extends HttpServlet {

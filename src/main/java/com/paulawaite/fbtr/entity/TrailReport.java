@@ -34,7 +34,7 @@ public class TrailReport {
     }
 
     @Basic
-    @Column(name = "createDate", nullable = false, length = 45)
+    @Column(name = "createDate", length = 45)
     public String getCreateDate() {
         return createDate;
     }
@@ -44,7 +44,7 @@ public class TrailReport {
     }
 
     @Basic
-    @Column(name = "updateDate", nullable = false, length = 45)
+    @Column(name = "updateDate", length = 45)
     public String getUpdateDate() {
         return updateDate;
     }
