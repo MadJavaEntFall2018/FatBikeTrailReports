@@ -45,6 +45,7 @@ public class AddTrail extends HttpServlet {
 
         AbstractDao difficultyDao = DaoFactory.createDao(Difficulty.class);
         Difficulty difficulty = (Difficulty) difficultyDao.findByProperty("difficultyId", Integer.parseInt(req.getParameter("difficulty")));
+        trail.setDifficulty(difficulty);
 
         AbstractDao typeDao = DaoFactory.createDao(TrailType.class);
         trail.setType((TrailType) typeDao.findByProperty("trailTypeId", Integer.parseInt(req.getParameter("type"))));

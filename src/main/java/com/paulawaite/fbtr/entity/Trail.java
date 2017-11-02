@@ -1,5 +1,6 @@
 package com.paulawaite.fbtr.entity;
 
+import com.paulawaite.fbtr.util.TimestampAttributeConverter;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -8,6 +9,7 @@ import lombok.ToString;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -16,7 +18,7 @@ import java.util.Set;
  * The Trail.
  */
 @ToString(exclude = "reports")
-@EqualsAndHashCode(exclude = "reports")
+@EqualsAndHashCode(exclude = {"reports", "createDate", "updateDate"})
 @Entity
 @Table(name = "trail")
 public class Trail {
@@ -31,8 +33,12 @@ public class Trail {
     @Getter @Setter private String description;
     @Getter @Setter private String website;
     @Getter @Setter private String trailMap;
-    @Getter @Setter private Timestamp createDate;
-    @Getter @Setter private Timestamp updateDate;
+
+    @Convert(converter = TimestampAttributeConverter.class)
+    @Getter @Setter private LocalDateTime createDate;
+
+    @Convert(converter = TimestampAttributeConverter.class)
+    @Getter @Setter private LocalDateTime updateDate;
 
     @ManyToOne
     @JoinColumn(name = "difficulty")

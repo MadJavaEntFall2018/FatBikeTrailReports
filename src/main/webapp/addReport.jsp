@@ -12,10 +12,11 @@
     <jsp:include page="js.jsp" />
     <body role="document">
     <jsp:include page="/navbar.jsp" />
+
     <div class = "container">
         <form id="addTrailForm" role="form" data-toggle="validator"
               class="form-horizontal"
-              action="/addTrailReport"
+              action="addReport"
               method="post">
 
             <div class="form-group">
@@ -33,16 +34,25 @@
                 </div>
                 <div class="help-block with-errors"></div>
             </div>
+
+
             <div class="form-group">
                 <label class="control-label col-sm-2" for="date">Date Ridden</label>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control" id="date"
-                           name="date"
-                           data-error="Please enter the date you rode."
-                           required>
+                    <div class="input-group date" data-provide="datepicker">
+                        <input type="text" class="form-control" id="date" name="date" data-error="Please enter the date you rode."
+                               required>
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-th"></span>
+                        </div>
+                    </div>
                 </div>
                 <div class="help-block with-errors"></div>
             </div>
+
+
+
+
             <div class="form-group">
                 <label class="control-label col-sm-2" for="grooming">Grooming
                     Type
@@ -60,6 +70,8 @@
                 </div>
                 <div class="help-block with-errors"></div>
             </div>
+
+
             <div class="form-group">
                 <label class="control-label col-sm-2"
                        for="conditions">Conditions
@@ -72,6 +84,8 @@
                 </div>
                 <div class="help-block with-errors"></div>
             </div>
+
+
             <div class="form-group">
                 <label class="control-label col-sm-2" for="comments">Comments
                 </label>

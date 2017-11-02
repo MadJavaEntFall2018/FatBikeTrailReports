@@ -1,5 +1,6 @@
 package com.paulawaite.fbtr.entity;
 
+import com.paulawaite.fbtr.util.TimestampAttributeConverter;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -9,13 +10,14 @@ import org.hibernate.annotations.Cascade;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
 /**
  * The User.
  */
-@EqualsAndHashCode(exclude={"roles", "trails", "trailReports"})
+@EqualsAndHashCode(exclude={"roles", "trails", "trailReports", "updateDate", "createDate"})
 @ToString(exclude={"roles", "trails", "trailReports"})
 @Entity
 @Table(name = "user")
@@ -30,8 +32,13 @@ public class User implements Serializable {
     @Getter @Setter private String lastName;
     @Getter @Setter private String email;
     @Getter @Setter private String password;
-    @Getter @Setter private Timestamp createDate;
-    @Getter @Setter private Timestamp updateDate;
+
+    @Convert(converter = TimestampAttributeConverter.class)
+    @Getter @Setter private LocalDateTime createDate;
+
+    @Convert(converter = TimestampAttributeConverter.class)
+    @Getter @Setter private LocalDateTime updateDate;
+
     @Getter @Setter private String userName;
 
     // WARNING: only use EAGER if there will only ever be a very low number of "many" records

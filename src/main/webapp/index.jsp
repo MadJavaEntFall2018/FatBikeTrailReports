@@ -28,7 +28,7 @@
             Reported by: ${report.user.firstName} &nbsp;
              ${report.user.lastName}<br />
             Ridden on: ${report.rideDate}<br />
-            Grooming Type: ${report.grooming.grooming}<br />
+            Grooming Type: ${report.grooming.name}<br />
             Conditions: ${report.conditions}<br />
             Comments: ${report.comments}
           </div>

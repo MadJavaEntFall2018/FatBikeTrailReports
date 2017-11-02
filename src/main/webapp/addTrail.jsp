@@ -15,7 +15,7 @@
 <div class = "container">
     <form id="addTrailForm" role="form" data-toggle="validator"
           class="form-horizontal"
-          action="/addTrail"
+          action="addTrail"
           method="post">
 
         <div class="form-group">
@@ -96,13 +96,13 @@
                        name="difficulty"
                        data-error="Please select trail difficulty." required>
                     <c:forEach var="difficulty" items="${difficulties}">
-                    <option value="${difficulty.difficultyId}">${difficulty.difficulty}</option>
+                    <option value="${difficulty.difficultyId}">${difficulty.name}</option>
                         </c:forEach>
                 </select>
             </div>
             <div class="help-block with-errors"></div>
         </div>
-        <div class="form-group">
+        <div class="form-group">x
             <label class="control-label col-sm-2" for="type">Type
             </label>
             <div class="col-sm-4">
@@ -110,7 +110,7 @@
                         name="type"
                         data-error="Please select trail type." required>
                     <c:forEach var="type" items="${types}">
-                        <option value="${type.trailTypeId}">${type.trailType}</option>
+                        <option value="${type.trailTypeId}">${type.name}</option>
                     </c:forEach>
                 </select>
             </div>

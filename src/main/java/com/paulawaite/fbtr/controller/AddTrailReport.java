@@ -12,6 +12,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -29,25 +32,29 @@ public class AddTrailReport extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         TrailReport trailReport = new TrailReport();
-//TODO
-        //trailReport.setTrailByTrail(Integer.parseInt(req.getParameter("trail")));
-      //  trailReport.setDateRidden(req.getParameter("dateRidden"));
-//        trailReport.setGroomingType(Integer.parseInt(req.getParameter
-//               ("grooming")));
+
+        LocalDateTime newDate = LocalDateTime.parse(req.getParameter("date"));
+
+        trailReport.setRideDate(newDate);
+
         trailReport.setConditions(req.getParameter("conditions"));
         trailReport.setComments(req.getParameter("comments"));
-        //trailReport.setUserById(Integer.parseInt(req.getRemoteUser()));
-        log.debug("The user is: " + req.getRemoteUser());
+
+        AbstractDao groomingDao = DaoFactory.createDao(GroomingType.class);
+        List<GroomingType> groomingType = groomingDao.findByProperty("groomingTypeId", Integer.parseInt(req.getParameter("grooming")));
+        trailReport.setGrooming(groomingType.get(0));
+
+        AbstractDao trailDao = DaoFactory.createDao(Trail.class);
+        trailReport.setTrail((Trail) trailDao.get(Integer.parseInt(req.getParameter("trail"))));
+
+        AbstractDao userDao = DaoFactory.createDao(User.class);
+        List<User> users = userDao.findByProperty("userName", req.getRemoteUser());
+        trailReport.setUser(users.get(0));
 
         AbstractDao dao = DaoFactory.createDao(TrailReport.class);
         int id = dao.create(trailReport);
 
-        req.setAttribute("trail report", dao.get(id));
-        log.debug("Sending back the trail ...");
-
-
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/viewTrail" +
-                ".jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/viewReport");
         dispatcher.forward(req, resp);
     }
 

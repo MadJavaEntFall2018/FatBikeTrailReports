@@ -1,5 +1,6 @@
 package com.paulawaite.fbtr.entity;
 
+import com.paulawaite.fbtr.util.TimestampAttributeConverter;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -7,10 +8,13 @@ import lombok.ToString;
 import org.hibernate.annotations.Fetch;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 /**
  * Condition report for the trail
  */
-@EqualsAndHashCode
+@EqualsAndHashCode(exclude = {"createDate", "updateDate"})
 @ToString
 @Entity
 @Table(name="trail_report")
@@ -20,9 +24,15 @@ public class TrailReport {
     @GeneratedValue(strategy=GenerationType.AUTO)
     @Getter @Setter private int trailReportId;
 
-    @Getter @Setter private String rideDate;
-    @Getter @Setter private String createDate;
-    @Getter @Setter private String updateDate;
+    @Convert(converter = TimestampAttributeConverter.class)
+    @Getter @Setter private LocalDateTime rideDate;
+
+    @Convert(converter = TimestampAttributeConverter.class)
+    @Getter @Setter private LocalDateTime createDate;
+
+    @Convert(converter = TimestampAttributeConverter.class)
+    @Getter @Setter private LocalDateTime updateDate;
+
     @Getter @Setter private String conditions;
     @Getter @Setter private String comments;
 

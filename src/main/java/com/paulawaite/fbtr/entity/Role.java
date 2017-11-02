@@ -1,5 +1,6 @@
 package com.paulawaite.fbtr.entity;
 
+import com.paulawaite.fbtr.util.TimestampAttributeConverter;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -7,11 +8,12 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 /**
  * The user's Role.
  */
-@EqualsAndHashCode
+@EqualsAndHashCode(exclude = {"createDate", "updateDate"})
 @ToString
 @Entity
 @Table(name="role")
@@ -23,8 +25,12 @@ public class Role {
     @Getter @Setter private int roleId;
 
     @Getter @Setter private String name;
-    @Getter @Setter private Timestamp updateDate;
-    @Getter @Setter private Timestamp createDate;
+
+    @Convert(converter = TimestampAttributeConverter.class)
+    @Getter @Setter private LocalDateTime updateDate;
+
+    @Convert(converter = TimestampAttributeConverter.class)
+    @Getter @Setter private LocalDateTime createDate;
 
     @ManyToOne
     @JoinColumn(name="userName", referencedColumnName = "username", nullable = false)    // referenceColumnName if not primary key

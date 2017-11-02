@@ -15,4 +15,4 @@ INSERT INTO FBTRTest.difficulty (name) VALUES ('Easy');
 INSERT INTO FBTRTest.trail_type (name) VALUES ('SingleTrack');
 INSERT INTO FBTRTest.grooming_type (name) VALUES ('Ridden In');
 INSERT INTO FBTRTest.grooming_type (name) VALUES ('Snowmobile');
-INSERT INTO FBTRTest.trail (createDate, description, length, lengthUnits, location, name, trailMap, updateDate, website, difficulty, type, user) VALUES (null, null, null, null, null, null, null, null, null, (Select difficultyId from difficulty where name = 'Hard'), (Select trailTypeId from trail_type where name = 'SingleTrack'), (Select userId from user where userName = 'UnitTester0'));
+INSERT INTO FBTRTest.trail (description, length, lengthUnits, location, name, trailMap, website, difficulty, type, user) VALUES ('Big Fat Loop', null, null, null, 'BFL', null, null, (Select difficultyId from difficulty where name = 'Hard'), (Select trailTypeId from trail_type where name = 'SingleTrack'), (Select userId from user where userName = 'UnitTester0'));

@@ -40,6 +40,10 @@
         <error-code>403</error-code>
         <location>/generalError.jsp</location>
     </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/generalError.jsp</location>
+    </error-page>
 
     <welcome-file-list>
         <welcome-file>viewReport</welcome-file>
