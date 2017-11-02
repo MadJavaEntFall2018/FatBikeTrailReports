@@ -2,6 +2,7 @@ package com.paulawaite.fbtr.persistence;
 
 import com.paulawaite.fbtr.entity.Difficulty;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.List;
@@ -14,28 +15,28 @@ import static org.junit.Assert.*;
 public class DifficultyTest {
     AbstractDao dao;
     Difficulty difficulty;
+    DatabaseUtility databaseUtility;
 
     @Before
     public void setUp() {
+        databaseUtility = new DatabaseUtility();
+        databaseUtility.runSQL("cleandb.sql");
+        databaseUtility.runSQL("createTestData.sql");
+
         dao = new AbstractDao(Difficulty.class);
         difficulty = new Difficulty();
-        difficulty.setDifficulty("Pretty Hard");
+        difficulty.setName("Pretty Hard");
+
 
     }
 
     @Test
-    public void testCreate() throws Exception {
+    public void testCreateAndGet() throws Exception {
         int createdId = dao.create(difficulty);
         Difficulty difficultyCreated = (Difficulty)dao.get(createdId);
-        assertTrue(difficulty.getDifficulty().equals(difficultyCreated.getDifficulty()));
+        assertEquals(difficulty, difficultyCreated);
     }
 
-    @Test
-    public void testGet() throws Exception {
-        int createdId = dao.create(difficulty);
-        Difficulty actualDifficulty = (Difficulty)dao.get(createdId);
-        assertNotNull(actualDifficulty);
-    }
 
     @Test
     public void testGetAll() throws Exception {
@@ -47,10 +48,10 @@ public class DifficultyTest {
     public void testUpdate() throws Exception {
         int createdId = dao.create(difficulty);
         difficulty.setDifficultyId(createdId);
-        difficulty.setDifficulty("Easy");
+        difficulty.setName("Easy");
         dao.update(difficulty);
         Difficulty updatedDifficulty = (Difficulty) dao.get(createdId);
-        assertTrue(updatedDifficulty.getDifficulty().equals("Easy"));
+        assertTrue(updatedDifficulty.getName().equals("Easy"));
 
     }
 

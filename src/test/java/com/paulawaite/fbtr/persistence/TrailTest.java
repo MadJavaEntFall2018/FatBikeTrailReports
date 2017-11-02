@@ -28,7 +28,7 @@ public class TrailTest {
     public void testCreate() throws Exception {
         int createdId = dao.create(trail);
         Trail trailCreated = (Trail)dao.get(createdId);
-        assertTrue(trail.getName().equals(trailCreated.getName()));
+        assertEquals(trail, trailCreated);
     }
 
     @Test
@@ -40,8 +40,8 @@ public class TrailTest {
 
     @Test
     public void testGetAll() throws Exception {
-        List<Trail> difficultiesList = dao.getAll();
-        assertTrue(difficultiesList.size() > 0);
+        List<Trail> trailList = dao.getAll();
+        assertTrue(trailList.size() > 0);
     }
 
     @Test

@@ -96,7 +96,7 @@
                        name="difficulty"
                        data-error="Please select trail difficulty." required>
                     <c:forEach var="difficulty" items="${difficulties}">
-                    <option value="${difficulty.id}">${difficulty.name}</option>
+                    <option value="${difficulty.difficultyId}">${difficulty.difficulty}</option>
                         </c:forEach>
                 </select>
             </div>
@@ -110,7 +110,7 @@
                         name="type"
                         data-error="Please select trail type." required>
                     <c:forEach var="type" items="${types}">
-                        <option value="${type.id}">${type.name}</option>
+                        <option value="${type.trailTypeId}">${type.trailType}</option>
                     </c:forEach>
                 </select>
             </div>

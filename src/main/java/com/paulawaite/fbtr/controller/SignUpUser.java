@@ -34,7 +34,7 @@ public class SignUpUser extends HttpServlet {
         log.debug("Adding User: " + user);
         Role role = new Role();
         role.setUser(user);
-        role.setRole("user");
+        role.setName("user");
         user.addRole(role);
 
         AbstractDao dao = DaoFactory.createDao(User.class);

@@ -7,9 +7,11 @@
     <!-- Protect everything within the "user" directory. -->
     <security-constraint>
         <web-resource-collection>
-            <web-resource-name>user</web-resource-name>
-            <url-pattern>/addTrail*</url-pattern>
-            <url-pattern>/addReport*</url-pattern>
+            <web-resource-name>RequiresUserRole</web-resource-name>
+            <url-pattern>/addTrail</url-pattern>
+            <url-pattern>/addReport</url-pattern>
+            <url-pattern>/addReport.jsp</url-pattern>
+            <url-pattern>/addTrail.jsp</url-pattern>
             <url-pattern>/signInConfirmation.jsp</url-pattern>
          </web-resource-collection>
         <auth-constraint>
@@ -25,10 +27,22 @@
     <login-config>
         <auth-method>FORM</auth-method>
         <form-login-config>
-            <form-login-page>/WEB-INF/signIn.jsp</form-login-page>
+            <form-login-page>/signIn.jsp</form-login-page>
             <form-error-page>/signInError.jsp</form-error-page>
         </form-login-config>
     </login-config>
 
+    <error-page>
+        <error-code>404</error-code>
+        <location>/generalError.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>403</error-code>
+        <location>/generalError.jsp</location>
+    </error-page>
+
+    <welcome-file-list>
+        <welcome-file>viewReport</welcome-file>
+    </welcome-file-list>
 
 </web-app>

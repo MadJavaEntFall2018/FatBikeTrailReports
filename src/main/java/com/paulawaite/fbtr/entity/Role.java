@@ -14,6 +14,7 @@ import java.sql.Timestamp;
 @EqualsAndHashCode
 @ToString
 @Entity
+@Table(name="role")
 public class Role {
 
     @Id
@@ -21,7 +22,7 @@ public class Role {
     @Column(name = "roleId", nullable = false)
     @Getter @Setter private int roleId;
 
-    @Getter @Setter private String role;
+    @Getter @Setter private String name;
     @Getter @Setter private Timestamp updateDate;
     @Getter @Setter private Timestamp createDate;
 

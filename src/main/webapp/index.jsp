@@ -27,8 +27,8 @@
           <div class="panel-body">
             Reported by: ${report.user.firstName} &nbsp;
              ${report.user.lastName}<br />
-            Ridden on: ${report.dateRidden}<br />
-            Grooming Type: ${report.groomingType.grooming}<br />
+            Ridden on: ${report.rideDate}<br />
+            Grooming Type: ${report.grooming.grooming}<br />
             Conditions: ${report.conditions}<br />
             Comments: ${report.comments}
           </div>

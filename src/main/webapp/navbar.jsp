@@ -21,16 +21,16 @@
         var PageName = getPageNameFromURL();
 
         switch (PageName) {
-            case 'index.jsp':
+            case 'viewReport':
                 $('#index').addClass("active");
                 break;
             case 'viewTrail':
                 $('#viewTrail').addClass("active");
                 break;
-            case 'addReport.jsp':
+            case 'addReport':
                 $('#addReport').addClass("active");
                 break;
-            case 'addTrail.jsp':
+            case 'addTrail':
                 $('#addTrail').addClass("active");
                 break;
             case 'signInConfirmation.jsp':
@@ -41,6 +41,9 @@
                 break;
             case 'signUp.jsp':
                 $('#signUp').addClass("active");
+                break;
+            default:
+                $('#home').addClass("active");
                 break;
         }
     });
@@ -57,7 +60,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="viewReport">Fat Bike Trail Reports</a>
+            <a class="navbar-brand" href="viewReport" id="home">Fat Bike Trail Reports</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">

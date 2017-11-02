@@ -15,9 +15,10 @@ import java.util.Set;
 /**
  * The User.
  */
-@EqualsAndHashCode(exclude="roles")
-@ToString(exclude = "roles")
+@EqualsAndHashCode(exclude={"roles", "trails", "trailReports"})
+@ToString(exclude={"roles", "trails", "trailReports"})
 @Entity
+@Table(name = "user")
 public class User implements Serializable {
 
     @Id
@@ -36,6 +37,13 @@ public class User implements Serializable {
     // WARNING: only use EAGER if there will only ever be a very low number of "many" records
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     @Getter @Setter private Set<Role> roles = new HashSet<Role>();
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    @Getter @Setter private Set<Trail> trails = new HashSet<Trail>();
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    @Getter @Setter private Set<TrailReport> trailReports = new HashSet<TrailReport>();;
+
 
     /**
      * Add role.

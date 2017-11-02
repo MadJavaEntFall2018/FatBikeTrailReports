@@ -25,7 +25,7 @@ public class UserTest {
         dao = new AbstractDao(User.class);
         databaseUtility = new DatabaseUtility();
         databaseUtility.runSQL("cleandb.sql");
-        databaseUtility.runSQL("createUsersAndRoles.sql");
+        databaseUtility.runSQL("createTestData.sql");
         users = dao.getAll();
     }
 
@@ -54,9 +54,14 @@ public class UserTest {
 
     }
 
+
+    /*Error deleting  User(userId=75, firstName=Unit0, lastName=Test0, email=UserDaoTester@gmail.com02017-11-01, password=supersecret0, createDate=null, updateDate=null, userName=UnitTester0)
+    org.hibernate.HibernateException: Illegal attempt to associate a collection with two open sessions. Collection : [com.paulawaite.fbtr.entity.User.roles#User(userId=0, firstName=null, lastName=null, email=null, password=null, createDate=null, updateDate=null, userName=UnitTester0)]
+    Collection contents: [[Role(roleId=68, role=user, updateDate=null, createDate=null, user
+    */
+
     @Ignore
     @Test
-    //TODO resolve the 2 session collection issue
     public void testDeleteUser() throws Exception {
         int sizeBeforeDelete = users.size();
         User userToDelete = users.get(0);
@@ -85,7 +90,7 @@ public class UserTest {
         user.setPassword("supersecret");
 
         Role role = new Role();
-        role.setRole("admin");
+        role.setName("admin");
         role.setUser(user);
 
         user.addRole(role);

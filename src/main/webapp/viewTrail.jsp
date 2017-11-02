@@ -23,12 +23,10 @@
                     <h3 class="panel-title">${trail.name}</h3>
                 </div>
                 <div class="panel-body">
-                    ${trail.address}<br />
-                    ${trail.city}, ${trail.state}<br />
                     ${trail.description}<br />
                     ${trail.length} ${trail.lengthUnits}<br /><br />
-                    ${trail.type}<br />
-                    ${trail.difficulty}<br />
+                    ${trail.type.name}<br />
+                    ${trail.difficulty.name}<br />
                     ${trail.trailMap}<br />
                     ${trail.website}<br />
                 </div>

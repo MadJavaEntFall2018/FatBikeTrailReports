@@ -14,13 +14,14 @@ import javax.persistence.*;
 @EqualsAndHashCode
 @ToString
 @Entity
+@Table(name = "trail_type")
 public class TrailType {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     @Getter @Setter private int trailTypeId;
 
-    @Getter @Setter private String trailType;
+    @Getter @Setter private String name;
 
 
 }

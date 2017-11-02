@@ -27,7 +27,7 @@
                             data-error="Please select trail name." required>
                         <c:forEach var="trail" items="${trails}">
                             <option
-                                    value="${trail.id}">${trail.name}</option>
+                                    value="${trail.trailId}">${trail.name}</option>
                         </c:forEach>
                     </select>
                 </div>
@@ -53,8 +53,8 @@
                             data-error="Please select grooming type." required>
                         <c:forEach var="groomingType" items="${groomingTypes}">
                             <option
-                                    value="${groomingType.id}">
-                                    ${groomingType.grooming}</option>
+                                    value="${groomingType.groomingTypeId}">
+                                    ${groomingType.name}</option>
                         </c:forEach>
                     </select>
                 </div>

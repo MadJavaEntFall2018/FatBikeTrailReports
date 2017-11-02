@@ -3,6 +3,7 @@ package com.paulawaite.fbtr.controller;
 import com.paulawaite.fbtr.entity.Difficulty;
 import com.paulawaite.fbtr.entity.Trail;
 import com.paulawaite.fbtr.entity.TrailType;
+import com.paulawaite.fbtr.entity.User;
 import com.paulawaite.fbtr.persistence.AbstractDao;
 import com.paulawaite.fbtr.util.DaoFactory;
 import org.apache.log4j.Logger;
@@ -36,17 +37,21 @@ public class AddTrail extends HttpServlet {
         trail.setName(req.getParameter("name"));
         trail.setLength(BigDecimal.valueOf(
                 Double.parseDouble(req.getParameter("length"))));
-        //TODO
-        //trail.setDifficultyByDifficulty(Integer.parseInt(req.getParameter
-        //        ("difficulty")));
-        //trail(Integer.parseInt(req.getParameter("type")));
         trail.setLengthUnits(req.getParameter("units"));
         trail.setDescription(req.getParameter("description"));
         trail.setTrailMap(req.getParameter("trailMap"));
         trail.setWebsite(req.getParameter("website"));
 
 
-        // TODO get user by id trail.setUser(req.getRemoteUser());
+        AbstractDao difficultyDao = DaoFactory.createDao(Difficulty.class);
+        Difficulty difficulty = (Difficulty) difficultyDao.findByProperty("difficultyId", Integer.parseInt(req.getParameter("difficulty")));
+
+        AbstractDao typeDao = DaoFactory.createDao(TrailType.class);
+        trail.setType((TrailType) typeDao.findByProperty("trailTypeId", Integer.parseInt(req.getParameter("type"))));
+
+        AbstractDao userDao = DaoFactory.createDao(User.class);
+        trail.setUser((User) userDao.findByProperty("userName", req.getRemoteUser()));
+
         AbstractDao dao = DaoFactory.createDao(Trail.class);
         int id = dao.create(trail);
 
