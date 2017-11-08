@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,8 +34,9 @@ public class AddTrailReport extends HttpServlet {
             throws ServletException, IOException {
         TrailReport trailReport = new TrailReport();
 
-        LocalDateTime newDate = LocalDateTime.parse(req.getParameter("date"));
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/d/yyyy");
 
+        LocalDate newDate = LocalDate.parse(req.getParameter("date"), formatter);
         trailReport.setRideDate(newDate);
 
         trailReport.setConditions(req.getParameter("conditions"));

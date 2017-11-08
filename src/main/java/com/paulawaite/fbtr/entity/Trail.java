@@ -5,6 +5,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -27,7 +28,6 @@ public class Trail {
     @Getter @Setter private int trailId;
 
     @Getter @Setter private String name;
-    @Getter @Setter private Integer location;
     @Getter @Setter private BigDecimal length;
     @Getter @Setter private String lengthUnits;
     @Getter @Setter private String description;
@@ -43,6 +43,10 @@ public class Trail {
     @ManyToOne
     @JoinColumn(name = "difficulty")
     @Getter @Setter private Difficulty difficulty;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "location")
+    @Getter @Setter private Location location;
 
     @OneToMany(mappedBy = "trail", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @Getter @Setter private Set<TrailReport> reports = new HashSet<TrailReport>() ;

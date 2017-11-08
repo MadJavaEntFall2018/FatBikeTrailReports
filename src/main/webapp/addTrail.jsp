@@ -48,7 +48,7 @@
             <div class="help-block with-errors"></div>
         </div>
         <div class="form-group">
-            <label class="control-label col-sm-2" for="state">State</label>
+            <label class="control-label col-sm-2" for="state">State/Province</label>
             <div class="col-sm-4">
                 <input type="text" class="form-control" id="state"
                        name="state"
@@ -57,11 +57,29 @@
             <div class="help-block with-errors"></div>
         </div>
         <div class="form-group">
-            <label class="control-label col-sm-2" for="zip">Zip Code</label>
+            <label class="control-label col-sm-2" for="postalCode">Postal Code</label>
             <div class="col-sm-4">
-                <input type="text" class="form-control" id="zip"
-                       name="zip"
-                       data-error="Please enter trail zip code." required>
+                <input type="text" class="form-control" id="postalCode"
+                       name="postalCode"
+                       data-error="Please enter trail postal code." required>
+            </div>
+            <div class="help-block with-errors"></div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="latitude">Latitude</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="latitude"
+                       name="latitude"
+                       data-error="Please enter the trailhead latitude.">
+            </div>
+            <div class="help-block with-errors"></div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="longitude">Longitude</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="longitude"
+                       name="longitude"
+                       data-error="Please enter the trailhead longitude." >
             </div>
             <div class="help-block with-errors"></div>
         </div>

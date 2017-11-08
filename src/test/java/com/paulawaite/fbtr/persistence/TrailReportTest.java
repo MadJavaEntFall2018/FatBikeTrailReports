@@ -54,10 +54,10 @@ public class TrailReportTest {
         trailReport.setTrail(trail);
 
         trailReport.setUser(((User)userDao.getAll().get(0)));
-        reports.add(trailReport);
-        trail.setReports(reports);
+        //reports.add(trailReport);
+        //trail.setReports(reports);
 
-        trailDao.update(trail);
+        //trailDao.update(trail);
         int id = dao.create(trailReport);
         trailReport = (TrailReport)dao.get(id);
 

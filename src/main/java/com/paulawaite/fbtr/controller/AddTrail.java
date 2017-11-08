@@ -1,9 +1,6 @@
 package com.paulawaite.fbtr.controller;
 
-import com.paulawaite.fbtr.entity.Difficulty;
-import com.paulawaite.fbtr.entity.Trail;
-import com.paulawaite.fbtr.entity.TrailType;
-import com.paulawaite.fbtr.entity.User;
+import com.paulawaite.fbtr.entity.*;
 import com.paulawaite.fbtr.persistence.AbstractDao;
 import com.paulawaite.fbtr.util.DaoFactory;
 import org.apache.log4j.Logger;
@@ -17,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -33,6 +31,7 @@ public class AddTrail extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
+
         Trail trail = new Trail();
         trail.setName(req.getParameter("name"));
         trail.setLength(BigDecimal.valueOf(
@@ -42,16 +41,29 @@ public class AddTrail extends HttpServlet {
         trail.setTrailMap(req.getParameter("trailMap"));
         trail.setWebsite(req.getParameter("website"));
 
+        Location location = new Location();
+        location.setAddress1(req.getParameter("address"));
+        location.setCity(req.getParameter("city"));
+        location.setState(req.getParameter("state"));
+        location.setPostalcode(req.getParameter("postalCode"));
+        location.setLat(req.getParameter("latitude"));
+        location.setLon(req.getParameter("longitude"));
+
+        //AbstractDao locationDao = DaoFactory.createDao(Location.class);
+        //locationDao.create(location);
+        trail.setLocation(location);
 
         AbstractDao difficultyDao = DaoFactory.createDao(Difficulty.class);
-        Difficulty difficulty = (Difficulty) difficultyDao.findByProperty("difficultyId", Integer.parseInt(req.getParameter("difficulty")));
+        Difficulty difficulty = (Difficulty) difficultyDao.get(Integer.parseInt(req.getParameter("difficulty")));
         trail.setDifficulty(difficulty);
 
         AbstractDao typeDao = DaoFactory.createDao(TrailType.class);
-        trail.setType((TrailType) typeDao.findByProperty("trailTypeId", Integer.parseInt(req.getParameter("type"))));
+        TrailType type = (TrailType) typeDao.get(Integer.parseInt(req.getParameter("type")));
+        trail.setType(type);
 
         AbstractDao userDao = DaoFactory.createDao(User.class);
-        trail.setUser((User) userDao.findByProperty("userName", req.getRemoteUser()));
+        User user = (User) userDao.findByProperty("userName", req.getRemoteUser()).get(0);
+        trail.setUser(user);
 
         AbstractDao dao = DaoFactory.createDao(Trail.class);
         int id = dao.create(trail);
@@ -60,8 +72,7 @@ public class AddTrail extends HttpServlet {
         log.debug("Getting the trail...");
 
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/viewTrail" +
-                ".jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/viewTrails");
         dispatcher.forward(req, resp);
     }
 

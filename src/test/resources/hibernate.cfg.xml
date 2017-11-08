@@ -22,6 +22,7 @@
         <mapping class="com.paulawaite.fbtr.entity.TrailReport"/>
         <mapping class="com.paulawaite.fbtr.entity.TrailType"/>
         <mapping class="com.paulawaite.fbtr.entity.User"/>
+        <mapping class="com.paulawaite.fbtr.entity.Location"/>
 
 
 

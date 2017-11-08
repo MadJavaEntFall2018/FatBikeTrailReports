@@ -1,5 +1,6 @@
 package com.paulawaite.fbtr.entity;
 
+import com.paulawaite.fbtr.util.LocalDateAttributeConverter;
 import com.paulawaite.fbtr.util.TimestampAttributeConverter;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -24,8 +25,8 @@ public class TrailReport {
     @GeneratedValue(strategy=GenerationType.AUTO)
     @Getter @Setter private int trailReportId;
 
-    @Convert(converter = TimestampAttributeConverter.class)
-    @Getter @Setter private LocalDateTime rideDate;
+    @Convert(converter = LocalDateAttributeConverter.class)
+    @Getter @Setter private LocalDate rideDate;
 
     @Convert(converter = TimestampAttributeConverter.class)
     @Getter @Setter private LocalDateTime createDate;

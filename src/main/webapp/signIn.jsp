@@ -18,7 +18,7 @@
                 <div class="col-sm-4">
                     <input type="text" class="form-control" id="j_username"
                    name="j_username"
-                   data-error="Please enter your username (email address)."
+                   data-error="Please enter your username."
                    required>
                 </div>
             <div class="help-block with-errors"></div>

@@ -29,6 +29,9 @@
                     ${trail.difficulty.name}<br />
                     ${trail.trailMap}<br />
                     ${trail.website}<br />
+                    ${trail.location.address1}<br />
+                    ${trail.location.city}, ${trail.location.state} ${trail.location.postalcode}<br />
+                    ${trail.location.lat}, ${trail.location.lon}
                 </div>
             </div>
         </div>
