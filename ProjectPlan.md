@@ -37,12 +37,12 @@ more detail.
 - [X] Add user login  
 - [X] Add user registration
 - [X] Weekly journal entry
-- [ ] Add Maven for building
+- [X] Add Maven for building
 - [X] Add entities for remaining tables
 
 ### Week 5
 
-- [ ] Weekly journal entry
+- [X] Weekly journal entry
 - [X] Create DAO for trails
 - [X] Create DAO for trail report
 - [X] Create display trail report functionality
@@ -50,11 +50,11 @@ more detail.
 - [X] Add tests for new functionality
 
 ### Week 6
-- [ ] Weekly journal entry
+- [X] Weekly journal entry
 - [ ] Integration with google maps api
-- [ ] Create add trail report functionality
+- [X] Create add trail report functionality
 - [X] Create add trail functionality
-- [ ] Set up Continuous Integration on openshift
+- [ ] Set up Continuous Integration on aws
 
 ### Week 7
 - [X] Weekly journal entry

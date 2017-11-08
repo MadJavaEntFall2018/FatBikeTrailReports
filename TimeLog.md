@@ -25,4 +25,6 @@
 | 4/24/16|Added abstract Dao and unit test for abstract dao (difficulty) | 1 | |
 | 4/25/16|Added type and difficulty dropdowns. Saving from jsp to trail table.| 2| |
 | 5/6/16|Refactoring and updating unit tests | 3  | |
-| 5/9/16| |   | |
+| 10/23/17| (Week of) Added maven, lombok, revamped the db, added in additional unit tests, and added more methods to the generic dao to allow for queries with properties|8||
+| 10/30/17| (Week of) Adding additional functionality to the add trail (difficulty, grooming, user). More refactoring on the db. More unit testing. Added  more lombok methods into the rest of the entities |4||
+| 11/6/17| (Week of) Added location table, entity, display on trail, create when adding trail. Spent way too much time looking at templates and materialize. Updated readme and timelog|4||

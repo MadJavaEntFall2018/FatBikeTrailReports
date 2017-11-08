@@ -1,6 +1,6 @@
 # Paula Waite Individual Project
 
-This repository will serve as an example for the Spring 2016 Enterprise Java Class. 
+This repository will serve as an example for Madison College's Enterprise Java Class. 
 
 ### Problem Statement
 
@@ -19,23 +19,31 @@ Screenshots from SkinnySki.com:
 
 * Security/Authentication
   * Admin role: create/read/update/delete (crud) of all data
-  * User role: submit trail reports
+  * User role: create trail, create trail report, edit data they have entered previously
   * All: anyone can view trail information (no login)
 * Database (MySQL and Hibernate)
   * Store users and roles
-  * Store trail information
+  * Store all data for the trails and reports
+* ORM Framework
+  * Hibernate
 * Web Services or APIs
   * Google Maps for trail locations
-  * Weather for weather conditions at a trail location
-* Bootstrap
+  * Weather for weather conditions at a trail location, including snow depth?
+* CSS 
+  * Bootstrap or Materialize
+* Data Validation
+  * Bootstrap Validator for front end
 * Logging
   * Configurable logging using Log4J. In production, only errors will normally be logged, but logging at a debug level can be turned on to facilitate trouble-shooting. 
-* Site and database hosted on OpenShift
-* Jenkins for Continuous Integration
+* Hosting
+  * AWS
+* Independent Research Topic/s
+  * Jenkins for Continuous Integration, or whatever AWS offers
+  * Materialize or Bootstrap
+* Project Lombok to eliminate boilerplate code like getters/setters/equals
 * Unit Testing
   * JUnit tests to achieve 80% code coverage
-* Independent Research Topic
-  * Bootstrap Validator
+
 
 ### Design
 
