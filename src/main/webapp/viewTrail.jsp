@@ -23,15 +23,14 @@
                     <h3 class="panel-title">${trail.name}</h3>
                 </div>
                 <div class="panel-body">
-                    ${trail.description}<br />
-                    ${trail.length} ${trail.lengthUnits}<br /><br />
-                    ${trail.type.name}<br />
-                    ${trail.difficulty.name}<br />
-                    ${trail.trailMap}<br />
-                    ${trail.website}<br />
-                    ${trail.location.address1}<br />
-                    ${trail.location.city}, ${trail.location.state} ${trail.location.postalcode}<br />
-                    ${trail.location.lat}, ${trail.location.lon}
+                    Description: ${trail.description}<br />
+                    Length: ${trail.length} ${trail.lengthUnits}<br /><br />
+                    Type: ${trail.type.name}<br />
+                    Difficulty: ${trail.difficulty.name}<br />
+                    Trail Map: <a href = "${trail.trailMap}" target = "new">View Map</a> <br />
+                    Trail Website: <a href = "${trail.website}" target = "new">View Website</a> <br />
+                    Trail Address: ${trail.location.address1}, ${trail.location.city}, ${trail.location.state} ${trail.location.postalcode}<br />
+                    Trail GPS Coordinates: ${trail.location.lat}, ${trail.location.lon}
                 </div>
             </div>
         </div>

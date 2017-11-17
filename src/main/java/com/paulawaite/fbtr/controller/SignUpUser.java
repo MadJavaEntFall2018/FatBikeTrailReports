@@ -10,6 +10,7 @@ import java.io.IOException;
 import com.paulawaite.fbtr.entity.*;
 import com.paulawaite.fbtr.persistence.AbstractDao;
 import com.paulawaite.fbtr.util.DaoFactory;
+import com.paulawaite.fbtr.util.VerifyRecaptcha;
 import org.apache.log4j.Logger;
 
 /**
@@ -37,8 +38,18 @@ public class SignUpUser extends HttpServlet {
         role.setName("user");
         user.addRole(role);
 
-        AbstractDao dao = DaoFactory.createDao(User.class);
-        dao.create(user);
+        String gRecaptchaResponse = req.getParameter("g-recaptcha-response");
+        System.out.println(gRecaptchaResponse);
+        boolean isVerified = VerifyRecaptcha.verify(gRecaptchaResponse);
+
+        if (isVerified) {
+            // TODO check if user is already in the database
+            AbstractDao dao = DaoFactory.createDao(User.class);
+            dao.create(user);
+        } else {
+            req.setAttribute("errorMessage", "Failed Captcha - Please try again");
+            log.info("Failed Captcha");
+        }
         RequestDispatcher dispatcher = req.getRequestDispatcher("/signInConfirmation" +
                 ".jsp");
         dispatcher.forward(req, resp);

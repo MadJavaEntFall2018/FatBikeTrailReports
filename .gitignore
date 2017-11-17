@@ -35,6 +35,8 @@
 # IntelliJ
 /out/
 /target/
+/src/main/filters/*
+*.log
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/

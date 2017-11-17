@@ -83,7 +83,8 @@
                 data-disable="true">Submit
         </button>
         <button type="reset" class="btn btn-default">Clear</button>
-
+        <!--for google recaptcha-->
+        <div class="g-recaptcha" data-sitekey="6LewtTgUAAAAADuEbgusz9FbghpuXq-gBm6rLPS9"></div>
     </form>
 </div>
 </body>

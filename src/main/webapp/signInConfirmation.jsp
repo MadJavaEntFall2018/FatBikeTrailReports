@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: paulawaite
@@ -13,10 +14,24 @@
 
     <div class="container theme-showcase" role="main">
 
+    <c:choose>
+        <c:when test = "${errorMessage == ''}">
+            <div class="alert alert-success" role="alert">
+                <strong>New User Registration -- Success</strong> Time to add a new trail or report!
+            </div>
+        </c:when>
+        <c:otherwise>
+            <div class="alert alert-danger" role="alert">
+                <strong>New User Registration -- Failed</strong>$<br />
+                {errorMessage}<br /><br />
+                <a href="signUp.jsp"><button type="button" class="btn btn-primary">
+                    Retry</button></a>
+                <a href="viewTrails"><button type="button" class="btn btn-default">Cancel
 
-        <div class="alert alert-success" role="alert">
-            <strong>Login Success</strong> Time to add a new trail or report!
-        </div>
+            </div>
+        </c:otherwise>
+        </c:choose>
+
 
 
     </div>
