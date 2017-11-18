@@ -50,7 +50,7 @@ public class SignUpUser extends HttpServlet {
             req.setAttribute("errorMessage", "Failed Captcha - Please try again");
             log.info("Failed Captcha");
         }
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/signInConfirmation" +
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/signUpConfirmation" +
                 ".jsp");
         dispatcher.forward(req, resp);
     }

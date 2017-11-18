@@ -17,12 +17,12 @@
     <c:choose>
         <c:when test = "${errorMessage == null}">
             <div class="alert alert-success" role="alert">
-                <strong>You are signed in</strong> Time to add a new trail or report!
+                <strong>New User Registration -- Success</strong> Time to add a new trail or report!
             </div>
         </c:when>
         <c:otherwise>
             <div class="alert alert-danger" role="alert">
-                <strong>Login -- Failed</strong>$<br />
+                <strong>New User Registration -- Failed</strong>$<br />
                 {errorMessage}<br /><br />
                 <a href="signUp.jsp"><button type="button" class="btn btn-primary">
                     Retry</button></a>
