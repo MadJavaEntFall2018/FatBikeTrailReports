@@ -30,3 +30,4 @@
 | 11/6/17| (Week of) Added location table, entity, display on trail, create when adding trail. Spent way too much time looking at templates and materialize. Updated readme and timelog|4||
 |11/9/17|Searched for a service and finally sent off a request to find out if there is a service currently available for snow depth. The data is here: http://www.nohrsc.noaa.gov/nearest/index.html?city=Hayward%2C+wi. Previous semester student built a scraper for this, but it feels like this should be accessible via an already built service
 Received a "no" response, but continued digging and I think this may provide what's needed: https://www.ncdc.noaa.gov/cdo-web/webservices/v2#stations. Requested an api key|2||
+|11/16/17|Added google captcha and parameterized values for local versus aws db (user, connection, password) so that these are configured using maven at build time |6|
