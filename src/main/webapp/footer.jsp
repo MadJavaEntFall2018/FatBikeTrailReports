@@ -18,6 +18,6 @@
             theYear=theYear+1900
         document.write(theYear)
     </script>
-        180 Adventure, LLC. All rights reserved.
+        Paula Waite. All rights reserved.
     </div>
 </div>
