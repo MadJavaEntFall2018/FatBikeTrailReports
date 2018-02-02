@@ -1,66 +1,84 @@
 # Project Plan
 
-### Week 1
-- [X] Create project repository on GitHub
-- [X] Complete Problem Statement
-- [X] Determine possible Web Services or APIs to use
-- [X] List technologies and how they will be used
-- [X] Weekly journal entry
-- [X] Begin project plan
-
-### Week 2
-- [X] Document application flow - wireframes have clickable links in the online version.
-- [X] Complete screen design (on paper)
-- [X] Create project structure in IntelliJ
-- [X] Add project to repository
-- [X] Deploy application to Openshift
-- [X] Complete database design
-- [X] Begin creating JSPs
-- [X] Weekly journal entry
-- [X] Complete project plan. Based on the design should be able to lay out 
-more detail.
-
 ### Week 3
-- [X] Complete remaining JSPs
-- [X] Add in bootstrap
-- [X] Create database and all tables/columns locally
-- [X] Weekly journal entry
-- [X] Determine independent research topic
-- [X] Create class diagram
-- [X] Set up logging
-- [X] Set up unit testing
+- [ ] Create project repository on GitHub
+- [ ] Create project structure in intellij and push
+- [ ] Add link to list of indie projects in student repo.
+- [ ] Complete Problem Statement
+- [ ] Determine possible Web Services or APIs to use
+- [ ] List technologies, versions and how they will be used
+- [ ] Weekly journal entry
+- [ ] Write project plan
+- [ ] Document application flow in text and pictures - I'll use wireframes that have clickable links for the screen design. Use Balsamiq? 
+- [ ] Triple-check for Checkpoint 1: Problem statement, project plan, screen design and time log pushed to GitHub. 
 
 ### Week 4
-- [X] Add Hibernate config
-- [X] Create DAO for user crud
-- [X] Add unit tests for DAO
-- [X] Add user login  
-- [X] Add user registration
-- [X] Weekly journal entry
-- [X] Add Maven for building
-- [X] Add entities for remaining tables
+- [ ] Complete database design
+- [ ] Create the database and user table
+- [ ] Create the user entity class and annotate for hibernate
+- [ ] Create user dao
+- [ ] Create the test database
+- [ ] Create user dao unit tests
+- [ ] Weekly journal entry
+- [ ] Set up logging
+- [ ] Create class uml diagram
+- [ ] Prepare for Week 5 peer design/code review
+
 
 ### Week 5
 
-- [X] Weekly journal entry
-- [X] Create DAO for trails
-- [X] Create DAO for trail report
-- [X] Create display trail report functionality
-- [X] Create display trail functionality
-- [X] Add tests for new functionality
+- [ ] Create the template for all jsps using bootstrap or materialize
+- [ ] Weekly journal entry
+- [ ] Add the role table
+- [ ] Add the role entity
+- [ ] Create the role dao
+- [ ] Create the role dao unit tests
+- [ ] Add a jsp to display user and role
+- [ ] Add jsp to add a user
 
 ### Week 6
-- [X] Weekly journal entry
-- [ ] Integration with google maps api
-- [X] Create add trail report functionality
-- [X] Create add trail functionality
-- [ ] Set up Continuous Integration on aws
+
+- [ ] Create db on AWS
+- [ ] Deploy to AWS for first time
+- [ ] Weekly journal entry
+- [ ] Create trail table
+- [ ] Add the trail entity (test, dev and prod dbs)
+- [ ] Realize that these daos are repetitive. Refactor into a generic dao!
+- [ ] Add update and delete functionality in jsp for user and role
+- [ ] Build the trail search jsp
+- [ ] Build the trail add/update/delete jsp
+- [ ] Prepare for Checkpoint 2: Database designed and created, at least one DAO implemented with Hibernate, DAO is unit tested, Log4J is implemented (no System.out.printlns), class design and any other diagrams you plan to use have been created. 
+
 
 ### Week 7
-- [X] Weekly journal entry
-- [ ] Add search functionality
-- [ ] Determine how to add paging of search results
+
+- [ ] Weekly journal entry
+- [ ] Set up authentication locally
+- [ ] Set up authentication on AWS
+- [ ] Add the Trail Type and Grooming Tables, populate with data, (test, dev and prod dbs)
+- [ ] Create the Trail Type and Grooming entities
+- [ ] Update Trail and Trail report to use trail type and grooming
+- [ ] Update Trail and Trail report tests to be sure they work with the new relationships
+- [ ] Review and incorporate any feedback from Checkpoint 2.
+
+
+### Week 8
+
+- [ ] Weekly journal entry
+- [ ] Integration with google maps api
+- [ ] Create trail report table (test, dev and prod dbs)
+- [ ] Add the trail report entity
+- [ ] Create the trail report dao
+- [ ] Create the trail report dao unit tests
+- [ ] Build the trail report search jsp
+- [ ] Build the trail report crud jsps
+- [ ] Prepare for Checkpoint 3: Deployed to AWS, at least one JSP that displays data from the database is implemented. 
+
+### Week 9
+- [ ] Weekly journal entry
 - [ ] Integration with weather service and/or snow depth data
+- [ ] Review and incorporate feedback from Checkpoint 3.
+- [ ] Carefully review code for standards and best practices - use a code quality tool? 
 
 ### Week 8
 - [ ] Weekly journal entry
@@ -68,22 +86,25 @@ more detail.
 - [ ] Code review
 
 ### Week 9
-- [X] Weekly journal entry
-- [X] Create databse on openshift
-- [X] Set up authentication and db access in app on openshift
-- [ ] Add password reset/reminder function
+- [ ] Weekly journal entry
+- [ ] Add password reset/reminder functionality
 
 ### Week 10
-- [X] Weekly journal entry
+- [ ] Weekly journal entry
+- [ ] Unit test all api integrations
 
-### Week 11
-- [X] Weekly journal entry
-
-### Week 12
+### Week 11 - Team project work week
 - [ ] Weekly journal entry
 
+### Week 12 - Team project due
+- [ ] Weekly journal entry
+- [ ] Review indie project and create list of todos
+
 ### Week 13
-- [X] Weekly journal entry
+- [ ] Weekly journal entry
+- [ ] Complete todos identified in week 12
+- [ ] Prepare for week 13 peer code reviews
+- [ ] Code quality check
 
 ### Week 14
 - [ ] Weekly journal entry
@@ -91,10 +112,13 @@ more detail.
 
 ### Week 15
 - [ ] Final Presentation
-- [ ] Weekly journal entry
+- [ ] Create video
+- [ ] Finalize all documentation
+- [ ] Code quality check
 
 ### Week 16
 - [ ] Weekly journal entry
+- [ ] Final touches before code complete
 
 
 
