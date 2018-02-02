@@ -105,6 +105,7 @@
 - [ ] Complete todos identified in week 12
 - [ ] Prepare for week 13 peer code reviews
 - [ ] Code quality check
+- [ ] Review rubric to make sure I'm on target
 
 ### Week 14
 - [ ] Weekly journal entry
