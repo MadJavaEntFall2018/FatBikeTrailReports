@@ -83,6 +83,7 @@
 
 </dependencies>
     <!-- profiles based on this article:
+
     https://examples.javacodegeeks.com/enterprise-java/spring/loading-environment-specific-configurations-properties-spring-using-maven-profiles-xml-settings-file-example/-->
     <!-- to use a given profile: install -P local-->
     <!--https://portofino.manydesigns.com/en/docs/portofino3/tutorials/using-maven-profiles-and-resource-filtering-->
@@ -91,13 +92,13 @@
     <profile>
         <id>local</id>
         <properties>
-            <build.profile.id>local</build.profile.id>
+            <profile.name>local</profile.name>
         </properties>
     </profile>
     <profile>
         <id>aws</id>
         <properties>
-            <build.profile.id>aws</build.profile.id>
+            <profile.name>aws</profile.name>
         </properties>
     </profile>
 </profiles>
@@ -154,7 +155,7 @@
     </plugins>
 
     <filters>
-        <filter>src/main/filters/${build.profile.id}.properties</filter>
+        <filter>profiles/${profile.name}.properties</filter>
     </filters>
     <resources>
         <resource>
