@@ -16,7 +16,7 @@
     <form id="addTrailForm" role="form" data-toggle="validator"
           class="form-horizontal"
           action="addTrail"
-          method="post">
+          method="POST">
 
         <div class="form-group">
             <label class="control-label col-sm-2" for="name">Trail Name</label>
@@ -114,7 +114,7 @@
                        name="difficulty"
                        data-error="Please select trail difficulty." required>
                     <c:forEach var="difficulty" items="${difficulties}">
-                    <option value="${difficulty.difficultyId}">${difficulty.name}</option>
+                    <option value="${difficulty.id}">${difficulty.name}</option>
                         </c:forEach>
                 </select>
             </div>
@@ -128,7 +128,7 @@
                         name="type"
                         data-error="Please select trail type." required>
                     <c:forEach var="type" items="${types}">
-                        <option value="${type.trailTypeId}">${type.name}</option>
+                        <option value="${type.id}">${type.name}</option>
                     </c:forEach>
                 </select>
             </div>

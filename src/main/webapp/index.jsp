@@ -10,6 +10,13 @@
 <html>
   <jsp:include page="head.jsp" />
 
+  <!-- used for the sorting/paging on the table -->
+  <script type="text/javascript" class="init">
+      $(document).ready( function () {
+          $('#trailReportsTable').DataTable();
+      } );
+  </script>
+
   <body role="document">
   <jsp:include page="navbar.jsp" />
   <div class="container theme-showcase" role="main">
@@ -17,23 +24,38 @@
       <h1>Reports</h1>
     </div>
 
-    <c:forEach items="${trailReports}" var="report">
-    <div class="col-sm-7">
-      <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">${report.trail.name} - Posted
-            ${report.createDate} </h3>
-          </div>
-          <div class="panel-body">
-            Reported by: ${report.user.firstName} &nbsp;
-             ${report.user.lastName}<br />
-            Ridden on: ${report.rideDate}<br />
-            Grooming Type: ${report.grooming.name}<br />
-            Conditions: ${report.conditions}<br />
-            Comments: ${report.comments}
-          </div>
+      <div class="container-fluid">
+        <h2>Trail Reports </h2>
+        <table id="trailReportsTable" class="display" cellspacing="0" width="100%">
+          <thead>
+          <th>Trail</th>
+          <th>Posted On</th>
+          <th>Reported By</th>
+          <th>Ride Date</th>
+          <th>Grooming</th>
+          <th>Conditions</th>
+          <th>Comments</th>
+
+          </thead>
+          <tbody>
+          <c:forEach var="report" items="${trailReports}">
+            <tr>
+              <td>${report.trail.name} </td>
+              <td>${report.createDate}</td>
+              <td>${report.user.firstName} &nbsp; ${report.user.lastName}</td>
+              <td>${report.rideDate}</td>
+              <td>${report.grooming.name}</td>
+              <td>${report.conditions}</td>
+              <td>${report.comments}</td>
+            </tr>
+
+
+          </c:forEach>
+          </tbody>
+        </table>
       </div>
-    </div>
+
+
 
   </c:forEach>
 

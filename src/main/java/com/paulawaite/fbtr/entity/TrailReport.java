@@ -3,7 +3,9 @@ package com.paulawaite.fbtr.entity;
 import com.paulawaite.fbtr.util.LocalDateAttributeConverter;
 import com.paulawaite.fbtr.util.TimestampAttributeConverter;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -23,10 +25,12 @@ public class TrailReport {
     @Convert(converter = LocalDateAttributeConverter.class)
     private LocalDate rideDate;
 
+    @CreationTimestamp
     @Convert(converter = TimestampAttributeConverter.class)
     @EqualsAndHashCode.Exclude
     private LocalDateTime createDate;
 
+    @UpdateTimestamp
     @Convert(converter = TimestampAttributeConverter.class)
     @EqualsAndHashCode.Exclude
     private LocalDateTime updateDate;

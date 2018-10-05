@@ -3,6 +3,8 @@ package com.paulawaite.fbtr.entity;
 import com.paulawaite.fbtr.util.TimestampAttributeConverter;
 import lombok.*;
 import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -29,10 +31,12 @@ public class Trail {
     private String website;
     private String trailMap;
 
+    @CreationTimestamp
     @Convert(converter = TimestampAttributeConverter.class)
     @EqualsAndHashCode.Exclude
     private LocalDateTime createDate;
 
+    @UpdateTimestamp
     @Convert(converter = TimestampAttributeConverter.class)
     @EqualsAndHashCode.Exclude
     private LocalDateTime updateDate;

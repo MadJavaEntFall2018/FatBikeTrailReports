@@ -42,9 +42,8 @@ public class AddTrailReport extends HttpServlet {
         trailReport.setComments(req.getParameter("comments"));
 
         GenericDao groomingDao = DaoFactory.createDao(GroomingType.class);
-        List<GroomingType> groomingType = groomingDao.findByPropertyEqual("groomingTypeId", Integer.parseInt(req.getParameter("grooming")));
-        trailReport.setGrooming(groomingType.get(0));
-
+        GroomingType groomingType = (GroomingType) groomingDao.getById(Integer.parseInt(req.getParameter("grooming")));
+        trailReport.setGrooming(groomingType);
         GenericDao trailDao = DaoFactory.createDao(Trail.class);
         trailReport.setTrail((Trail) trailDao.getById(Integer.parseInt(req.getParameter("trail"))));
 
