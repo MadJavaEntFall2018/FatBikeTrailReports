@@ -2,6 +2,7 @@ package com.paulawaite.fbtr.persistence;
 
 import com.paulawaite.fbtr.entity.Role;
 import com.paulawaite.fbtr.entity.User;
+import com.paulawaite.fbtr.test.util.DatabaseUtility;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -16,13 +17,27 @@ import static org.junit.Assert.*;
  */
 public class UserTest {
 
-    AbstractDao dao;
+    /**
+     * The Dao.
+     */
+    GenericDao dao;
+    /**
+     * The Database utility.
+     */
     DatabaseUtility databaseUtility;
+    /**
+     * The Users.
+     */
     List<User> users;
 
+    /**
+     * Sets up.
+     *
+     * @throws Exception the exception
+     */
     @Before
     public void setUp() throws Exception {
-        dao = new AbstractDao(User.class);
+        dao = new GenericDao(User.class);
         databaseUtility = new DatabaseUtility();
         databaseUtility.runSQL("cleandb.sql");
         databaseUtility.runSQL("createTestData.sql");
@@ -30,46 +45,54 @@ public class UserTest {
     }
 
 
+    /**
+     * Test get all users.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void testGetAllUsers() throws Exception {
         assertTrue(users.size() > 0);
         assertFalse(users.get(0).getFirstName().equals(""));
     }
 
+    /**
+     * Test update user.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void testUpdateUser() throws Exception {
         User user = users.get(0);
-        int id = user.getUserId();
+        int id = user.getId();
         String updateValue = LocalDate.now().toString();
         String emailBeforeUpdate = user.getEmail();
         // it would be a good idea to test each value like this
 
         user.setEmail(user.getEmail() + updateValue);
 
-        dao.update(user);
+        dao.saveOrUpdate(user);
 
-        User updatedUser = (User) dao.get(id);
+        User updatedUser = (User) dao.getById(id);
 
-        assertEquals(emailBeforeUpdate + updateValue, updatedUser.getEmail());
+        assertEquals(user, updatedUser);
 
     }
 
-
-    /*Error deleting  User(userId=75, firstName=Unit0, lastName=Test0, email=UserDaoTester@gmail.com02017-11-01, password=supersecret0, createDate=null, updateDate=null, userName=UnitTester0)
-    org.hibernate.HibernateException: Illegal attempt to associate a collection with two open sessions. Collection : [com.paulawaite.fbtr.entity.User.roles#User(userId=0, firstName=null, lastName=null, email=null, password=null, createDate=null, updateDate=null, userName=UnitTester0)]
-    Collection contents: [[Role(roleId=68, role=user, updateDate=null, createDate=null, user
-    */
-
-    @Ignore
+    /**
+     * Test delete user.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void testDeleteUser() throws Exception {
         int sizeBeforeDelete = users.size();
         User userToDelete = users.get(0);
-        int id = userToDelete.getUserId();
+        int id = userToDelete.getId();
         dao.delete(userToDelete);
         int sizeAfterDelete = dao.getAll().size();
 
-        User deletedUser = (User) dao.get(id);
+        User deletedUser = (User) dao.getById(id);
 
         assertEquals(sizeBeforeDelete - 1, sizeAfterDelete);
         assertNull(deletedUser);
@@ -77,6 +100,11 @@ public class UserTest {
     }
 
 
+    /**
+     * Test add user.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void testAddUser() throws Exception {
 
@@ -90,13 +118,13 @@ public class UserTest {
         user.setPassword("supersecret");
 
         Role role = new Role();
-        role.setName("admin");
+        role.setRole("admin");
         role.setUser(user);
 
         user.addRole(role);
 
-        insertedUserId = dao.create(user);
-        User retrievedUser = (User) dao.get(insertedUserId);
+        insertedUserId = dao.insert(user);
+        User retrievedUser = (User) dao.getById(insertedUserId);
 
         assertTrue(insertedUserId > 0);
         assertEquals(user, retrievedUser);
@@ -105,14 +133,16 @@ public class UserTest {
 
     }
 
+    /**
+     * Test get all users with last name exact.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void testGetAllUsersWithLastNameExact() throws Exception {
-        users = dao.findByProperty("lastName", "Test1");
+        users = dao.findByPropertyEqual("lastName", "Test1");
         assertTrue(users.size() > 0);
         assertTrue(users.get(0).getFirstName().equals("Unit1"));
     }
-
-
-
 
 }

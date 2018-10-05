@@ -1,10 +1,12 @@
 package com.paulawaite.fbtr.controller;
 
 import com.paulawaite.fbtr.entity.*;
-import com.paulawaite.fbtr.persistence.AbstractDao;
+import com.paulawaite.fbtr.persistence.GenericDao;
 import com.paulawaite.fbtr.util.DaoFactory;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import sun.misc.FloatingDecimal;
+import sun.net.www.content.text.Generic;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -26,7 +28,7 @@ import java.util.List;
 
 public class AddTrail extends HttpServlet {
 
-    private final Logger log = Logger.getLogger(this.getClass());
+    private final Logger logger = LogManager.getLogger(this.getClass());
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
@@ -53,23 +55,23 @@ public class AddTrail extends HttpServlet {
         //locationDao.create(location);
         trail.setLocation(location);
 
-        AbstractDao difficultyDao = DaoFactory.createDao(Difficulty.class);
-        Difficulty difficulty = (Difficulty) difficultyDao.get(Integer.parseInt(req.getParameter("difficulty")));
+        GenericDao typeDao = DaoFactory.createDao(TrailType.class);
+        GenericDao difficultyDao = DaoFactory.createDao(Difficulty.class);
+        Difficulty difficulty = (Difficulty) difficultyDao.getById(Integer.parseInt(req.getParameter("difficulty")));
         trail.setDifficulty(difficulty);
 
-        AbstractDao typeDao = DaoFactory.createDao(TrailType.class);
-        TrailType type = (TrailType) typeDao.get(Integer.parseInt(req.getParameter("type")));
+        TrailType type = (TrailType) typeDao.getById(Integer.parseInt(req.getParameter("type")));
         trail.setType(type);
 
-        AbstractDao userDao = DaoFactory.createDao(User.class);
-        User user = (User) userDao.findByProperty("userName", req.getRemoteUser()).get(0);
+        GenericDao userDao = DaoFactory.createDao(User.class);
+        User user = (User) userDao.findByPropertyEqual("userName", req.getRemoteUser()).get(0);
         trail.setUser(user);
 
-        AbstractDao dao = DaoFactory.createDao(Trail.class);
-        int id = dao.create(trail);
+        GenericDao dao = DaoFactory.createDao(Trail.class);
+        int id = dao.insert(trail);
 
-        req.setAttribute("trail", dao.get(id));
-        log.debug("Getting the trail...");
+        req.setAttribute("trail", dao.getById(id));
+        logger.debug("Getting the trail...");
 
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/viewTrails");
@@ -89,14 +91,14 @@ public class AddTrail extends HttpServlet {
     }
 
     private List<Difficulty> getAllDifficulties() {
-        AbstractDao dao =  DaoFactory.createDao(Difficulty.class);
-        log.debug("Difficulties" + dao.getAll());
+        GenericDao dao =  DaoFactory.createDao(Difficulty.class);
+        logger.debug("Difficulties" + dao.getAll());
         return dao.getAll();
     }
 
     private List<TrailType> getAllTypes() {
-        AbstractDao dao =  DaoFactory.createDao(TrailType.class);
-        log.debug("Types" + dao.getAll());
+        GenericDao dao =  DaoFactory.createDao(TrailType.class);
+        logger.debug("Types" + dao.getAll());
         return dao.getAll();
     }
 }

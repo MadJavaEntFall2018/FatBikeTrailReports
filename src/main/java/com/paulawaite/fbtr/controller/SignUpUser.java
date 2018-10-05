@@ -8,10 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import com.paulawaite.fbtr.entity.*;
-import com.paulawaite.fbtr.persistence.AbstractDao;
+import com.paulawaite.fbtr.persistence.GenericDao;
 import com.paulawaite.fbtr.util.DaoFactory;
 import com.paulawaite.fbtr.util.VerifyRecaptcha;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * Created by paulawaite on 3/3/16.
@@ -22,7 +23,7 @@ import org.apache.log4j.Logger;
 
 public class SignUpUser extends HttpServlet {
 
-    private final Logger log = Logger.getLogger(this.getClass());
+    private final Logger logger = LogManager.getLogger(this.getClass());
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -32,10 +33,10 @@ public class SignUpUser extends HttpServlet {
         user.setFirstName(req.getParameter("firstName"));
         user.setLastName(req.getParameter("lastName"));
         user.setPassword(req.getParameter("password"));
-        log.debug("Adding User: " + user);
+        logger.debug("Adding User: " + user);
         Role role = new Role();
         role.setUser(user);
-        role.setName("user");
+        role.setRole("user");
         user.addRole(role);
 
         String gRecaptchaResponse = req.getParameter("g-recaptcha-response");
@@ -44,11 +45,11 @@ public class SignUpUser extends HttpServlet {
 
         if (isVerified) {
             // TODO check if user is already in the database
-            AbstractDao dao = DaoFactory.createDao(User.class);
-            dao.create(user);
+            GenericDao dao = DaoFactory.createDao(User.class);
+            dao.insert(user);
         } else {
             req.setAttribute("errorMessage", "Failed Captcha - Please try again");
-            log.info("Failed Captcha");
+            logger.info("Failed Captcha");
         }
         RequestDispatcher dispatcher = req.getRequestDispatcher("/signUpConfirmation" +
                 ".jsp");

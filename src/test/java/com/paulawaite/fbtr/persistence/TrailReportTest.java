@@ -3,10 +3,13 @@ package com.paulawaite.fbtr.persistence;
 import com.paulawaite.fbtr.entity.Trail;
 import com.paulawaite.fbtr.entity.TrailReport;
 import com.paulawaite.fbtr.entity.User;
-import org.apache.log4j.Logger;
+import com.paulawaite.fbtr.test.util.DatabaseUtility;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+
 import java.util.List;
 import java.util.Set;
 
@@ -21,9 +24,9 @@ import static org.junit.Assert.*;
 //org.hibernate.ObjectNotFoundException: No row with the given identifier exists: [com.paulawaite.fbtr.entity.Difficulty#62]
 
 public class TrailReportTest {
-    AbstractDao dao;
-    AbstractDao userDao;
-    AbstractDao trailDao;
+    GenericDao dao;
+    GenericDao userDao;
+    GenericDao trailDao;
 
     TrailReport trailReport;
     User user;
@@ -31,7 +34,7 @@ public class TrailReportTest {
 
     DatabaseUtility databaseUtility;
 
-    private final Logger log = Logger.getLogger(this.getClass());
+    private final Logger logger = LogManager.getLogger(this.getClass());
 
 
     @Before
@@ -41,9 +44,9 @@ public class TrailReportTest {
         databaseUtility.runSQL("cleandb.sql");
         databaseUtility.runSQL("createTestData.sql");
 
-        dao = new AbstractDao(TrailReport.class);
-        userDao = new AbstractDao(User.class);
-        trailDao = new AbstractDao(Trail.class);
+        dao = new GenericDao(TrailReport.class);
+        userDao = new GenericDao(User.class);
+        trailDao = new GenericDao(Trail.class);
 
         Trail trail = (Trail)trailDao.getAll().get(0);
         Set<TrailReport> reports = trail.getReports();
@@ -54,53 +57,46 @@ public class TrailReportTest {
         trailReport.setTrail(trail);
 
         trailReport.setUser(((User)userDao.getAll().get(0)));
-        //reports.add(trailReport);
-        //trail.setReports(reports);
 
-        //trailDao.update(trail);
-        int id = dao.create(trailReport);
-        trailReport = (TrailReport)dao.get(id);
+        int id = dao.insert(trailReport);
+        trailReport = (TrailReport)dao.getById(id);
 
 
     }
-    @Ignore // foreign key constraint error?
     @Test
     public void testCreate() throws Exception {
-        TrailReport trailReportCreated = (TrailReport)dao.get(trailReport.getTrailReportId());
+        TrailReport trailReportCreated = (TrailReport)dao.getById(trailReport.getId());
         assertTrue(trailReport.getComments().equals(trailReportCreated.getComments()));
         assertEquals((User)userDao.getAll().get(0), trailReport.getUser());
     }
 
-    //@Ignore // foreign key constraint error? Does not  happen when one test is run at atime
+
     @Test
     public void testGet() throws Exception {
-        TrailReport actualTrailReport = (TrailReport)dao.get(trailReport.getTrailReportId());
+        TrailReport actualTrailReport = (TrailReport)dao.getById(trailReport.getId());
         assertNotNull(actualTrailReport);
         assertEquals(trailReport, actualTrailReport);
     }
 
-    @Ignore // foreign key constraint error?
     @Test
     public void testGetAll() throws Exception {
         List<TrailReport> trailReports = dao.getAll();
         assertTrue(trailReports.size() > 0);
     }
 
-    @Ignore // foreign key constraint error?
     @Test
     public void testUpdate() throws Exception {
-        trailReport.setTrailReportId(trailReport.getTrailReportId());
+        trailReport.setId(trailReport.getId());
         trailReport.setConditions("Fast and Firm");
-        dao.update(trailReport);
-        TrailReport updatedTrailReport = (TrailReport) dao.get(trailReport.getTrailReportId());
-        assertTrue(updatedTrailReport.getConditions().equals("Fast and Firm"));
+        dao.saveOrUpdate(trailReport);
+        TrailReport updatedTrailReport = (TrailReport) dao.getById(trailReport.getId());
+        assertEquals(trailReport, updatedTrailReport );
 
     }
-    @Ignore // foreign key constraint error?
     @Test
     public void testDelete() throws Exception {
         dao.delete(trailReport);
-        TrailReport deletedTrailReport = (TrailReport) dao.get(trailReport.getTrailReportId());
+        TrailReport deletedTrailReport = (TrailReport) dao.getById(trailReport.getId());
         assertNull(deletedTrailReport);
 
     }

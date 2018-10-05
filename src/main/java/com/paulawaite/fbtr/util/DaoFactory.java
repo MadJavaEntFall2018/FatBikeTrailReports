@@ -1,6 +1,6 @@
 package com.paulawaite.fbtr.util;
 
-import com.paulawaite.fbtr.persistence.AbstractDao;
+import com.paulawaite.fbtr.persistence.GenericDao;
 
 /**
  * Created by paulawaite on 4/28/16.
@@ -12,8 +12,8 @@ public class DaoFactory {
 
     }
 
-    public static AbstractDao createDao(Class type) {
-        return new AbstractDao(type);
+    public static GenericDao createDao(Class type) {
+        return new GenericDao(type);
 
     }
 }

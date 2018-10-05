@@ -1,8 +1,8 @@
 package com.paulawaite.fbtr.persistence;
 
 import com.paulawaite.fbtr.entity.Difficulty;
+import com.paulawaite.fbtr.test.util.DatabaseUtility;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.List;
@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
  * Created by paulawaite on 4/24/16.
  */
 public class DifficultyTest {
-    AbstractDao dao;
+    GenericDao dao;
     Difficulty difficulty;
     DatabaseUtility databaseUtility;
 
@@ -23,7 +23,7 @@ public class DifficultyTest {
         databaseUtility.runSQL("cleandb.sql");
         databaseUtility.runSQL("createTestData.sql");
 
-        dao = new AbstractDao(Difficulty.class);
+        dao = new GenericDao(Difficulty.class);
         difficulty = new Difficulty();
         difficulty.setName("Pretty Hard");
 
@@ -32,8 +32,8 @@ public class DifficultyTest {
 
     @Test
     public void testCreateAndGet() throws Exception {
-        int createdId = dao.create(difficulty);
-        Difficulty difficultyCreated = (Difficulty)dao.get(createdId);
+        int createdId = dao.insert(difficulty);
+        Difficulty difficultyCreated = (Difficulty)dao.getById(createdId);
         assertEquals(difficulty, difficultyCreated);
     }
 
@@ -41,26 +41,26 @@ public class DifficultyTest {
     @Test
     public void testGetAll() throws Exception {
         List<Difficulty> difficultiesList = dao.getAll();
-        assertTrue(difficultiesList.size() > 0);
+        assertEquals(5, difficultiesList.size());
     }
 
     @Test
     public void testUpdate() throws Exception {
-        int createdId = dao.create(difficulty);
-        difficulty.setDifficultyId(createdId);
+        int createdId = dao.insert(difficulty);
+        difficulty.setId(createdId);
         difficulty.setName("Easy");
-        dao.update(difficulty);
-        Difficulty updatedDifficulty = (Difficulty) dao.get(createdId);
-        assertTrue(updatedDifficulty.getName().equals("Easy"));
+        dao.saveOrUpdate(difficulty);
+        Difficulty updatedDifficulty = (Difficulty) dao.getById(createdId);
+        assertEquals(difficulty, updatedDifficulty);
 
     }
 
     @Test
     public void testDelete() throws Exception {
-        int createdId = dao.create(difficulty);
-        difficulty.setDifficultyId(createdId);
+        int createdId = dao.insert(difficulty);
+        difficulty.setId(createdId);
         dao.delete(difficulty);
-        Difficulty updatedDifficulty = (Difficulty) dao.get(createdId);
+        Difficulty updatedDifficulty = (Difficulty) dao.getById(createdId);
         assertNull(updatedDifficulty);
 
     }

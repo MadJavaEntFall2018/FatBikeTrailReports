@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.23, for Linux (x86_64)
 --
--- Host: 127.0.0.1    Database: FBTRTest
+-- Host: 127.0.0.1    Database: FBTR
 -- ------------------------------------------------------
 -- Server version	5.7.23-0ubuntu0.16.04.1
 
@@ -26,7 +26,7 @@ CREATE TABLE `Difficulty` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=228 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -35,6 +35,7 @@ CREATE TABLE `Difficulty` (
 
 LOCK TABLES `Difficulty` WRITE;
 /*!40000 ALTER TABLE `Difficulty` DISABLE KEYS */;
+INSERT INTO `Difficulty` VALUES (223,'Easiest - White'),(224,'Easy - Green'),(225,'More Difficult - Blue'),(226,'Very Difficult - Black'),(227,'Extremely Difficult- Double Black');
 /*!40000 ALTER TABLE `Difficulty` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -49,7 +50,7 @@ CREATE TABLE `GroomingType` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=173 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -58,6 +59,7 @@ CREATE TABLE `GroomingType` (
 
 LOCK TABLES `GroomingType` WRITE;
 /*!40000 ALTER TABLE `GroomingType` DISABLE KEYS */;
+INSERT INTO `GroomingType` VALUES (169,'Ridden In'),(170,'Snowmobile packed'),(171,'Machine rolled'),(172,'Other');
 /*!40000 ALTER TABLE `GroomingType` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -106,7 +108,7 @@ CREATE TABLE `Role` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `userName_UNIQUE` (`userName`),
   CONSTRAINT `Role_User_userName_fk` FOREIGN KEY (`userName`) REFERENCES `User` (`userName`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=258 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -115,6 +117,7 @@ CREATE TABLE `Role` (
 
 LOCK TABLES `Role` WRITE;
 /*!40000 ALTER TABLE `Role` DISABLE KEYS */;
+INSERT INTO `Role` VALUES (252,NULL,'user',NULL,'UnitTester0'),(253,NULL,'user',NULL,'UnitTester1'),(254,NULL,'user',NULL,'UnitTester2'),(255,NULL,'user',NULL,'UnitTester3'),(256,NULL,'user',NULL,'UnitTester4'),(257,NULL,'admin',NULL,'UnitTesterA');
 /*!40000 ALTER TABLE `Role` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -137,12 +140,18 @@ CREATE TABLE `Trail` (
   `website` varchar(255) DEFAULT NULL,
   `difficulty` int(11) DEFAULT NULL,
   `type` int(11) DEFAULT NULL,
+  `location` int(11) DEFAULT NULL,
+  `user` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `Trail_Difficulty_id_fk` (`difficulty`),
   KEY `Trail_TrailType_id_fk` (`type`),
+  KEY `Trail_Location_id_fk` (`location`),
+  KEY `Trail_User_id_fk` (`user`),
   CONSTRAINT `Trail_Difficulty_id_fk` FOREIGN KEY (`difficulty`) REFERENCES `Difficulty` (`id`),
-  CONSTRAINT `Trail_TrailType_id_fk` FOREIGN KEY (`type`) REFERENCES `TrailType` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  CONSTRAINT `Trail_Location_id_fk` FOREIGN KEY (`location`) REFERENCES `Location` (`id`),
+  CONSTRAINT `Trail_TrailType_id_fk` FOREIGN KEY (`type`) REFERENCES `TrailType` (`id`),
+  CONSTRAINT `Trail_User_id_fk` FOREIGN KEY (`user`) REFERENCES `User` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -151,6 +160,7 @@ CREATE TABLE `Trail` (
 
 LOCK TABLES `Trail` WRITE;
 /*!40000 ALTER TABLE `Trail` DISABLE KEYS */;
+INSERT INTO `Trail` VALUES (13,NULL,NULL,NULL,NULL,'TestTrailName',NULL,NULL,NULL,NULL,NULL,NULL,NULL),(14,NULL,NULL,NULL,NULL,'TestTrailName',NULL,NULL,NULL,NULL,NULL,NULL,NULL),(16,NULL,NULL,NULL,NULL,'TestTrailName',NULL,NULL,'TestWebSite',NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `Trail` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -234,7 +244,7 @@ CREATE TABLE `TrailType` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=216 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -243,6 +253,7 @@ CREATE TABLE `TrailType` (
 
 LOCK TABLES `TrailType` WRITE;
 /*!40000 ALTER TABLE `TrailType` DISABLE KEYS */;
+INSERT INTO `TrailType` VALUES (211,'Singletrack'),(212,'Doubletrack'),(213,'Forest Road'),(214,'Mixed'),(215,'Other');
 /*!40000 ALTER TABLE `TrailType` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -264,7 +275,7 @@ CREATE TABLE `User` (
   `userName` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `userName_UNIQUE` (`userName`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=289 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -273,6 +284,7 @@ CREATE TABLE `User` (
 
 LOCK TABLES `User` WRITE;
 /*!40000 ALTER TABLE `User` DISABLE KEYS */;
+INSERT INTO `User` VALUES (283,NULL,'UserDaoTester@gmail.com0','Unit0','Test0','supersecret0',NULL,'UnitTester0'),(284,NULL,'UserDaoTester@gmail.com1','Unit1','Test1','supersecret1',NULL,'UnitTester1'),(285,NULL,'UserDaoTester@gmail.com2','Unit2','Test2','supersecret2',NULL,'UnitTester2'),(286,NULL,'UserDaoTester@gmail.com3','Unit3','Test3','supersecret3',NULL,'UnitTester3'),(287,NULL,'UserDaoTester@gmail.com4','Unit4','Test4','supersecret4',NULL,'UnitTester4'),(288,NULL,'UserDaoTesterA@gmail.com','Unit','Test','supersecret',NULL,'UnitTesterA');
 /*!40000 ALTER TABLE `User` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -285,4 +297,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-05 13:36:37
+-- Dump completed on 2018-10-05 14:59:11

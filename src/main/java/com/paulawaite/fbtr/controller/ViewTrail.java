@@ -1,8 +1,11 @@
 package com.paulawaite.fbtr.controller;
 
 import com.paulawaite.fbtr.entity.Trail;
-import com.paulawaite.fbtr.persistence.AbstractDao;
-import org.apache.log4j.Logger;
+
+import com.paulawaite.fbtr.persistence.GenericDao;
+import com.paulawaite.fbtr.util.DaoFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -22,15 +25,15 @@ import java.util.List;
 
 public class ViewTrail extends HttpServlet {
 
-    private final Logger log = Logger.getLogger(this.getClass());
+    private final Logger logger = LogManager.getLogger(this.getClass());
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        AbstractDao<Trail> dao = new AbstractDao(Trail.class);
+        GenericDao<Trail> dao = DaoFactory.createDao(Trail.class);
         List<Trail> trails = dao.getAll();
         req.setAttribute("trails", trails);
-        log.debug("Sending back the trail/s..." + trails);
+        logger.debug("Sending back the trail/s..." + trails);
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/viewTrail" +
                 ".jsp");

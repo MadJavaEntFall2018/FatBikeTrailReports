@@ -2,10 +2,7 @@ package com.paulawaite.fbtr.entity;
 
 import com.paulawaite.fbtr.util.LocalDateAttributeConverter;
 import com.paulawaite.fbtr.util.TimestampAttributeConverter;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.hibernate.annotations.Fetch;
 
 import javax.persistence.*;
@@ -15,40 +12,39 @@ import java.time.LocalDateTime;
 /**
  * Condition report for the trail
  */
-@EqualsAndHashCode(exclude = {"createDate", "updateDate"})
-@ToString
+@Data
 @Entity
-@Table(name="trail_report")
 public class TrailReport {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    @Getter @Setter private int trailReportId;
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private int id;
 
     @Convert(converter = LocalDateAttributeConverter.class)
-    @Getter @Setter private LocalDate rideDate;
+    private LocalDate rideDate;
 
     @Convert(converter = TimestampAttributeConverter.class)
-    @Getter @Setter private LocalDateTime createDate;
+    @EqualsAndHashCode.Exclude
+    private LocalDateTime createDate;
 
     @Convert(converter = TimestampAttributeConverter.class)
-    @Getter @Setter private LocalDateTime updateDate;
+    @EqualsAndHashCode.Exclude
+    private LocalDateTime updateDate;
 
-    @Getter @Setter private String conditions;
-    @Getter @Setter private String comments;
-
+    private String conditions;
+    private String comments;
 
     @ManyToOne
     @JoinColumn(name = "grooming") // TrailReport has a foreign key to GroomingType
-    @Getter @Setter private GroomingType grooming;
+    private GroomingType grooming;
 
     @ManyToOne
     @JoinColumn(name = "trail", nullable = false)
-    @Getter @Setter private Trail trail;
+    private Trail trail;
 
     @ManyToOne
     @JoinColumn(name="user")
-    @Getter @Setter private User user;
+    private User user;
 
 
 }

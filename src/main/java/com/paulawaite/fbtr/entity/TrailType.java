@@ -1,9 +1,6 @@
 package com.paulawaite.fbtr.entity;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -11,17 +8,15 @@ import javax.persistence.*;
  * The trail type.
  */
 
-@EqualsAndHashCode
-@ToString
+@Data
 @Entity
-@Table(name = "trail_type")
 public class TrailType {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    @Getter @Setter private int trailTypeId;
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private int id;
 
-    @Getter @Setter private String name;
+    private String name;
 
 
 }

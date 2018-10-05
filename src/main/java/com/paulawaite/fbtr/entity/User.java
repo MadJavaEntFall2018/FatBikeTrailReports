@@ -1,10 +1,7 @@
 package com.paulawaite.fbtr.entity;
 
 import com.paulawaite.fbtr.util.TimestampAttributeConverter;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
@@ -17,39 +14,45 @@ import java.util.Set;
 /**
  * The User.
  */
-@EqualsAndHashCode(exclude={"roles", "trails", "trailReports", "updateDate", "createDate"})
-@ToString(exclude={"roles", "trails", "trailReports"})
+@Data
 @Entity
-@Table(name = "user")
 public class User implements Serializable {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name = "userId", nullable = false)
-    @Getter @Setter private int userId;
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private int id;
 
-    @Getter @Setter private String firstName;
-    @Getter @Setter private String lastName;
-    @Getter @Setter private String email;
-    @Getter @Setter private String password;
-
-    @Convert(converter = TimestampAttributeConverter.class)
-    @Getter @Setter private LocalDateTime createDate;
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String password;
 
     @Convert(converter = TimestampAttributeConverter.class)
-    @Getter @Setter private LocalDateTime updateDate;
+    @EqualsAndHashCode.Exclude
+    private LocalDateTime createDate;
 
-    @Getter @Setter private String userName;
+    @Convert(converter = TimestampAttributeConverter.class)
+    @EqualsAndHashCode.Exclude
+    private LocalDateTime updateDate;
+
+    private String userName;
 
     // WARNING: only use EAGER if there will only ever be a very low number of "many" records
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
-    @Getter @Setter private Set<Role> roles = new HashSet<Role>();
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private Set<Role> roles = new HashSet<Role>();
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-    @Getter @Setter private Set<Trail> trails = new HashSet<Trail>();
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private Set<Trail> trails = new HashSet<Trail>();
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-    @Getter @Setter private Set<TrailReport> trailReports = new HashSet<TrailReport>();;
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+     private Set<TrailReport> trailReports = new HashSet<TrailReport>();;
 
 
     /**

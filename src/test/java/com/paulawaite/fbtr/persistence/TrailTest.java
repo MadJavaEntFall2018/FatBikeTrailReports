@@ -13,12 +13,12 @@ import static org.junit.Assert.*;
  * Created by paulawaite on 4/24/16.
  */
 public class TrailTest {
-    AbstractDao dao;
+    GenericDao dao;
     Trail trail;
 
     @Before
     public void setUp() {
-        dao = new AbstractDao(Trail.class);
+        dao = new GenericDao(Trail.class);
         trail = new Trail();
         trail.setName("TestTrailName");
 
@@ -26,16 +26,17 @@ public class TrailTest {
 
     @Test
     public void testCreate() throws Exception {
-        int createdId = dao.create(trail);
-        Trail trailCreated = (Trail)dao.get(createdId);
+        int createdId = dao.insert(trail);
+        Trail trailCreated = (Trail)dao.getById(createdId);
         assertEquals(trail, trailCreated);
     }
 
     @Test
     public void testGet() throws Exception {
-        int createdId = dao.create(trail);
-        Trail actualTrail = (Trail)dao.get(createdId);
+        int createdId = dao.insert(trail);
+        Trail actualTrail = (Trail)dao.getById(createdId);
         assertNotNull(actualTrail);
+        assertEquals(trail, actualTrail);
     }
 
     @Test
@@ -46,21 +47,21 @@ public class TrailTest {
 
     @Test
     public void testUpdate() throws Exception {
-        int createdId = dao.create(trail);
-        trail.setTrailId(createdId);
+        int createdId = dao.insert(trail);
+        trail.setId(createdId);
         trail.setWebsite("TestWebSite");
-        dao.update(trail);
-        Trail updatedTrail = (Trail) dao.get(createdId);
-        assertTrue(updatedTrail.getWebsite().equals("TestWebSite"));
+        dao.saveOrUpdate(trail);
+        Trail updatedTrail = (Trail) dao.getById(createdId);
+        assertEquals(trail, updatedTrail);
 
     }
 
     @Test
     public void testDelete() throws Exception {
-        int createdId = dao.create(trail);
-        trail.setTrailId(createdId);
+        int createdId = dao.insert(trail);
+        trail.setId(createdId);
         dao.delete(trail);
-        Trail updatedTrail = (Trail) dao.get(createdId);
+        Trail updatedTrail = (Trail) dao.getById(createdId);
         assertNull(updatedTrail);
 
     }

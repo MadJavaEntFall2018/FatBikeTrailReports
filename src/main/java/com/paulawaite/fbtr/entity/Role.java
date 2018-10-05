@@ -1,10 +1,7 @@
 package com.paulawaite.fbtr.entity;
 
 import com.paulawaite.fbtr.util.TimestampAttributeConverter;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -13,27 +10,24 @@ import java.time.LocalDateTime;
 /**
  * The user's Role.
  */
-@EqualsAndHashCode(exclude = {"createDate", "updateDate"})
-@ToString
+@Data
 @Entity
-@Table(name="role")
 public class Role {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name = "roleId", nullable = false)
-    @Getter @Setter private int roleId;
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private int id;
 
-    @Getter @Setter private String name;
-
-    @Convert(converter = TimestampAttributeConverter.class)
-    @Getter @Setter private LocalDateTime updateDate;
+    private String role;
 
     @Convert(converter = TimestampAttributeConverter.class)
-    @Getter @Setter private LocalDateTime createDate;
+    @EqualsAndHashCode.Exclude private LocalDateTime updateDate;
+
+    @Convert(converter = TimestampAttributeConverter.class)
+    @EqualsAndHashCode.Exclude private LocalDateTime createDate;
 
     @ManyToOne
-    @JoinColumn(name="userName", referencedColumnName = "username", nullable = false)    // referenceColumnName if not primary key
-    @Getter @Setter private User user;
+    @JoinColumn(name="userName", referencedColumnName = "userName", nullable = false)    // referenceColumnName if not primary key
+    private User user;
 
 }

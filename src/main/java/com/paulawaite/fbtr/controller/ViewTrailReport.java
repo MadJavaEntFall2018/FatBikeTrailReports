@@ -1,9 +1,10 @@
 package com.paulawaite.fbtr.controller;
 
-import com.paulawaite.fbtr.entity.Trail;
 import com.paulawaite.fbtr.entity.TrailReport;
-import com.paulawaite.fbtr.persistence.AbstractDao;
-import org.apache.log4j.Logger;
+import com.paulawaite.fbtr.persistence.GenericDao;
+import com.paulawaite.fbtr.util.DaoFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -23,15 +24,15 @@ import java.util.List;
 
 public class ViewTrailReport extends HttpServlet {
 
-    private final Logger log = Logger.getLogger(this.getClass());
+    private final Logger logger = LogManager.getLogger(this.getClass());
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        AbstractDao<TrailReport> dao = new AbstractDao(TrailReport.class);
+        GenericDao<TrailReport> dao =  DaoFactory.createDao(TrailReport.class);
         List<TrailReport> reports = dao.getAll();
         req.setAttribute("trailReports", reports);
-        log.debug("Sending back the trail reports...");
+        logger.debug("Sending back the trail reports...");
 
 
 

@@ -1,9 +1,6 @@
 package com.paulawaite.fbtr.entity;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -12,24 +9,20 @@ import javax.persistence.*;
  * @pwaite
  */
 
-@EqualsAndHashCode
-@ToString
+@Data
 @Entity
-@Table(name="location")
 public class Location {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    @Getter
-    @Setter
-    private int locationId;
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private int id;
 
-    @Getter @Setter private String address1;
-    @Getter @Setter private String address2;
-    @Getter @Setter private String city;
-    @Getter @Setter private String state;
-    @Getter @Setter private String postalcode;
-    @Getter @Setter private String lat;
-    @Getter @Setter private String lon;
+    private String address1;
+    private String address2;
+    private String city;
+    private String state;
+    private String postalcode;
+    private String lat;
+    private String lon;
 
 }

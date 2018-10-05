@@ -1,8 +1,7 @@
-package com.paulawaite.fbtr.persistence;
+package com.paulawaite.fbtr.test.util;
 
-import org.apache.log4j.Logger;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.*;
 import java.sql.Connection;
@@ -15,7 +14,7 @@ import java.sql.Statement;
  */
 public class DatabaseUtility {
 
-    private final Logger log = Logger.getLogger(this.getClass());
+    private final Logger logger = LogManager.getLogger(this.getClass());
 
     //TODO add hard-coded values to props file
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
@@ -55,22 +54,9 @@ public class DatabaseUtility {
             }
 
         } catch (SQLException se) {
-            log.error(se);
+            logger.error(se);
         } catch (Exception e) {
-            log.error(e);
-        } finally {
-            try {
-                if (stmt != null)
-                    conn.close();
-            } catch (SQLException se) {
-                log.error(se);
-            }
-            try {
-                if (conn != null)
-                    conn.close();
-            } catch (SQLException se) {
-                log.error(se);
-            }
+            logger.error(e);
         }
 
     }
