@@ -24,7 +24,7 @@
         share
     trail conditions. Winter riding conditions change frequently; the
     best way to stay informed about the good snow and best trails
-    is through sharing of information by those who are riding the
+    is through sharing of information by those who are grooming and/or riding the
     trails. Please contribute in any way that you can!
     <br /> <br />
     ~ Paula Waite: <a href="mailto:pawaite@180adventure.com">pawaite
