@@ -3,7 +3,7 @@ INSERT INTO FBTRTest.User (email, firstName, lastName, password, userName) VALUE
 INSERT INTO FBTRTest.User (email, firstName, lastName, password, userName) VALUES ('UserDaoTester@gmail.com2', 'Unit2', 'Test2', 'supersecret2', 'UnitTester2');
 INSERT INTO FBTRTest.User (email, firstName, lastName, password, userName) VALUES ('UserDaoTester@gmail.com3', 'Unit3', 'Test3', 'supersecret3', 'UnitTester3');
 INSERT INTO FBTRTest.User (email, firstName, lastName, password, userName) VALUES ('UserDaoTester@gmail.com4', 'Unit4', 'Test4', 'supersecret4','UnitTester4');
-INSERT INTO FBTRTest.User (email, firstName, lastName, password, userName) VALUES ('UserDaoTesterA@gmail.com', 'Unit', 'Test', 'supersecret', 'UnitTesterA');
+INSERT INTO FBTRTest.User (email, firstName, lastName, password, userName) VALUES ('admin@gmail.com', 'admin', 'Test', 'supersecret', 'UnitTesterA');
 INSERT INTO FBTRTest.Role (userName, role) VALUES ('UnitTester0', 'user');
 INSERT INTO FBTRTest.Role (userName, role) VALUES ('UnitTester1', 'user');
 INSERT INTO FBTRTest.Role (userName, role) VALUES ('UnitTester2', 'user');
@@ -24,4 +24,7 @@ INSERT INTO FBTRTest.GroomingType (name) VALUES ('Ridden In');
 INSERT INTO FBTRTest.GroomingType (name) VALUES ('Snowmobile packed');
 INSERT INTO FBTRTest.GroomingType (name) VALUES ('Machine rolled');
 INSERT INTO FBTRTest.GroomingType (name) VALUES ('Other');
-INSERT INTO FBTRTest.Trail (description, length, lengthUnits, location, name, trailMap, website, difficulty, type, user) VALUES ('Big Fat Loop', null, null, null, 'BFL', null, null, (Select id from difficulty where name = 'Easy'), (Select id from trail_type where name = 'SingleTrack'), (Select id from user where userName = 'UnitTester0'));
+INSERT INTO FBTRTest.Trail (description, length, lengthUnits, location, name, trailMap, website, difficulty, type, user) VALUES ('Big Fat Loop', 14, null, null, 'BFL', null, null, (Select id from Difficulty where name = 'Easy - Green'), (Select id from TrailType where name = 'Mixed'), (Select id from User where userName = 'UnitTester0'));
+INSERT INTO FBTRTest.Trail (description, length, lengthUnits, location, name, trailMap, website, difficulty, type, user) VALUES ('Big Easy', 12, null, null, 'BFL', null, null, (Select id from Difficulty where name = 'Easy - Green'), (Select id from TrailType where name = 'SingleTrack'), (Select id from User where userName = 'UnitTester0'));
+INSERT INTO FBTRTest.Trail (description, length, lengthUnits, location, name, trailMap, website, difficulty, type, user) VALUES ('Big Not so Easy', 14, null, null, 'Notso Easy', null, null, (Select id from Difficulty where name = 'More Difficult - Blue'), (Select id from TrailType where name = 'SingleTrack'), (Select id from User where userName = 'UnitTester0'));
+INSERT INTO FBTRTest.Trail (description, length, lengthUnits, location, name, trailMap, website, difficulty, type, user) VALUES ('Big Not so Easy', 14, null, null, 'BFL', null, null, (Select id from Difficulty where name = 'More Difficult - Blue'), (Select id from TrailType where name = 'SingleTrack'), (Select id from User where userName = 'UnitTester0'));

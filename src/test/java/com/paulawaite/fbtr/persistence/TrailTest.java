@@ -2,10 +2,13 @@ package com.paulawaite.fbtr.persistence;
 
 import com.paulawaite.fbtr.entity.Trail;
 import com.paulawaite.fbtr.entity.Trail;
+import com.paulawaite.fbtr.test.util.DatabaseUtility;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.Assert.*;
 
@@ -15,10 +18,14 @@ import static org.junit.Assert.*;
 public class TrailTest {
     GenericDao dao;
     Trail trail;
+    DatabaseUtility databaseUtility;
 
     @Before
     public void setUp() {
         dao = new GenericDao(Trail.class);
+        databaseUtility = new DatabaseUtility();
+        databaseUtility.runSQL("cleandb.sql");
+        databaseUtility.runSQL("createTestData.sql");
         trail = new Trail();
         trail.setName("TestTrailName");
 
@@ -63,6 +70,16 @@ public class TrailTest {
         dao.delete(trail);
         Trail updatedTrail = (Trail) dao.getById(createdId);
         assertNull(updatedTrail);
+
+    }
+
+    @Test
+    public void testSelectWithMultiplePropertiesEqualSuccess() throws Exception {
+        Map<String, Object> propsAndValues = new HashMap<>();
+        propsAndValues.put("name", "BFL");
+        propsAndValues.put("length", 14);
+        List<Trail> trails = dao.findByPropertyEqual(propsAndValues);
+        assertEquals(2, trails.size());
 
     }
 }

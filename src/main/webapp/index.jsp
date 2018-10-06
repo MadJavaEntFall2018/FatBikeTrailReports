@@ -56,10 +56,6 @@
       </div>
 
 
-
-  </c:forEach>
-
-
   </div>
 
 
