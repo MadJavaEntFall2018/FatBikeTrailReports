@@ -43,13 +43,6 @@
     </dependency>
     <!-- To run tests on IDE such as Eclipse, Intellij -->
     <dependency>
-        <groupId>org.junit.jupiter</groupId>
-        <artifactId>junit-jupiter-engine</artifactId>
-        <version>5.0.0</version>
-        <scope>test</scope>
-    </dependency>
-    <!-- To run tests on IDE such as Eclipse, Intellij -->
-    <dependency>
         <groupId>org.junit.platform</groupId>
         <artifactId>junit-platform-runner</artifactId>
         <version>1.0.0</version>
@@ -88,6 +81,13 @@
     <!-- to use a given profile: install -P local-->
     <!--https://portofino.manydesigns.com/en/docs/portofino3/tutorials/using-maven-profiles-and-resource-filtering-->
 <!--https://stackoverflow.com/questions/29305926/maven-profile-based-properties-used-in-plugins-section-->
+<!-- the following  relies on a file in a profiles directory.
+     For local, the file is profiles>>local.properties
+     containing
+     db.username=your user name here
+     db.password= your password here
+     db.connection.url="jdbc:mysql://localhost:3306/FBTR?user=your user name here&amp;password=your pasword here"
+-->
     <profiles>
     <profile>
         <id>local</id>
