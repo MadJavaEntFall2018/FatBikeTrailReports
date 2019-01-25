@@ -55,6 +55,7 @@ Screenshots from SkinnySki.com:
 
 ### Design
 
+* [User Stories](DesignDocuments/userStories.md)
 * [Screen Design](DesignDocuments/Screens.md)
 * [Application Flow](DesignDocuments/applicationFlow.md)
 * [Database Design](DesignDocuments/databaseDiagram.png)
